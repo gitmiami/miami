@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>List13-11</title>
+  </head>
+    <script>
+    function down(){
+      var area = document.getElementById("outputArea");
+      area.innerHTML = "ボタンを押しています。" ;
+    }
+    function up(){
+      var area = document.getElementById("outputArea");
+      area.innerHTML = "ボタンを離しています。" ;
+    }
+    </script>
+  <body>
+    <input type="button" value='ボタン' onmousedown="down()" onmouseup="up()"/>
+    <div id="outputArea" ></div>
+  </body>
+</html>

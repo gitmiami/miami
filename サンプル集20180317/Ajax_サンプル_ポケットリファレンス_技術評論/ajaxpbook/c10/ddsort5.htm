@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>DDSortTable デモ1</title>
+<style type="text/css">
+table {
+    border-collapse: collapse;
+    background-color: silver;
+    width: 80%;
+}
+tr {
+    background-color: white;
+}
+th, td {
+    border: black solid 1px;
+}
+th {
+    background-color:#CCCCFF;
+    font-weight: bold;
+}
+</style>
+<script type="text/javascript" src="../lib/prototype.js" ></script>
+<script type="text/javascript" src="../lib/yui/build/yahoo/yahoo-min.js" ></script>
+<script type="text/javascript" src="../lib/yui/build/event/event-min.js" ></script>
+<script type="text/javascript" src="../lib/yui/build/dom/dom-min.js"></script>
+<script type="text/javascript" src="../lib/yui/build/dragdrop/dragdrop-min.js" ></script>
+<script type="text/javascript" src="../lib/yui/build/animation/animation-min.js"></script>
+<script type="text/javascript" src="../lib/yui/yui-dom-patch.js"></script>
+
+<script type="text/javascript" src="../lib/yui/DDTableRow.js"></script>
+<script type="text/javascript" src="../lib/yui/DDSortTable.js"></script>
+<script type="text/javascript">
+(function(){
+    var orgTable;
+    var targetEl;
+    window.ddsort = function(){
+        if (!orgTable) orgTable = $('orgTable');
+        if (!targetEl) targetEl = $('targetEl');
+        new DDSortTable(orgTable,targetEl);
+    }
+})()
+</script>
+</head>
+<body>
+<h1>DDSortTable デモ1</h1>
+<div>
+<p><button onclick="ddsort()">ddTableSort</button></p>
+    <div id="targetEl">
+
+    <table id="orgTable">
+    <tr><th>name</th><th>value</th><th>number</th></tr>
+    <tr><td>aaa1</td><td>bbb1</td><td class="number">0</td></tr>
+    <tr><td>aaa2</td><td>bbb2</td><td class="number">999999999</td></tr>
+
+    <tr><td>aaa3</td><td>bbb3</td><td class="number">8000</td></tr>
+    <tr><td>aaa4</td><td>bbb4</td><td class="number">8000</td></tr>
+    <tr><td>aaa5</td><td>bbb5</td><td class="number">8000</td></tr>
+    <tr><td>aaa6</td><td>bbb6</td><td class="number">8000</td></tr>
+
+    <tr><td>aaa7</td><td>bbb7</td><td class="number">8000</td></tr>
+    <tr><td>aaa8</td><td>bbb8</td><td class="number">8000</td></tr>
+    <tr><td>aaa9</td><td>bbb9</td><td class="number">8000</td></tr>
+    <tr><td>aaa0</td><td>bbb0</td><td class="number">8000</td></tr>
+
+    </table>
+    </div>
+</div>
+</body>
+</html>
+

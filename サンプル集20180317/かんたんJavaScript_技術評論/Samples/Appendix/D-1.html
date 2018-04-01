@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>D-1</title>
+</head>
+<body>
+<p>
+
+<script type="text/javascript">
+<!--
+
+var browser = "";
+var ua = navigator.userAgent.toLowerCase();
+if(ua.indexOf("safari") > 0){
+    browser = "Safari";
+}else if(ua.indexOf("firefox") > 0){
+    browser = "Firefox";
+}else if(ua.indexOf("opera") > 0){
+    browser = "Opera";
+}else if(ua.indexOf("netscape") > 0){
+    browser = "Netscape";
+}else if(ua.indexOf("msie") > 0){
+    browser = "Internet Explorer";
+}
+
+document.write("ブラウザは、" + browser)
+
+//-->
+</script>
+</p>
+</body>
+</html>

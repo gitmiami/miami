@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head><title>for Ajax</title>
+<style type="text/css">
+v\:* {
+behavior:url(#default#VML);
+}
+</style>
+<!-- 下記キーは、必ず自分専用のものをhttp://www.google.com/apis/maps/で取得して使ってください -->
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  var map = new GMap2(document.getElementById("map"));
+  map.addControl(new GLargeMapControl());
+  map.addControl(new GMapTypeControl());
+  map.setCenter(new GLatLng(35.6815617, 139.7672091),6);
+  //PHPからJavaScriptへデータ渡し
+  var newichi = ";;;;;;ver,1:::datum,1:::unit,1:::lat,+35.80349:::lon,+139.58486:::alt,34:::time,20050913084808:::smaj,59:::smin,45:::vert,57:::majaa,164:::fm,2:::;;ver,1:::datum,1:::unit,1:::lat,+35.00912:::lon,+135.73187:::alt,22:::time,20050912105851:::smaj,75:::smin,61:::vert,39:::majaa,154:::fm,2:::;;ver,1:::datum,1:::unit,1:::lat,+35.95188:::lon,+139.99167:::alt,23:::time,20050912074548:::smaj,23:::smin,20:::vert,62:::majaa,167:::fm,0:::;;ver,1:::datum,1:::unit,1:::lat,+26.22183:::lon,+127.70024:::alt,16:::time,20050911095057:::smaj,37:::smin,25:::vert,26:::majaa,20:::fm,1:::;;ver,1:::datum,1:::unit,1:::lat,+35.96568:::lon,+140.04667:::alt,4:::time,20050911080823:::smaj,24:::smin,19:::vert,54:::majaa,5:::fm,0:::;;ver,1:::datum,1:::unit,1:::lat,+35.73998:::lon,+139.53437:::alt,36:::time,20050910143927:::smaj,14:::smin,9:::vert,25:::majaa,53:::fm,0:::;;ver,1:::datum,1:::unit,1:::lat,+35.73987:::lon,+139.53392:::alt,83:::time,20050910143524:::smaj,222:::smin,222:::vert,100:::majaa,0:::fm,5:::;;";
+  //アイコン作成
+  var icon = new GIcon();
+  icon.image = "./yazirusi.png";
+  icon.shadow = "./shadow.png";
+  icon.iconSize = new GSize(20, 34);
+  icon.shadowSize = new GSize(37, 34);
+  icon.iconAnchor = new GPoint(10,34);
+  //★ データ行を「;;」で分解
+  var newichis = newichi.split(';;');
+  window.onload = writePLine
+  //★ データ行ごとにマーカー出力
+  function writePLine(){
+  for (var i=0 ; i < newichis.length-1 ; i++){
+  if(newichis[i]!=""){
+  var lon  = eval(newichis[i].split(":::")[4].split(",")[1]);
+  var lat  = eval(newichis[i].split(":::")[3].split(",")[1]);
+  var marker = new GMarker(new GLatLng(lat,lon), icon);
+  map.addOverlay(marker);
+  }
+  }
+  }
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>   
+<body>
+GPS携帯の位置を最新10件表示する
+<div id="map" style="width: 500px; height: 400px"></div>
+</body>
+</html>

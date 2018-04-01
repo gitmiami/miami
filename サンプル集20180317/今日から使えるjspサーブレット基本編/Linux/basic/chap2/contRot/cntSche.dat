@@ -1,0 +1,21 @@
+%%#30
+body{
+	background:url(galaxy.jpg);
+	font-size:12pt;
+	font-family:OCR A Extended;
+	color:#f0f8ff;
+}
+%%#20
+body{
+	background:#ffffff;
+	font-size:12pt;
+	font-family:ＤＦPOP体,HG創英角ﾎﾟｯﾌﾟ体;
+	color:#2F4F4F;
+}
+%%#50
+body{
+	font-size:12pt;
+	background:url(sumie.jpg);
+	font-family:HG正楷書体-PRO,ＭＳ 明朝,細明朝体;
+	color:#006666;
+}

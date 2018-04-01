@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<title>script.aculo.us ドラッグ＆ドロップ</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+#book1 { position:absolute; top:100px; left:10px;  
+				z-index:2;width:130px;height:130px;}
+#book2 { position:absolute; top:100px; left:170px; 
+				z-index:1;width:130px;height:130px;}
+#basket {position:absolute; top: 270px; left:10px; 
+				z-index:0;width:290px;height:170px;background:#cfc;}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../lib/unittest.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+//var dragObj;
+function initOnLoad(){
+	new Draggable("book1", { revert:true } );
+	new Draggable("book2", { revert:true } );
+	Droppables.add("basket", { onDrop: function(element, droppableElement){
+		$(droppableElement).innerHTML += "<br/>" + element.id + "がカゴに入りました。";
+		}, accept:"out1"
+	});
+  setListener($("exe"), "click", remove1);
+}
+function remove1(){
+	Droppables.remove("basket");
+}
+addListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>script.aculo.us ドロップエリア解除</h2>
+<input type="button" id="exe" value="解除"/>
+<div id="book1" class="out1"><img id="area" src="../img/ajaxbook1.jpg" width="130" height="130"/></div>
+<div id="book2" class="out1"><img id="area" src="../img/ajaxbook2.jpg" width="130" height="130"/></div>
+<div id="basket">買いものカゴ：</div>
+</body>
+</html>
+

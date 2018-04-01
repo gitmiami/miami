@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<style type="text/css">
+<!--
+v\:* {behavior:url(#default#VML);}
+-->
+</style>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  var map = new GMap2(document.getElementById("map"));
+  map.addControl(new GLargeMapControl());
+  map.addControl(new GMapTypeControl());
+  map.setCenter(new GLatLng(35.6815617, 139.7672091), 15);
+ 	setTimeout("getLonLat('sample1.txt')", 0);
+ 	setTimeout("getLonLat('sample2.txt')", 500);  //0.5秒後
+ 	setTimeout("getLonLat('sample3.txt')", 1000); //1秒後
+  setTimeout("getLonLat('sample4.txt')", 1500); //1.5秒後
+  function getLonLat(url){
+  	var xhrObj = getXhrObj();
+  	xhrObj.open("get", url);
+  	xhrObj.onreadystatechange = function() {
+  		if (xhrObj.readyState == 4 && xhrObj.status = 200) {
+  			var res = xhrObj.responseText;
+  			var rows = res.split('\n')
+  			for (var i = 0; i < rows.length; i++) {
+  				var lon = rows[i].split(',')[0];
+  				var lat = rows[i].split(',')[1];
+  				var point = new GLatLng(lat,lon);
+  				var marker = new GMarker(point);
+  				map.addOverlay(marker);
+  			}
+  		}
+  	}
+  	xhrObj.send(null);
+	}
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+ページロード完了後、Ajaxな通信で座標を連続して読み込む
+<div id="map" style="width: 500px; height: 400px"></div>
+</body>
+</html>

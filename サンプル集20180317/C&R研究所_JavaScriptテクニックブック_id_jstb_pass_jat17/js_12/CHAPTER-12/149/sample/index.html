@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>JavaScript Sample</title>
+		<link rel="stylesheet" href="Wizard.css" type="text/css" media="all">
+		<link rel="stylesheet" type="text/css" href="main.css" media="all">
+		<script type="text/javascript" src="dojo.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body>
+		<h1>Macの起動方法</h1>
+		<div id="wizardMac" dojoType="WizardContainer">
+			<div dojoType="WizardPane">
+				<h1>ステップ 1</h1>
+				<p>Macを起動するには電源ボタンを押します。</p>
+			</div>
+			<div dojoType="WizardPane">
+				<h1>ステップ 2</h1>
+				<p>しばらくすると図のような画面が表示されます。アイコンをクリックします。</p>
+			</div>
+			<div dojoType="WizardPane">
+				<h1>ステップ 3</h1>
+				<p>パスワードを入力します。しばらくするとMacOS Xが起動します。</p>
+			</div>
+			<div dojoType="WizardPane" doneFunction="done">
+				<h1>ステップ 4</h1>
+				<p>ドック上のアイコンをクリックするとアプリケーションが起動します。</p>
+			</div>
+		</div>
+	</body>
+</html>

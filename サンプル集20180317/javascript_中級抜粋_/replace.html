@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>replaceメソッドを使った置換</title>
+</head>
+<script type="text/javascript">
+//<![CDATA[
+var str, r, result;
+
+// 置換を行う
+str = '<p>JavaScriptは、主にWebブラウザ上で動作するスクリプト言語です。<br />手軽に使えるので、スクリプト言語の中でも人気が高いです。</p>';
+r = new RegExp("(JavaScript|スクリプト)", "g");
+result = str.replace(r, '<b>$1</b>');
+// 結果を表示
+document.write(result);
+//]]>
+</script>
+</body>
+</html>

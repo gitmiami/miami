@@ -1,0 +1,16 @@
+<tomcat-users>
+	<user name="admin"	password="admin" roles="admin" />
+
+	<user name="yyamada"	password="123"	roles="admin,super,usr" />
+	<user name="nkakeya"	password="123"	roles="super,usr" />
+	<user name="ynakane"	password="123"	roles="usr" />
+
+	<user name="khonda" password="999" roles="administrator,supervisor,user" />
+	<user name="tkawamura" password="999" roles="supervisor,user" />
+	<user name="tkaneko" password="999" roles="user" />
+
+	<user name="kimata" password="999" roles="user1" />
+	<user name="ishihara" password="999" roles="user2" />
+	<user name="iiduka" password="999" roles="user3" />
+
+</tomcat-users>

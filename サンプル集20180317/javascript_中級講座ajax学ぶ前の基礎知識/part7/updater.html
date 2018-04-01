@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Ajax.Updaterを利用した通信</title>
+</head>
+<body>
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function lwws() {
+    // 結果の表示先に「しばらくお待ちください」と表示する
+    document.getElementById("result").innerHTML = "<p>しばらくお待ちください...</p>";
+    // Ajaxで通信して結果を表示する
+    new Ajax.Updater(
+        "result", "lwws.cgi",
+        {
+            parameters : Form.serialize("ajax"),
+            method : "get"
+        }
+    );
+}
+//]]>
+</script>
+<form name="ajax" id="ajax" action="" method="get" >
+<p>
+都市
+<select name="city" size="1">
+<option value="4">札幌</option>
+<option value="25">仙台</option>
+<option value="63">東京</option>
+<option value="70">横浜</option>
+<option value="38">名古屋</option>
+<option value="81">大阪</option>
+<option value="90">広島</option>
+<option value="110">福岡</option>
+</select>
+<input type="button" value="送信" onclick="lwws();" />
+</p>
+</form>
+<p>通信結果</p>
+<div id="result"></div>
+</body>
+</html>

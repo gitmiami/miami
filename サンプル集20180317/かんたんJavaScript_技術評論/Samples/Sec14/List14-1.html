@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List14-1</title>
+<script type="text/javascript">
+<!--
+
+var txt = "赤・緑・青";
+
+if (window.addEventListener) {
+    // ① Webページの読み込みが完了したら、処理を実行
+    window.addEventListener("load", function() {
+        // btnオブジェクトにクリック時の処理を設定
+        document.getElementById("btn")
+                .addEventListener("click", function() {
+            // answerTextオブジェクトの内容を変更
+            document.getElementById("answerText")
+                    .innerHTML = txt;
+            }, false);
+    }, false);
+} else if (window.attachEvent) {
+    //②IE用
+    window.attachEvent("onload", function() {
+        document.getElementById("btn")
+                .attachEvent("onclick", function() {
+            document.getElementById("answerText")
+                    .innerHTML = txt;
+        }, false);
+    }, false);
+} else {
+    //③addEventListener、attachEventに対応していない場合
+    window.onload = function() {
+        document.getElementById("btn").onclick = function() {
+            document.getElementById("answerText")
+                    .innerHTML = txt;
+        };
+    };
+}
+
+//-->
+</script>
+</head>
+
+<body>
+<p>光の三原色は？</p>
+<form>
+<input id="btn" type="button" value="答えを見る"/>
+</form>
+<p id="answerText">ボタンをクリックすると答えを表示します。</p>
+</body>
+</html>

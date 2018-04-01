@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxRgE_H9GM6zkZRwNii93jtvjOSYqRTUvjXBD0wChGoBh2xb30zNzkqZmA" type="text/javascript"></script>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var map;
+function initOnLoad(){
+  map = new GMap2(id("map"));
+  map.setCenter(new GLatLng(35.6805617, 139.7672091),16);
+	for(var i = 1; i < 53; i++){
+    panLatLon(35.6805617 + (i * 0.001), 139.7672091 - (i * 0.001), 200 * i);
+  }
+}
+//パン用関数
+function panLatLon(y,x,time){
+	window.setTimeout(function(){map.panTo(new GLatLng(y,x));}, time);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+地図表示をタイマで連続移動する
+<div id="map" style="width: 500px; height: 370px"></div>
+</body>
+</html>

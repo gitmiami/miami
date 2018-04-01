@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>ドラッグ</title>
+<style type="text/css">
+<!--
+.s1, .s2, .s3 {
+    color : white;
+    cursor : move;
+}
+.s1 {
+    background-color : #ff0000;
+}
+.s2 {
+    background-color : #0000ff;
+}
+.s3 {
+    background-color : #008000;
+}
+-->
+</style>
+<script type="text/javascript" src="lib/prototype.js"></script>
+<script type="text/javascript" src="src/scriptaculous.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    // idが「drag1」の要素を自由に動かせるようにする
+    new Draggable('drag1');
+    // idが「drag2」の要素を縦横20ピクセル単位で動かせるようにする
+    new Draggable('drag2', { snap : [ 20, 20 ] });
+    // idが「drag3」の要素を横にのみ30ピクセル単位で動かせるようにする
+    new Draggable('drag3', { snap : [ 30, 0 ], constraint : 'horizontal' });
+}
+//]]>
+</script>
+</head>
+<body>
+<p>
+<span id="drag1" class="s1">この要素はドラッグで自由に移動することができます。</span><br />
+<span id="drag2" class="s2">この要素はドラッグで縦横20ピクセル単位で移動することができます。</span><br />
+<span id="drag3" class="s3">この要素はドラッグで横のみ30ピクセル単位で移動することができます。</span>
+</p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>switch文の例</title>
+<script type="text/javascript">
+//<![CDATA[
+function show_msg() {
+    var gen;
+
+    gen = document.getElementById("gen").value;
+    switch (gen) {
+    case "乳幼児":
+        alert("料金は無料です。");
+        break;
+    case "子供":
+        alert("料金は500円です。");
+        break;
+    case "大人":
+        alert("料金は1,000円です。");
+        break;
+    }
+}
+//]]>
+</script>
+</head>
+<body>
+<p>選択してください</p>
+<form action="" method="get" name="sel_gen">
+<select name="gen" id="gen" onchange="show_msg();">
+<option value="">↓選択してください</option>
+<option value="乳幼児">乳幼児</option>
+<option value="子供">子供</option>
+<option value="大人">大人</option>
+</select>
+</form>
+</body>
+</html>

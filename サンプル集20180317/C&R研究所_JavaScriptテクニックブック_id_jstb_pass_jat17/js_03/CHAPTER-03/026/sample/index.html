@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>JavaScript Sample</title>
+		<link rel="stylesheet" type="text/css" href="main.css" media="all">
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body>
+		<h1>ユーザー登録</h1>
+		<form action="./check.cgi" method="get" id="mainForm" name="mainForm">
+			氏名：<input type="text" name="tfld1"><br>
+			住所：<input type="text" name="tfld2"><br>
+			メールアドレス：<input type="text" name="tfld3" id="tfld3"><br>
+			<input type="checkbox" name="cb">メールの受け取りを希望する<br>
+			<input type="radio" name="rd">男<br>
+			<input type="radio" name="rd">女<br>
+			このページをどこで知りましたか?<br>
+			<select id="sel1" name="sel1">
+				<option value="item1">Web</option>
+				<option value="item2" name="second">その他</option>
+			</select><br>
+			このサービスは主にどこで利用しますか?<br>
+			<select id="sel2" name="sel2" multiple>
+				<option value="item1">会社</option>
+				<option value="item2">自宅</option>
+				<option value="item3">その他</option>
+			</select>
+		</form>
+	</body>
+</html>

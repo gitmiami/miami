@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>クラス1登録</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var xhrObj = getXhrObj();
+function revEmpMas(){
+  var emp_no = document.getElementById("emp_no").value;
+  xhrObj.open("get", "revEmpMas.php?emp_no="+emp_no);
+	xhrObj.setRequestHeader("If-Modified-Since", "01 Jan 2000 00:00:00 GMT");
+  xhrObj.send(null);
+	xhrObj.onreadystatechange = function(){
+  	if(xhrObj.readyState == 4){
+    	if(xhrObj.status == 200){
+      	var resp = xhrObj.responseText.split("<i>");
+	      if(resp[0]=="OK"){
+  	      document.getElementById("status").innerHTML 	= resp[0];
+  	      document.getElementById("emp_name").value			= resp[1];
+    	    document.getElementById("section").value  		= resp[2];
+      	  document.getElementById("mod_date").innerHTML = resp[3];
+	      }else{
+  	      document.getElementById("status").innerHTML 	= resp[0];
+    	  }
+			}
+    }
+  }
+}
+function updEmpMas(){
+  var emp_no = document.getElementById("emp_no").value;
+  var emp_name = document.getElementById("emp_name").value;
+  var section = document.getElementById("section").value;
+  var req="emp_no="+emp_no+"&emp_name="+emp_name+"&section="+section;
+  xhrObj.open("post", "updEmpMas.php", false);
+  xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhrObj.send(req);
+  document.getElementById('status').innerHTML = xhrObj.responseText;
+}
+function delEmpMas(){
+  var emp_no = document.getElementById("emp_no").value;
+  xhrObj.open("post", "delEmpMas.php", false);
+  xhrObj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhrObj.send("emp_no="+emp_no);
+  document.getElementById('status').innerHTML = xhrObj.responseText;
+}
+function initOnLoad(){
+  var observer = document.getElementById("rev");
+  setListener(observer, "click", revEmpMas);
+  var observer = document.getElementById("upd");
+  setListener(observer, "click", updEmpMas);
+  var observer = document.getElementById("del");
+  setListener(observer, "click", delEmpMas);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<center>
+<h2>従業員マスタ管理</h2>
+<table width="390" border="1">
+	<tbody>
+  	<tr>
+			<th colspan="2" id="mod">
+	  		従業員マスタ参照/更新/削除
+				<input type="button" id="rev" value=" 参照 " />
+				<input type="button" id="upd" value=" 更新 " />
+				<input type="button" id="del" value=" 削除 " />
+			</th>
+		</tr>
+	  <tr>
+			<th width="120">従業員番号</th>
+			<td width="260"><input type="text" id="emp_no" size="8"></td>
+		</tr>
+  	<tr><th>従業員氏名</th><td><input type="text" id="emp_name"></td></tr>
+	  <tr><th>所属部署</th><td><input type="text" id="section"></td></tr>
+  	<tr><th>登録日</th><td id="mod_date">&nbsp;</td></tr>
+	  <tr><th>ステータス</th><td id="status">&nbsp;</td></tr>
+	</tbody>
+</table>
+</center>
+</body>
+</html>
+

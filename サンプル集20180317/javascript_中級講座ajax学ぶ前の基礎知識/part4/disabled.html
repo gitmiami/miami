@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>disabledプロパティの例</title>
+<script type="text/javascript">
+//<![CDATA[
+function toggle () {
+    var i;
+    // option_courseの各ラジオボタンの入力禁止／許可を切り替える
+    for (i = 0; i < document.myform.option_course.length; i++) {
+        document.myform.option_course[i].disabled
+            = !document.myform.option_tour.checked;
+    }
+}
+//]]>
+</script>
+<body onload="toggle();">
+<form name="myform" method="get" action="">
+<p>
+<input type="checkbox" name="option_tour"value="1" onclick="toggle();" /">オプションツアーに参加する<br />
+	<input type="radio" name="option_course" value="A" checked="checked" />Aコース
+	<input type="radio" name="option_course" value="B" />Bコース
+	<input type="radio" name="option_course" value="C" />Cコース
+</p>
+</form>
+</body>
+</html>

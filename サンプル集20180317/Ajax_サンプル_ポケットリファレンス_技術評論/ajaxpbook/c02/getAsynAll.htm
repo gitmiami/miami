@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>従業員番号から氏名表示</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var xhrObj = getXhrObj();
+function xhrReq(){
+	xhrObj.open("get", "getEmpAll.php");
+	xhrObj.setRequestHeader("If-Modified-Since", "01 Jan 2000 00:00:00 GMT");
+	xhrObj.send(null);
+	xhrObj.onreadystatechange = xhrResp;
+}
+function xhrResp(){
+	var recs, rec;
+	if(xhrObj.readyState == 4){
+		if(xhrObj.status == 200){
+			var recs = xhrObj.responseText.split("<r>");			
+			var view = "<table border='1'><tbody><tr>"
+			+"<th width='100'>従業員番号</th><th width='120'>氏名</th><th width='80'>所属</th>"
+			+"</tr>";
+			for(var i = 0; i < recs.length - 1; i++){			
+				rec = recs[i].split("<i>");	
+				view += "<tr><td>"+rec[0]+"</td><td>"+rec[1]+"</td><td>"+rec[2]+"</td></tr>";
+			}
+			view += "</tbody></table>";
+			document.getElementById("view").innerHTML = view;
+		}
+	}
+}
+function initOnLoad(){
+  var observer = document.getElementById("sel");
+  setListener(observer, "click", xhrReq);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<div align="center">
+	<h3>全従業員表示<input type="button" id="sel" value="　表示　" /></h3>
+	<div id="view"></div>
+</div>
+</body>
+</html>
+

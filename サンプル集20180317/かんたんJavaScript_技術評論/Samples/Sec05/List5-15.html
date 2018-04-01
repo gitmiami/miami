@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List5-15</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+<!--
+
+loop1:                                                        //①
+for (var a = 1; a < 10; a++) {
+    document.write("変数aが" + a + "の回<br>");
+    for (var b = 1; b < 10; b++) {
+        if ((a * b) >= 10) {                                  //②
+            break loop1;                                      //③
+        }
+        document.write(a + "*" + b + "=" + (a * b) +"<br>");
+    }
+    document.write("内側ループ終了<br><br>");
+}
+document.write("外側ループ終了<br><br>");
+
+//-->
+</script>
+</p>
+</body>
+</html>

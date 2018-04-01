@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>従業員マスタ参照</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function revEmpMas(){
+	if($F("emp_no").length == 5){	
+		var emp_no = "emp_no="+$F("emp_no");
+		new Ajax.Request('revEmpMas.php',{method:'get',onComplete:out,parameters:emp_no});
+	}
+}
+function out(resp1){
+	var resp = resp1.responseText.split("<i>");	
+	$("status","emp_name","section","mod_date").each(function(value, i){
+		value.innerHTML = resp[i];
+	}); 
+}
+function initOnLoad(){
+  setListener($("emp_no"), "keyup", revEmpMas);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>従業員マスタ管理</h2>
+<table width="380" border="1">
+	<tbody>
+  	<tr><th colspan="2">従業員マスタ参照</th></tr>
+  	<tr>
+			<th width="120">従業員番号</th>
+			<td><input type="text" id="emp_no"></td>
+		</tr>
+  	<tr><th>従業員氏名</th><td id="emp_name">&nbsp;</td></tr>
+	  <tr><th>所属部署</th><td id="section">&nbsp;</td></tr>
+  	<tr><th>登録日</th><td id="mod_date">&nbsp;</td></tr>
+	  <tr>
+			<th><input type="button" id="rev" value="　参照　" /></th>
+    	<td id="status">&nbsp;</td>
+	  </tr>
+	</tbody>
+</table>
+</body>
+</html>
+

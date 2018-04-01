@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>関数への参照渡し</title>
+</head>
+
+<body>
+<script type="text/javascript">
+//<![CDATA[
+function addOneHour(d) {
+    d.setTime(d.getTime() + 3600000);
+}
+
+var d1;
+d1 = new Date();
+document.write("d1 = " + d1.toString() + "<br />");
+addOneHour(d1);
+document.write("d1 = " + d1.toString());
+//]]>
+</script>
+</body>
+</html>

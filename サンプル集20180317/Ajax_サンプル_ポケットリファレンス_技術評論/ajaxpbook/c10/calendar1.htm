@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="no">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>カレンダー</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link type="text/css" rel="stylesheet" href="../lib/yui/build/calendar/assets/calendar.css" />
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/yui/build/yahoo/yahoo.js"></script>
+<script type="text/javascript" src="../lib/yui/build/event/event.js"></script>
+<script type="text/javascript" src="../lib/yui/build/dom/dom.js"></script>
+<script type="text/javascript" src="../lib/yui/build/calendar/calendar.js"></script>
+<script>
+//<![CDATA[
+function initOnLoad() {
+	var calendar = new YAHOO.widget.Calendar("cal", "out");
+	calendar.render();
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body><div id="out"></div></body>
+</html>
+
+

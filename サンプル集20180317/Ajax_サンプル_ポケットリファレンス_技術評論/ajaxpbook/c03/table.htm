@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="no">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>テーブル入力</title>
+<link rel="stylesheet" type="text/css" href="../lib/style.css" />
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  var table = "<table id='id1' cellspacing='0' cellpadding='0'><tbody>";
+  for(var i = 0; i < 7; i++){
+    table += "<tr>";
+    for(var j = 0; j < 5; j++){
+      table += "<td><input type='text' id='"+i+":"+j+"' size='4' /></td>";
+		}
+    table += "</tr>";
+  }
+  table += "</tbody></table>";
+  document.getElementById("view").innerHTML = table;
+  var observer = document.getElementById("id1");
+  setListener(observer, "keyup", check);
+}
+function check(e){
+  var tid = getid(e);
+  var kcode = getkcode(e);
+	var kchar = getkchar(e);
+  var row = tid.split(":")[0];
+  var col = tid.split(":")[1];
+  alert("行="+row+" 列="+col+" キー="+kcode+" 文字="+kchar);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h3>テーブル入力処理</h3>
+<div id="view"></div>
+</body>
+</html>
+

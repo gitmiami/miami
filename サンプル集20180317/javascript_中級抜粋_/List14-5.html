@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List14-5</title>
+  </head>
+  <body>
+    <script type="text/javascript" 
+    src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <ul id="ul1">
+      <li id="listA">リストA</li>
+      <li id="listB">リストB</li>
+      <li id="listC">リストC</li>
+    </ul>
+    <script>
+       $("li:eq(2)").css("font-size", "x-large");
+       $("li:contains('B')").css("font-weight", "bold");
+       $("li:first").css("border", "solid");
+    </script>
+  </body>
+</html>

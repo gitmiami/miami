@@ -1,0 +1,1 @@
+﻿prototype.jsとjQueryの最新版が出ました

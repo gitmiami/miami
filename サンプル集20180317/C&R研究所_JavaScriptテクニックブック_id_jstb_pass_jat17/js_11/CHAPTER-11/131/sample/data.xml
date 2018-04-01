@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<list>
+	<windows><type>Home Basic</type><price>27090円</price><note>最低限のパッケージです</note></windows>
+	<windows><type>Home Premium</type><price>31290円</price><note>家庭用です</note></windows>
+	<windows><type>Business</type><price>39690円</price><note>ビジネス用途に</note></windows>
+	<windows><type>Ultimate</type><price>51240円</price><note>フルスペックのVistaです</note></windows>
+</list>

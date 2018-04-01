@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ActiveWidgets Examples</title>
+<link rel="stylesheet" type="text/css" href="../../lib/aw.css"/>
+<style type="text/css">
+<!--
+#view {width: 350px; height:30 px; font-weight: bold;}  // Tabs
+#view .aw-list-item {color: blue}    // Items
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/aw.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+	var textArray = ["ホーム", "お気に入り", "文字サイズ", "サーチ"];
+  var imageArray = ["home", "favorites", "fontsize", "search"];
+  var tabObj = new AW.UI.Tabs;
+  tabObj.setId("view");
+  tabObj.setItemText(textArray);
+  tabObj.setItemImage(imageArray);
+  tabObj.setItemCount(4);
+  tabObj.setSelectedItems([0]);
+  tabObj.refresh();
+	tabObj.onItemClicked 		= function(event, index){ window.status = "Item " + index + " clicked"};
+	tabObj.onItemMouseOver		= function(event, index){ window.status = "Item " + index + " mouse over"};
+	tabObj.onItemMouseOut		= function(event, index){ window.status = "Item " + index + " mouse out"};
+	tabObj.onItemMouseDown		= function(event, index){ window.status = "Item " + index + " mouse down"};
+	tabObj.onItemMouseUp		= function(event, index){ window.status = "Item " + index + " mouse up"};
+	tabObj.onCurrentItemChanged = function(event){alert("チェック値："+event)};
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<p id="view"></p>
+</body>
+</html>
+

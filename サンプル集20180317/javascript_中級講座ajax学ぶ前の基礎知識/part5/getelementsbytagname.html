@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>alert</title>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    // 文書内のa要素をすべて取り出す
+    var a_all = document.getElementsByTagName("a");
+    // 各a要素を順に処理する
+    for (i = 0; i < a_all.length; i++) {
+        // a要素のtarget属性を「_blank」にする
+        a_all[i].target = "_blank";
+    }
+};
+//]]>
+</script>
+</head>
+<body>
+<p>
+    <a href="http://www.gihyo.co.jp/">技術評論社</a><br />
+    <a href="http://www.yahoo.co.jp/">Yahoo!Japan</a><br />
+    <a href="http://www.h-fj.com/blog/">筆者のBlog</a>
+</p>
+</div>
+</body>
+</html>

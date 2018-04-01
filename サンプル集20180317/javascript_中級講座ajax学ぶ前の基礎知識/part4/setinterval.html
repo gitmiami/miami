@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>現在の時刻を表示</title>
+</head>
+
+<body>
+<p>現在の時刻は<span id="now"></span>です。</p>
+<script type="text/javascript">
+//<![CDATA[
+function showTime() {
+    var msg;
+    // 現在の日時を得る
+    var t = new Date();
+    // 現在の時刻から時分秒を取り出す
+    msg = t.getHours() + "時";
+    msg += t.getMinutes() + "分";
+    msg += t.getSeconds() + "秒";
+    // IDが「now」の要素に時刻を表示
+    document.getElementById("now").innerHTML = msg;
+}
+
+// showTime関数を200ミリ秒ごとに実行する
+var tid = setInterval(showTime, 200);
+//]]>
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>if～else文のネスト</title>
+<script type="text/javascript">
+//<![CDATA[
+function calc()
+{
+    var gen, sex, charge;
+
+    gen = document.getElementById('gen').value;
+    sex = document.getElementById('sex').value;
+    if (gen == '子供') {
+        if (sex == '男') {
+            charge = 500;
+        }
+        else {
+            charge = 400;
+        }
+    }
+    else {
+        if (sex == '男') {
+            charge = 1000;
+        }
+        else {
+            charge = 800;
+        }
+    }
+    alert("料金は" + charge + "円です");
+}
+//]]>
+</script>
+</head>
+<body>
+<form action="" method="get" onsubmit="calc(); return false;" name="charge_form">
+<p>大人／子供<br />
+<select name="gen" id="gen">
+<option value="子供">子供</option>
+<option value="大人">大人</option>
+</select>
+</p>
+<p>性別<br />
+<select name="sex" id="sex">
+<option value="男">男</option>
+<option value="女">女</option>
+</select>
+</p>
+<p>
+<input type="submit" value="計算" />
+</body>
+</html>

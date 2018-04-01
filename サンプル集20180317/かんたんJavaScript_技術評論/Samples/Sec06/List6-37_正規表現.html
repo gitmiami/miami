@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List6-37</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+<!--
+
+var str = "受付は、East-01、South-05ゲートです";
+var reg = new RegExp("(([a-z]+)-)([0-9]{2})", "ig");
+var mat = str.match(reg);
+
+document.write(mat.length + "<br>");    //①
+document.write(mat[0] + "<br>");        //②
+document.write(mat[1] + "<br>");                 //③
+document.write(mat);                 //③
+
+//-->
+</script>
+</p>
+</body>
+</html>

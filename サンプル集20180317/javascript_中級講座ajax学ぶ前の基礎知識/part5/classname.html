@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>タブの切り替え</title>
+<style type="text/css">
+<!--
+/* タブ */
+.tab_selector {
+    border : 1px solid #000000;
+    padding : 2px 5px;
+    cursor : pointer;
+    background-color : #ffffff;
+}
+.selected {
+    background-color : #cccccc;
+}
+/* タブ内部 */
+.tab {
+    border : 1px solid black;
+    padding : 0px 10px;
+    display : block;
+}
+.noshow {
+    display : none;
+}
+.tablist {
+    padding-top : 3px;
+    padding-bottom : 2px;
+}
+-->
+</style>
+<script type="text/javascript">
+//<![CDATA[
+function tabChange(tabNo) {
+    var i, tabCount = 3;
+
+    // すべてのタブをいったん非選択状態にする
+    for (i = 1; i <= tabCount; i++) {
+        // タブのspan要素のclass属性を「tab_selector」に変える
+        document.getElementById("tabsel" + i).className = "tab_selector";
+        // タブ内部のdiv要素のclass属性を「noshow」にして、タブ内部を非表示にする
+        document.getElementById("tab" + i).className = "noshow";
+    }
+    // 選択されたタブのspan要素のclass属性を、「tab_selector selected」に変える
+    document.getElementById("tabsel" + tabNo).className = "tab_selector selected";
+    // 選択されたタブの内部のdiv要素のclass属性を「tab noshow」にして、タブ内部を非表示にする
+    document.getElementById("tab" + tabNo).className = "tab";
+}
+//]]>
+</script>
+</head>
+<body>
+<!-- タブ部分開始 -->
+<div class="tablist">
+<span id="tabsel1" class="tab_selector selected" onclick="tabChange(1);">getElementByTagName</span>
+<span id="tabsel2" class="tab_selector" onclick="tabChange(2);">getElementById</span>
+<span id="tabsel3" class="tab_selector" onclick="tabChange(3);">childeNodes</span>
+</div>
+<!-- タブ部分終了 -->
+<!-- タブ内部部分開始 -->
+<div id="tab1" class="tab">
+<h1>getElementByTagNameメソッド</h1>
+<p>タグの名前で要素ノードを検索します。</p>
+</div>
+<div id="tab2" class="noshow">
+<h1>getElementByIdメソッド</h1>
+<p>要素のIDで要素ノードを検索します。</p>
+</div>
+<div id="tab3" class="noshow">
+<h1>childNodesプロパティ</h1>
+<p>要素ノードの子ノードを返します。</p>
+</div>
+<!-- タブ内部部分終了 -->
+</body>
+</html>

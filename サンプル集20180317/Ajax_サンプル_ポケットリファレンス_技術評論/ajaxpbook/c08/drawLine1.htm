@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>DrawLine1</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/plotr/plotr.js"></script>
+<script type="text/javascript" src="../lib/plotr/excanvas.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function drawGraph(){
+	var dataset = {
+		"y2008Q1": [[0, 8.5], [1, 6.6], [2, 9.2], [3, 7.5]],
+		"y2008Q2": [[0, 7.5], [1, 3.89], [2, 8.15], [3, 4.8]],
+		"y2008Q3": [[0, 4], [1, 2], [2, 3.2], [3, 4.5]],
+		"y2008Q4": [[0, 2.5], [1, 4.6], [2, 3.2], [3, 1.5]]
+	};
+	var options = {
+		padding: {left: 30, right: 0, top: 10, bottom: 10},
+		backgroundColor: "#dbdbdb",
+		colorScheme: "#009",
+		xTicks: [
+			{v:0, label:"FY2007:1Q"},
+			{v:1, label:"FY2007:2Q"},
+			{v:2, label:"FY2007:3Q"},
+			{v:3, label:"FY2007:4Q"}
+		]
+	};
+	var gLine = new Plotr.LineChart("graph", options);
+	gLine.addDataset(dataset);
+	gLine.render();
+}
+function initOnLoad(){
+  setListener($("draw"), "click", drawGraph);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>Draw Line1&nbsp;&nbsp;<input type="button" id="draw" value="グラフ表示" /></h2>
+<div><canvas id="graph" height="300" width="600"></canvas></div>
+</body>
+</html>

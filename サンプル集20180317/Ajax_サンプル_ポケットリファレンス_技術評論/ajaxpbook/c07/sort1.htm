@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>script.aculo.usソータブル</title>
+<style type="text/css" media="screen">
+<!--
+  #list  { padding: 2px; background:red;}
+  #list li { background: #ffb; margin:2px; padding: 2px; }
+	.area {width:350px;height:300px;overflow:scroll;
+				position:relative;" id="scroll-container"; }
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../lib/unittest.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+function initOnLoad(){
+	Position.includeScrollOffsets = true;
+	Sortable.create('list',{scroll:'scroll-container'});
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>script.aculo.us ソータブル</h2>
+<div class="area">
+<ul id="list">
+<li>北海道</li><li>青森</li><li>秋田</li><li>岩手</li><li>山形</li>
+<li>宮城</li><li>福島</li><li>栃木</li><li>群馬</li><li>茨城</li>
+<li>千葉</li><li>埼玉</li><li>東京</li><li>神奈川</li><li>山梨</li>
+</ul>
+</div>
+</body>
+</html>
+

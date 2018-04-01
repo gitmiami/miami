@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List5-5</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+<!--
+
+var age = 20;
+var repeat = "yes";
+
+if (age >= 18) {          //①
+if (repeat == "no") {     //初めて利用する場合
+document.write("料金は、1000円です。");
+} else {                  //2回目以降の利用の場合
+document.write("料金は、800円です。");
+}
+} else {                  //②
+document.write("料金は、500円です。");
+}
+
+//-->
+</script>
+</p>
+</body>
+</html>

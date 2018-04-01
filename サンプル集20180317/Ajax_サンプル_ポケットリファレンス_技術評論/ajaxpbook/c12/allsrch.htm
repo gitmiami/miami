@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>Hello World - Google AJAX Search API Sample</title>
+<link href="http://www.google.com/uds/css/gsearch.css" type="text/css" rel="stylesheet"/>
+<script src="http://www.google.com/jsapi?key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxSF9hCAVocq5x3hGFbD0Otb-FImEhRi
+_1GgxubmXlbHHTaD26_4QGu6Hg" type="text/javascript"></script>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script language="Javascript" type="text/javascript">
+//<![CDATA[
+google.load("search", "1");
+function initOnLoad() {
+  var searchControl = new GSearchControl();
+  var localSearch = new GlocalSearch();
+  searchControl.addSearcher(localSearch);
+  searchControl.addSearcher(new GwebSearch());
+  searchControl.addSearcher(new GvideoSearch());
+  searchControl.addSearcher(new GblogSearch());
+  searchControl.addSearcher(new GnewsSearch());
+  searchControl.addSearcher(new GimageSearch());
+  searchControl.addSearcher(new GbookSearch());
+  localSearch.setCenterPoint("日本");
+  searchControl.draw(document.getElementById("view"));
+  searchControl.execute("東京タワー");
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+	<div id="view">Loading</div>
+</body>
+</html>
+
+

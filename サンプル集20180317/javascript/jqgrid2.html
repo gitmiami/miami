@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>単一選択サンプル</title>
+  
+<link rel="stylesheet" type="text/css" media="screen" href="css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
+
+<script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="jquery.jqGrid.min.js"></script>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function()
+{
+	jQuery("#list").jqGrid({
+		datatype: "local",
+		colNames:['ID', '名前'],
+		colModel:[
+			{name:'id'},
+			{name:'name'},
+		],
+		caption: '配列をグリッド表示する'
+	});
+
+	var mydata = [
+		{id:"1",name:"test1"},
+		{id:"2",name:"test2"},
+		{id:"3",name:"test3"},
+	];
+
+	for(var i=0;i<=mydata.length;i++)
+		jQuery("#list").addRowData(undefined,mydata[i]);
+
+	// 行データを取得する
+	jQuery("#btn1").click( function()
+	{
+		var grid = jQuery("#list");
+		var id = grid.getGridParam("selrow");
+		if(id)
+		{
+			var row = grid.getRowData(id);
+			alert("選択されたデータは ID、名前 = " + row.id + ", " + row.name);
+		}
+		else
+			alert("選択されてません");
+	});
+
+	// 行データを削除する
+	jQuery("#btn2").click( function()
+	{
+		var grid = jQuery("#list");
+		var id = grid.getGridParam("selrow");
+		if(id)
+		{
+			var rtn = grid.delRowData(id);
+			if( rtn )
+				alert("削除成功");
+			else
+				alert("削除失敗");
+		}
+		else
+			alert("選択されてません");
+	});
+
+	// 行データを更新する
+	jQuery("#btn3").click( function()
+	{
+		var grid = jQuery("#list");
+		var id = grid.getGridParam("selrow");
+		if(id)
+		{
+			var update_name = $("#update_name_text").val();
+			var rtn = grid.setRowData(id, {name : update_name});
+			if( rtn )
+				alert("更新成功");
+			else
+				alert("更新失敗");
+		}
+		else
+			alert("選択されてません");
+	});
+
+	// 行データを追加する
+	jQuery("#btn4").click( function()
+	{
+		var grid = jQuery("#list");
+		var insert_id   = $("#insert_id_text").val();
+		var insert_name = $("#insert_name_text").val();
+		var row = {id: insert_id, name: insert_name};
+
+		var rtn = grid.addRowData(undefined, row);
+		if( rtn )
+			alert("追加成功");
+		else
+			alert("追加失敗");
+	});
+
+	
+});
+</script>
+</head>
+<body>
+
+<table id="list" class="scroll" cellpadding="0" cellspacing="0"></table>
+
+<p><button id="btn1">選択中の行を取得する</button></p>
+<p><button id="btn2">選択中の行を削除する</button></p>
+<p><button id="btn3">選択中の行を更新する</button> 名前:<input type="text" id="update_name_text" /></p>
+<p><button id="btn4">行を追加する</button> ID:<input type="text" id="insert_id_text" /> 名前:<input type="text" id="insert_name_text" /></p>
+
+
+</body>
+</html>

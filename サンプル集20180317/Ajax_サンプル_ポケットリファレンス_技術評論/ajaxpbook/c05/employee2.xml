@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<empmas>
+  <emp_no id="A0001">
+    <emp_name>山田太郎</emp_name>
+		<section></section>
+  </emp_no>
+  <emp_no id="A0002">
+    <emp_name>鈴木健児</emp_name>
+		<section></section>
+  </emp_no>
+  <emp_no id="A0003">
+    <emp_name>田中佳子</emp_name>
+		<section></section>
+  </emp_no>
+  <emp_no id="A0004">
+    <emp_name>佐藤弘明</emp_name>
+		<section></section>
+  </emp_no>
+  <emp_no id="A0005">
+    <emp_name>伊藤広志</emp_name>
+		<section></section>
+  </emp_no>
+</empmas>
+

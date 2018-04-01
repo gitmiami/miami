@@ -1,0 +1,544 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta content="Glenn Nielsen" name="author"><title>Adding a Custom Tag Library or Extension to JAKARTA-TAGLIBS</title></head><body vlink="#023264" alink="#023264" link="#023264" text="#000000" bgcolor="#ffffff"><table cellspacing="5" width="100%" border="0"><tr><td colspan="2"><a href="http://jakarta.apache.org"><img border="0" align="left" src="images/jakarta-logo.gif"></a><a href="http://jakarta.apache.org/taglibs/index.html"><img border="0" align="right" src="images/taglibs.gif"></a></td></tr><tr><td colspan="2"><hr></td></tr><tr><td valign="top" width="120"><project name="Taglibs Framework" href="http://jakarta.apache.org/taglibs" image="images/taglibs.gif">
+
+    <table cellspacing="5" border="0"><tr><th align="left" colspan="2"><font color=""><strong>Home</strong></font></th></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="index.html">Jakarta Taglibs</a></font></td></tr></table>
+
+    <table cellspacing="5" border="0"><tr><th align="left" colspan="2"><font color=""><strong>JCP Standardized Tag Libraries</strong></font></th></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/standard-doc/intro.html">Standard: JSTL (1.2)</a></font></td></tr></table>
+
+    <table cellspacing="5" border="0"><tr><th align="left" colspan="2"><font color=""><strong>Supported Tag Libaries</strong></font></th></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/application-doc/intro.html">Application (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/benchmark-doc/intro.html">Benchmark (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/bsf-doc/intro.html">BSF (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/cache-doc/intro.html">Cache (1.2)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/datetime-doc/intro.html">DateTime (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/dbtags-doc/intro.html">DBTags (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/i18n-doc/intro.html">I18N (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/input-doc/intro.html">Input (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/io-doc/intro.html">IO (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/jmstags-doc/intro.html">JMS (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/jndi-doc/intro.html">JNDI (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/log-doc/intro.html">Log (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/mailer-doc/intro.html">Mailer (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/page-doc/intro.html">Page (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/random-doc/intro.html">Random (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/regexp-doc/intro.html">Regexp (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/request-doc/intro.html">Request (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/response-doc/intro.html">Response (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/scrape-doc/intro.html">Scrape (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/session-doc/intro.html">Session (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/string-doc/intro.html">String (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/xtags-doc/intro.html">XTags (1.1)</a></font></td></tr></table>
+
+    <table cellspacing="5" border="0"><tr><th align="left" colspan="2"><font color=""><strong>Tool Extensions</strong></font></th></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/ultradev4-doc/intro.html">UltraDev 4.0</a></font></td></tr></table>
+
+    <table cellspacing="5" border="0"><tr><th align="left" colspan="2"><font color=""><strong>Sandbox</strong></font></th></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="sandbox/doc/iterators-doc/intro.html">Iterators (1.2)</a></font></td></tr></table>
+
+    <table cellspacing="5" border="0"><tr><th align="left" colspan="2"><font color=""><strong>Deprecated Tag Libraries</strong></font></th></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/utility-doc/intro.html">Utility (1.1)</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/taglibs/doc/xsl-doc/intro.html">XSL (1.1)</a></font></td></tr></table>
+
+    <table cellspacing="5" border="0"><tr><th align="left" colspan="2"><font color=""><strong>Jakarta Community</strong></font></th></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/site/getinvolved.html">Get Involved</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/site/mail.html">Mailing Lists</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/site/cvsindex.html">CVS Repositories</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/site/library.html">Reference Library</a></font></td></tr><tr><td width="15" align="center"></td><td><font size="-1"><a href="http://jakarta.apache.org/site/bugs.html">Bug Database</a></font></td></tr></table>
+
+</project></td><td valign="top"><body>
+
+<a name="Overview"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Adding a Custom Tag Library or Extension</strong></font></td></tr><tr><td>
+<a href="#Approval">New Project Submission</a><br>
+<a href="#Create">Create the new taglib or CTLX directory and file layout</a><br>
+<a href="#Standards">Tag Library Coding Standards</a><br>
+<a href="#Addtag">Adding a tag to the tag library</a><br>
+<a href="#Building">Building the tag library</a><br>
+<a href="#Addtaglib">Adding the tag library to the jakarta-taglibs repository</a><br>
+<a href="#Publish">Publishing the tag library to http://jakarta.apache.org/taglibs/</a><br>
+<a href="#Milestone">Publishing a milestone release</a><br>
+<a href="#Beta">Publishing a beta release</a><br>
+<a href="#Release">Publishing an official release</a><br>
+<a href="#manager">Release Manager Actions</a><br>
+</td></tr></table>
+
+<a name="Approval"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>New Project Submission</strong></font></td></tr><tr><td>
+<p>Submission of a new project (tag library or ctlx) must be done
+according to the process defined in the document <a href="newprojectsubmission.html">
+New Project Submission</a>. Once a new project is accepted for inclusion in the
+sandbox, it must conform to the release structure described in this document.
+<br></p>
+<p>
+Selecting
+a unique name for the tag library or ctlx is the first step.  The {taglib-name}
+is used as part of the naming convention for directories and
+files which make up a tag library in the jakarta-taglibs
+source repository.<br></p>
+</td></tr></table>
+
+<a name="Create"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Create the new taglib or CTLX directory and file layout</strong></font></td></tr><tr><td>
+<p>The directory and file structure for a new tag library or CTLX can be created
+by using the ant build target <code>new.taglib</code> or <code>new.ctlx</code>.
+<ul>
+  <p>
+  <code>ant new.taglib -Dtaglib.name=cooljsp</code><br><br>
+  Creates a new taglib in the directory <code>jakarta-taglibs/cooljsp</code>.
+  <br></p>
+  <p>
+  <code>ant new.ctlx -Dctlx.name=coolctlx1 -Dctlx.path=tools</code><br><br>
+  Creates a new CTLX in the directory <code>jakarta-taglibs/tools/coolctlx1</code>.
+  <br></p>
+</ul>
+<br></p>
+
+<p>The xml files created above wull be automatically customized for your new
+project. Simply make sure that the required properties are properly defined
+in build.properties.
+<ul>
+  <li><code>{taglib-name}</code> - replaced with the taglib or ctlx nickname (new.name).</li>
+  <li><code>{display-name}</code> - replaced with the name used for taglib in documentation (new.name.display).</li>
+  <li><code>{your-name}</code> - replace with your name as author of taglib (new.author).</li>
+</ul>
+<br></p>
+
+<p>If your tag library will be using any API's or versions of API's
+other than servlet.jar check the <code>jakarta-taglibs/build.properties.sample</code>
+to see if a property is already configured for it.  If not,
+add a new property so that the jar files required by your taglib
+are available during a jakarta-taglibs build.  See your
+taglib <code>build.xml</code> file for more information on adding
+support to it for additional jar files.<br></p>
+</td></tr></table>
+
+<a name="Standards"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Tag Library Coding Standards</strong></font></td></tr><tr><td>
+
+<p>All the classes to implement the tag library should be in
+the package <code>org.apache.taglibs.{taglib-name}</code>.<br></p>
+
+<p>A project in Jakarta Taglibs must be released according to the 
+rules defined in document <a href="howtorelease.html">How To Release</a>.
+<br></p>
+
+<p>Please put the Apache Software Foundation license at the top of
+each java source code file.<br></p>
+
+<p>Please put the following cvs tags starting at the second line
+of the Apache Software Foundation license comment:
+<pre>
+ * $Header$
+ * $Revision$
+ * $Date$
+</pre>
+CVS will expand the above tags out to provide revision information
+inside the source file whenever you commit the file.
+<br></p>
+
+<p>Please comment your java source code files so that JavaDoc
+can be used to generate API documentation for your taglib.<br></p>
+
+<p>Please follow standard java coding conventions.<br></p>
+
+<p>Please use the following capitalization conventions when
+naming tags, attributes, and script variable bean properties.
+<ul>
+The first letter should always be lower case.  If the name
+of a tag, attribute, or property consists of multiple words
+concatenated together, capitalize the first character of
+each new word in the name, after the first word. Example:
+<code>theSecondWord</code>.
+</ul>
+<br></p>
+
+<p>If you are not familiar with how the JSP tag lifecycle affects
+the design of JSP tags, please review the document
+<a href="guidelines.html">Taglib Developer Guidelines</a>.<br></p>
+
+<p>Please use the following Java class naming conventions:
+<ul>
+<li>For java classes that implement a JSP Tag, use a class name
+that is the same as the tag name with "Tag" appended.  For
+example the "newBook" tag would be a class named NewBookTag.</li>
+<li>If a tag creates a separate class to implement a bean, attribute,
+or script variable for a tag, name it using the tag name.
+For example, if the "newBook" tag created a scripting variable
+scoped AT_END, the java class to implement the scripting
+variable would be named NewBook.</li>
+<li>If a tag creates a scripting variable, create a TagExtraInfo
+class for it using the tag name followed by TEI.  Using the
+"newBook" tag example, the TagExtraInfo class would be named
+NewBookTEI.</li>
+</ul>
+<br></p>
+
+<p>If your custom tag library requires additional JAR files
+from external distributions, make sure that these dependencies
+are clearly documented, as well as how
+to acquire them.<br></p>
+<p>
+In order to facilitate an easy "out-of-the-box" experience,
+it is allowed to check these dependencies in the CVS repository of the
+tag library, so they can be bundled with the example webapp 
+of the tag library.
+<br></p>
+</td></tr></table>
+
+<a name="Addtag"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Adding a tag to the tag library</strong></font></td></tr><tr><td>
+
+<p>Change your directory (cd) to your taglib directory<br></p>
+
+<p>Add a new <code>&lt;tag&gt;</code> declaration to your
+<code>xml/{taglib-name}.xml</code>.<br></p>
+
+<p>Develop the necessary java source code files required to implement
+the new tag.<br></p>
+
+<p>Create some static html and jsp pages in the 
+<code>examples/web/</code> to test the new tag.
+The first line in your example jsp pages must declare the
+xml doctype using something similar to this:
+<code>&lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"&gt;</code>.
+The build of the examples war file will automatically create an
+html file for each example jsp file. You can put a link in your
+static html or jsp files to the html file generated from the jsp
+source to add a view source link. For example, the file foo.jsp
+would have a corresponding foo.html file generated.<br></p>
+</td></tr></table>
+
+<a name="Building"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Building the tag library</strong></font></td></tr><tr><td>
+
+<p>Change your directory (cd) to your taglib directory<br></p>
+
+<p>Refer to the <a href="sourcedist.html">Using the JAKARTA-TAGLIBS Source Distribution</a>
+documentation for information on how to build tag libraries using Ant.<br></p>
+</td></tr></table>
+
+<a name="Addtaglib"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Adding the tag library to the jakarta-taglibs repository</strong></font></td></tr><tr><td>
+
+<p>If you don't have commit privileges for jakarta-taglibs,
+create a zip file of the taglib source and the committer sponsoring your
+project will add it to the sandbox.
+<br></p>
+
+<p>If you have commit privileges, use CVS to add, then commit
+the new taglib directories and files.  For more information
+on using CVS for the jakarta-taglibs repository please see
+the section Full Remote CVS Access in the
+<a href="http://jakarta.apache.org/site/cvsindex.html">
+Using CVS</a> document.<br></p>
+</td></tr></table>
+
+<a name="Publish"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Publishing the tag library to http://jakarta.apache.org/taglibs/</strong></font></td></tr><tr><td>
+
+<p>Change directory (cd) to the the <code>jakarta-taglibs</code> directory.<br></p>
+
+<p>Edit the <code>src/doc/index.xml</code> file.
+<ul>
+Add a <code>&lt;newsitem&gt;</code> to the top of the <code>&lt;news&gt;</code>
+section of the document announcing the new taglib.
+<pre>
+&lt;!-- Example news item
+     &lt;newsitem date="05/19/2001" libname="MyTaglib"&gt;
+       The new cool MyTaglib has been added.
+     &lt;/newsitem&gt;
+--&gt;
+</pre>
+</ul>
+<br></p>
+
+<p>Edit your <code>{taglib-name}/xml/intro.xml</code> and add a
+<code>&lt;newsitem&gt;</code> to the <code>&lt;news&gt;</code> section announcing
+the new tag library.<br></p>
+
+<p>Edit <code>src/doc/project.xml</code>.  For a tag library, add a new
+<code>&lt;item&gt;</code> to the <code>&lt;menu&gt;</code> for "Individual Tag Libraries".
+For a ctlx, add a new <code>&lt;item&gt;</code> to the <code>&lt;menu&gt;</code> for
+"Custom Tag Library Extensions".<br></p>
+
+<p>Edit the jakarta-taglibs build.xml.
+<ul>
+Add a <code>&lt;target&gt;</code> to build the new taglib or ctlx.
+<pre>
+&lt;!-- Example taglib target
+  &lt;target name="log"&gt;
+    &lt;ant dir="./log" target="dist"/&gt;
+  &lt;/target&gt;
+--&gt;
+
+&lt;!-- Example ctlx target
+  &lt;target name="ultradev4"&gt;
+    &lt;ant dir="./tools/UltraDev/4.0/ctlx" target="dist"/&gt;
+  &lt;/target&gt;
+--&gt;
+</pre>
+Add <code>{taglib-name}</code> to the depends attribute of the
+<code>&lt;target&gt;</code> with name "dist" near the bottom of the file.
+</ul>
+<br></p>
+
+<p>Do a test distribution build of all the jakarta-taglibs doing an
+<code>ant dist</code> build in the main jakarta-taglibs directory.<br></p>
+
+<p>Generate the Jakarta web site pages by doing an <code>ant compile.documentation</code>
+build in the main jakarta-taglibs directory.<br></p>
+
+<p>The web pages which would be published to the jakarta site for the taglib
+or ctlx will be found in <code>build/{taglib-name}/{taglib-name}-doc/</code>.<br></p>
+
+<p>Once you have confirmed that everything builds correctly you can
+commit all these changes to the jakarta-taglibs CVS repository.<br></p>
+
+<p>At this point the development state of the taglib is still develop.<br></p>
+
+<p>Now that the taglib has been added to jakarta-taglibs information
+about the taglib will be made available at http://jakarta.apache.org/
+following the nightly jakarta-taglibs build.<br></p>
+
+<p>Each night a script runs which will update the following information
+at http://jakarta.apache.org/:
+<ul>
+<li>The main http://jakarta.apache.org/taglibs page will display
+your newsitem and hava a link to the taglib on its left
+navigation bar.</li>
+<li>Information about this taglib will be available at
+http://jakarta.apache.org/taglibs/doc/{taglib-name}-doc/</li>
+<li>The documentation for the taglib development version will be at:
+http://jakarta.apache.org/taglibs/doc/{taglib-name}-doc/nightly/</li>
+<li>Nightly builds of the taglib binary distribution will be available at:
+http://jakarta.apache.org/builds/jakarta-taglibs/nightly/projects/{taglib-name}
+This is a binary snapshot of the current main development branch of
+the taglib.</li>
+<li>The taglib main development branch will also be included in the nightly
+snapshot builds of the jakarta-taglibs source and binary distributions.</li>
+<ul>
+<li>http://jakarta.apache.org/builds/jakarta-taglibs/nightly/</li>
+<li>http://jakarta.apache.org/builds/jakarta-taglibs/nightly/src/</li>
+</ul>
+</ul>
+<br></p>
+</td></tr></table>
+
+<a name="Milestone"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Publishing a milestone release</strong></font></td></tr><tr><td>
+
+<p>See the HOWTO-RELEASE text file for information about when to
+do a milestone release.<br></p>
+
+<p>If the taglib design is fully implemented, you can skip this
+step and go right to Publishing a beta release.<br></p>
+
+<p>Propose to the taglibs-dev list that a milestone release be
+published.  Once approved by the jakarta-taglib committers
+you can perform the milestone release.<br></p>
+
+<p>Determine the major, minor, and milestone release numbers
+for the taglib. Milestone releases start at 1 and are incremented
+for each subsequent milestone release.<br></p>
+
+<p>The <code>{release-name}</code> will be
+<code>{taglib-name}-{major}.{minor}-M{milestone-number}</code>.<br></p>
+
+<p>The filenames for this release will be
+<code>jakarta-taglibs-{release-name}.zip</code> and
+<code>jakarta-taglibs-{release-name}.tar.gz</code>.<br></p>
+
+<p>Update the jakarta web site by editing <code>src/doc/index.xml</code>:
+<ul>
+<li>Add a <code>&lt;newsitem&gt;</code> announcing the milestone release.</li>
+</ul>
+<br></p>
+
+<p>Update your jakarta web site documentation by editing
+<code>{taglib-name}/xml/intro.xml</code>:
+<ul>
+<li>Add a <code>&lt;newsitem&gt;</code> announcing the milestone release.</li>
+<li>Uncomment the area in the Download section for downloading
+a release of {taglib-name} Tag Library.</li>
+<li>Uncomment the area in the Documentation section for viewing
+the release documentation of {taglib-name} Tag Library.</li>
+</ul>
+<br></p>
+
+<p>Update the &lt;revision&gt; section of your xml/{taglib-name}.xml
+file so that the changes.html file for your taglib is up to date.<br></p>
+
+<p>Make sure you have committed all your {taglib-name} and
+jakarta-taglibs changes to CVS.<br></p>
+
+<p>Create a branch of the {taglib-name} source in CVS:
+<ul>
+<li>Change directory (cd) to <code>jakarta-taglibs/{taglib-name}/</code>
+<code>cvs tag -b {taglib-name}-{major}-{minor}-M{milestone-number}</code>.</li>
+<li>Your local copy of the <code>jakarta-taglibs/{taglib-name}/</code> will 
+still be set to the main development branch of your taglib.</li>
+</ul>
+<br></p>
+
+<p>Send an email to the taglibs-dev list requesting that the
+Jakarta-Taglibs Project release manager perform the
+tag library or CTLX milestone release.<br></p>
+
+<p>The documentation for the taglib release will be at:
+http://jakarta.apache.org/taglibs/doc/{taglib-name}-doc/{release-name}/<br></p>
+
+<p>The taglib release will be available for download at:
+http://www.apache.org/dist/jakarta/taglibs/{taglib-name}/
+<br></p>
+</td></tr></table>
+
+<a name="Beta"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Publishing a beta release</strong></font></td></tr><tr><td>
+
+<p>See the HOWTO-RELEASE text file for information about when to
+do a beta release.<br></p>
+
+<p>Propose to the taglibs-dev list that a beta release be
+published.  Once approved by the jakarta-taglib committers
+you can perform the beta release.<br></p>
+
+<p>Determine the major, minor, bug fix, and beta release numbers
+for the taglib. Beta releases start at 1 and are incremented
+for each subsequent beta release.<br></p>
+
+<p>The <code>{release-name}</code> will be
+<code>{taglib-name}-{major}.{minor}.{bug-fix}-B{beta-number}</code>.<br></p>
+
+<p>The filenames for this release will be
+<code>jakarta-taglibs-{release-name}.zip</code> and 
+<code>jakarta-taglibs-{release-name}.tar.gz</code>.<br></p>
+
+<p>Update the jakarta web site by editing <code>src/doc/index.xml</code>:
+<ul>
+<li>Add a <code>&lt;newsitem&gt;</code> announcing the beta release.</li>
+</ul>
+<br></p>
+
+<p>Update your jakarta web site documentation by editing
+<code>{taglib-name}/xml/intro.xml</code>:
+<ul>
+<li>Add a <code>&lt;newsitem&gt;</code> announcing the beta release.</li>
+<li>Uncomment the area in the Download section for downloading
+a release of {taglib-name} Tag Library.</li>
+<li>Uncomment the area in the Documentation section for viewing
+the release documentation of {taglib-name} Tag Library.</li>
+</ul>
+<br></p>
+
+<p>Update the &lt;revision&gt; section of your xml/{taglib-name}.xml
+file so that the changes.html file for your taglib is up to date.<br></p>
+
+<p>Make sure you have committed all your {taglib-name} and
+jakarta-taglibs changes to CVS.<br></p> 
+
+<p>Create a branch of the {taglib-name} source in CVS:
+<ul>
+<li>Change directory (cd) to <code>jakarta-taglibs/{taglib-name}/</code>
+<code>cvs tag -b {taglib-name}-{major}-{minor}-{bug-fix}-B{beta-number}</code>.</li>
+<li>Your local copy of the <code>jakarta-taglibs/{taglib-name}/</code> will
+still be set to the main development branch of your taglib.</li>
+</ul>
+<br></p>
+
+<p>Send an email to the taglibs-dev list requesting that the
+Jakarta-Taglibs Project release manager perform the
+tag library or CTLX beta release.<br></p>
+
+<p>The documentation for the taglib release will be at:
+http://jakarta.apache.org/taglibs/doc/{taglib-name}-doc/{release-name}/<br></p>
+
+<p>The taglib release will be available for download at:
+http://www.apache.org/dist/jakarta/taglibs/{taglib-name}/
+<br></p>
+</td></tr></table>
+
+<a name="Release"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Publishing an official release</strong></font></td></tr><tr><td>
+
+<p>See the HOWTO-RELEASE text file for information about when to
+do an official release.<br></p>
+
+<p>Propose to the taglibs-dev list that an official release be
+published.  Once approved by the jakarta-taglib committers
+you can perform the release.<br></p>
+
+<p>Determine the major, minor, bug fix release numbers
+for the taglib.<br></p>
+
+<p>The <code>{release-name}</code> will be
+<code>{taglib-name}-{major}.{minor}.{bug-fix}</code>.<br></p>
+
+<p>The filenames for this release will be
+<code>jakarta-taglibs-{release-name}.zip</code> and 
+<code>jakarta-taglibs-{release-name}.tar.gz</code>.<br></p>
+
+<p>Update the jakarta web site by editing <code>src/doc/index.xml</code>:
+<ul>
+<li>Add a <code>&lt;newsitem&gt;</code> announcing the release.</li>
+</ul>
+<br></p>
+
+<p>Update your jakarta web site documentation by editing
+<code>{taglib-name}/xml/intro.xml</code>:
+<ul>
+<li>Add a <code>&lt;newsitem&gt;</code> announcing the official release.</li>
+<li>Uncomment the area in the Download section for downloading
+a release of {taglib-name} Tag Library.</li>
+<li>Uncomment the area in the Documentation section for viewing
+the release documentation of {taglib-name} Tag Library.</li>
+</ul>
+<br></p>
+
+<p>Update the &lt;revision&gt; section of your xml/{taglib-name}.xml
+file so that the changes.html file for your taglib is up to date.<br></p>
+
+<p>Make sure you have committed all your {taglib-name} and
+jakarta-taglibs changes to CVS.<br></p>
+
+<p>Create a branch of the {taglib-name} source in CVS:
+<ul>
+<li>Change directory (cd) to <code>jakarta-taglibs/{taglib-name}/</code>
+<code>cvs tag -b {taglib-name}-{major}-{minor}-{bug-fix}</code>.</li>
+<li>Your local copy of the <code>jakarta-taglibs/{taglib-name}/</code> will
+still be set to the main development branch of your taglib.</li>
+</ul>
+<br></p>
+
+<p>Send an email to the taglibs-dev list requesting that the
+Jakarta-Taglibs Project release manager perform the
+tag library or CTLX release.<br></p>
+
+<p>The documentation for the taglib release will be at:
+http://jakarta.apache.org/taglibs/doc/{taglib-name}-doc/{release-name}/<br></p>
+
+<p>The taglib release will be available for download at:
+http://www.apache.org/dist/jakarta/taglibs/{taglib-name}/
+<br></p>
+</td></tr></table>
+
+<a name="manager"></a><table width="100%" cellpadding="5" cellspacing="5" border="0"><tr><td bgcolor="#023264"><font size="+1" face="arial,helvetica,sanserif" color="#ffffff"><strong>Release Manager Actions</strong></font></td></tr><tr><td>
+<p>Prerequisites:
+<ul>
+<li>The jakarta-taglibs committer performing a release must have
+a shell account on the apache web server.</li>
+<li>The jakarta-taglibs committer performing a release must have
+a PGP key for signing the release. See
+<a href="http://www.apache.org/dist/jakarta/taglibs/KEYS">
+http://www.apache.org/dist/jakarta/taglibs/KEYS</a></li>
+<li>Please add any knew pgp keys to the jakarta-taglibs CVS repository
+<code>src/site/builds/releases/KEYS</code> file.</li>
+<li>Publish the new KEYS file to the
+<code>/www/www.apache.org/dist/jakarta/taglibs</code> directory on
+daedalus.</li>
+</ul>
+<br></p>
+
+<p>Building a release:
+<ul>
+<li>This works for any taglib that uses the common taglib ant build. If the
+taglib does not use this, you are on your own.</li>
+<li>Checkout a clean copy of jakarta-taglibs from CVS:
+  <code>cvs co jakarta-taglibs</code>.</li>
+<li>cd to the directory for the taglib being released: 
+  <code>cd jakarta-taglibs/{taglib-name}</code>.</li>
+<li>Use ant to build the release distribution passing in the release version:
+  <code>ant -Drelease={release-version} -Ddist.dir=../dist/jakarta-taglibs release</code>.</li>
+<li>Sign the tar.gz and zip files for the taglib release found in the dist directory.</li>
+</ul>
+<br></p>
+
+<p>Publishing the release:
+<ul>
+<li>Publish the release documentation found in the dist dir to the
+http://jakarta.apache.org/ webiste location identified for the release.
+Make sure the group write bit is set for all directories and files.</li>
+<li>Publish the release distributions to the http://www.apache.org/ website
+  <ul>
+  <li>Publish the distributions and .asc files found in the dist dir to the
+      <code>/www/www.apache.org/dist/jakarta/taglibs/{taglib-name}/binaries</code>
+      directory on daedalus. Make sure the group write bit is set for all
+      directories and files.</li>
+  <li>Change directory <code>cd</code> to the
+      <code>/www/www.apache.org/dist/jakarta/taglibs/{taglib-name}</code>
+      directory on daedalus. Remove the soft links to any previous versions
+      and recreate the soft link to all the files in the
+      <code>binaries</code> directory using <code>current</code> as the version.
+      <code>ln -s binaries/jakarta-taglibs-application-1.0.1.zip jakarta-taglibs-application-current.zip</code></li>
+  <li>Remove any old release distributions no longer needed. Remove any soft
+      links for any old release distributions, then remove the distributions from
+      the <code>binaries</code> directory.</li>
+  </ul>
+</li>
+<li>Announce the release to announcements@jakarta.apache.org,
+taglibs-user@jakarta.apache.org, and taglibs-dev@jakarta.apache.org.</li>
+</ul>
+<br></p>
+
+</td></tr></table>
+
+  </body></td></tr><tr><td colspan="2"><hr></td></tr><tr><td colspan="2"><div align="center"><font size="-1" color="#023264"><em>
+        Copyright &copy; 2000, Apache Software Foundation
+        </em></font></div></td></tr></table></body></html>

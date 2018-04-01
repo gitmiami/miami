@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=shift_jis">
+<title>XML=>JSONデータ表示</title>
+<script type="text/javascript" src="../lib/jkl/jkl-parsexml.js"></script>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function jklFunc(){
+	var emp_no, emp_name;
+  var view = "<table width='300' border='1'><tbody>"
+  + "<tr><th>従業員番号</th><th>氏名</th><th>所属</th></tr>";
+  var xhr = new JKL.ParseXML("employee.xml"); // JKL.ParseXMLオブジェクトを生成
+  var resp = xhr.parse();                    	// ダウンロード〜解析する
+	for(var i = 0; i < resp.empmas.employee.length; i++){
+    var emp_no  = resp.empmas.employee[i].emp_no;
+    var emp_name= resp.empmas.employee[i].emp_name;
+    var section= resp.empmas.employee[i].section;
+    view+="<tr><td>"+emp_no+"</td><td>"+emp_name+"</td><td>"+section+"</td></tr>";
+  }
+  view += "</tbody></table>";
+  document.getElementById("view").innerHTML = view;
+}
+function initOnLoad(){
+	var target = document.getElementById("sel");
+  setListener(target, "click", jklFunc);
+}
+setListener(window, "load", initOnLoad) ;
+//]]>
+</script>
+</head>
+<body>
+<center>
+<h3>従業員番号から氏名表示
+<input type="button" id="sel" value=" 表 示 "/>
+</h3>
+<div id="view"></div>
+</center>
+</body>
+</html>
+

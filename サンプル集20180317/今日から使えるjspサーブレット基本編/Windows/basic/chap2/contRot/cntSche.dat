@@ -1,0 +1,21 @@
+%%#30
+body{
+	background:url(galaxy.jpg);
+	font-size:12pt;
+	font-family:OCR A Extended;
+	color:#f0f8ff;
+}
+%%#20
+body{
+	background:#ffffff;
+	font-size:12pt;
+	font-family:‚c‚ePOP‘Ì,HG‘n‰pŠpÎß¯Ìß‘Ì;
+	color:#2F4F4F;
+}
+%%#50
+body{
+	font-size:12pt;
+	background:url(sumie.jpg);
+	font-family:HG³²‘‘Ì-PRO,‚l‚r –¾’©,×–¾’©‘Ì;
+	color:#006666;
+}

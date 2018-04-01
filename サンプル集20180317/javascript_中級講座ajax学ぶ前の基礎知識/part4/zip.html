@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    var address = '';
+    // 親ウィンドウから郵便番号を得る
+    var zip = window.opener.document.address_form.zip.value;
+    // 郵便番号から住所を得る
+    if (zip == "1000003") {
+        address = "東京都千代田区一ツ橋";
+    }
+    else if (zip == "1000004") {
+        address = "東京都千代田区大手町";
+    }
+    else if (zip == "1000005") {
+        address = "東京都千代田区丸の内";
+    }
+    else {
+        alert("郵便番号に合う住所が見つかりませんでした");
+    }
+    // このウィンドウのフォームに郵便番号と住所を表示
+    document.search_result.zip.value = zip;
+    document.search_result.address.value = address;
+};
+
+function submitForm() {
+    // 親ウィンドウの住所の欄に、検索結果を入力
+    window.opener.document.address_form.address.value
+        = document.search_result.address.value;
+    // 親ウィンドウにフォーカスを移す
+    window.opener.focus();
+    // このウィンドウを閉じる
+    window.close();
+}
+//]]>
+</script>
+<title>郵便番号で検索</title>
+</head>
+<body>
+<form name="search_result" onsubmit="submitForm();">
+<p>
+郵便番号 <input type="text" name="zip" value="" /><br />
+住所 <input type="text" name="address" size="30" value="" /><br />
+<input type="submit" value="送信" /> <input type="button" value="キャンセル" onclick="window.close();" />
+</p>
+</form>
+</body>
+</html>

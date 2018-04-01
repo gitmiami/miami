@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List14-2</title>
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript">
+
+Event.observe(window, "load", function(){
+    Event.observe("btn", "click", function(){
+        Element.update($("answerText"), "赤・緑・青");
+    }, false);
+}, false);
+</script>
+</head>
+
+<body>
+<p>光の三原色は？</p>
+<form>
+    <input id="btn" type="button" value="答えを見る"/>
+</form>
+<p id="answerText">ボタンをクリックすると答えを表示します。</p>
+</body>
+</html>

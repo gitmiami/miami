@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List7-3</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+<!--
+
+function dispList(m) {
+    m[0] = "田中";                      //①
+    document.write(m[0] + "<br>");
+}
+
+var member = new Array("佐藤", "鈴木");
+
+dispList(member);                       //②
+document.write(member[0]);              //③
+
+//-->
+</script>
+</p>
+</body>
+</html>

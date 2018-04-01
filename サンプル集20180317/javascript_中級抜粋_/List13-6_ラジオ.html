@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>List13-6</title>
+    <script>
+    function output(){
+      var area = document.getElementById("outputArea");
+      
+      for(var i=0; i<document.formName.choice.length;i++){
+        if(document.formName.choice[i].checked){
+          var selected = document.formName.choice[i].value;
+          area.innerHTML = selected + "が選択されました。";
+        } 
+      }
+      
+    }
+    </script>
+  </head>
+  <body>
+  <form name="formName">
+      <div id="radioArea"  onchange=output();>
+        <input type="radio" name="choice" value="animal">動物
+        <input type="radio" name="choice" value="fish">魚
+      </div>
+     	 <div id="outputArea">
+      </div>
+  </form>
+  </body>
+</html>

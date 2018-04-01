@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Ž{Ý—\–ñ</title>
+<script language="JavaScript">
+<!--
+var wkD=new Array("“ú","ŒŽ","‰Î","…","–Ø","‹à","“y");
+function fmt(){
+	document.fm.yr.value=(new Date()).getFullYear();
+	document.fm.mon.value=(new Date()).getMonth()+1;
+	document.fm.dy.value=(new Date()).getDate();
+	document.fm.dat.value=wkD[(new Date()).getDay()];
+}
+function chg(){
+	var tmpDate=new Date(document.fm.yr.value,document.fm.mon.value-1,document.fm.dy.value);
+	document.fm.dat.value=wkD[tmpDate.getDay()];
+}
+//-->
+</script>
+</head>
+<body onLoad="fmt()">
+<h1>Ž{Ý—\–ñ</h1>
+<form method="POST" action="/advanced/servlet/facility.fac_faci"
+	target="down" name="fm">
+	“ú•tŽw’è:
+	<input type="text" name="yr" size="4" maxlength="4"
+		style="ime-mode:disabled;" onchange="chg()" />”N
+	<input type="text" name="mon" size="2" maxlength="2"
+		style="ime-mode:disabled;" onchange="chg()" />ŒŽ
+	<input type="text" name="dy" size="2" maxlength="2"
+		style="ime-mode:disabled;" onchange="chg()" />“ú
+	<input type="text" name="dat" size="2" maxlength="2" ReadOnly />—j“ú
+	<input type="submit" value="—\–ñó‹µ‚ðŒ©‚é" />
+</form>
+</body>
+</html>

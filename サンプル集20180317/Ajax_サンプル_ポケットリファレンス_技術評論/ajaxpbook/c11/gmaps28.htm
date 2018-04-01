@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+<!-- Ajax簡易ライブラリ jslb_ajax.js -->
+<script type="text/javascript" src = "../../lib/jslb_ajax.js"
+charset  = "utf-8"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  //GLatLngクラスで日本測地系座標を使いたい時用代替クラス
+  //=========================================================================
+  ////
+  // GLatLng_tky
+  // Google Maps API v2用日本測地系座標をGLatLngクラスで使いたい時用
+  //
+  //日本測地系座標を使いたい時は、GLatLngクラスの代わりに下記GLatLng_tkyを使用します。
+  //世界測地系(wgs84)の座標を使うときは不要です
+  GLatLng_tky = function (la,ln){
+  var lat = la - la * 0.00010695  + ln * 0.000017464 + 0.0046017;
+  var lng = ln - la * 0.000046038 - ln * 0.000083043 + 0.010040;
+  return new GLatLng(lat,lng);
+  }
+  var map = new GMap2(document.getElementById("map"));
+  map.setCenter(new GLatLng_tky(35.6815617, 139.7672091), 17);
+  map.addControl(new GLargeMapControl());
+  //マーカーを表示する
+  function createMarker(point,oj) {
+  var marker = new GMarker(point);
+  map.addOverlay(marker);
+  var ken = oj.options[oj.selectedIndex].text
+  GEvent.addListener(marker, "click", function() {
+  marker.openInfoWindowHtml(ken+"庁です");
+  });
+  }
+  //選択時の処理--該当座標の地図を表示する
+  function handleSelected(oj) { 
+  if (oj.selectedIndex != 0) { 
+  point = oj.options[oj.selectedIndex].value
+  point = point.split(',')
+  map.panTo(new GLatLng_tky(point[1],point[0]), 0); 
+  createMarker(new GLatLng_tky(point[1],point[0]),oj)
+  } 
+  } 
+  //セレクトタグ生成用処理
+  // 都道府県庁座標データをAjaxライブラリからリクエスト
+  //
+  sendRequest(on_loaded1,'','POST','./ken.csv',true,true)
+  //コールバック関数 ( 受信時に実行されます )
+  function on_loaded1(oj)
+  {
+  //レスポンスを取得
+  var text = oj.responseText
+  //改行コードで分離して行配列を作ります
+  var kens = text.split('\r').join('').split('\n')
+  //セレクトタグを作ります
+  htm = '<select name="id" onChange="handleSelected(this)">\n';
+  htm +=  '<option value="0"selected>都道府県を選んでください--都道府県庁を表示します</option> \n';
+  //1行ずつ順番に処理します
+  for (var i = 0; i < kens.length; i++) {
+  //カンマ(,)で区切って配列を作ります
+  // (CSVは、県名,経度,緯度の順に入っています)
+  rows = kens[i].split(',')
+  //OPTIONの属性にデータを書き込みます
+  htm += '  <option value="'+rows[1]+','+rows[2]+'">'+rows[0]+'</option>\n' ;
+  }
+  htm += '</select> ';
+  //セレクトタグを出力
+  document.getElementById('sel').innerHTML=htm
+  }
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<!-- セレクトタグ用 -->
+<div id="sel"></div>
+<!-- 地図用 -->
+<div id="map" style="width: 500px; height: 400px"></div>
+</body>
+</html>

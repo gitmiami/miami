@@ -1,0 +1,4 @@
+msg.title=リリース：MSXMLパーサXの新機能
+msg.author=山田祥寛
+msg.date=2002/11/01
+msg.body=<p>2002年11月にリリースされたMSXMLパーサXは以下のような新しい機能を実装しています。</p><ol><li>XSLTとxPath、SAX2の完全実装</li><li>サーバサイドでのHTTP通信機能の実装</li><li>DOM(Document Object Model)および名前空間サポートの向上</li><li>パフォーマンスの改善</li></ol><p>MSXMLパーサXはよりW3Cの標準仕様に準拠しつつ、広範なXML総合モジュールとしての色合いを強くしつつあります。</p>

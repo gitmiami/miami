@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>JSONPを使った受信</title>
+</head>
+<body>
+<script type="text/javascript" src="jsr_class.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var jObj;
+
+// デベロッパーID
+var devId = "0123456789abcdef0123456789abcdef";
+// アフィリエイトID
+var affId = "01234567.89abcdef.01234567.89abcdef";
+
+var devId = "07e4ee1bdd7145cd36026b3afb823506";
+var affId = "04180604.13041cab.04180605.db4fb30f";
+
+function getRakuten() {
+    // 結果の表示先に「しばらくお待ちください」と表示する
+    document.getElementById("result").innerHTML = "<p>しばらくお待ちください...</p>";
+    // 通信先のURLを作る
+    var url = "http://api.rakuten.co.jp/rws/1.7/json";
+    url += "?developerId=" + devId;
+    url += "&affiliateId=" + affId;
+    url += "&operation=ItemSearch";
+    url += "&version=2007-04-11";
+    url += "&keyword=" + encodeURIComponent(document.jsonp.keyword.value);
+    url += "&field=0";
+    url += "&sort=%2BitemPrice";
+    url += "&callBack=showResult";
+    // JSONPで通信して結果のJavaScriptを追加する
+    jObj = new JSONscriptRequest(url);
+    jObj.buildScriptTag();
+    jObj.addScriptTag();
+}
+
+function showResult(data) {
+    var i, html;
+
+    if (data.Header.Status != "Success") {
+        // エラーの場合
+        document.getElementById("result").innerHTML = '<p>以下のエラーが発生しました。<br />' + data.Header.StatusMsg + '</p>';
+        // JSONPを削除する
+        jObj.removeScriptTag();
+        return;
+    }
+    // 商品の配列を得る
+    var items = data.Body.ItemSearch.Items.Item;
+    html = '<table><col width="70" />';
+    // すべての商品を順に繰り返す
+    for (i = 0; i < items.length; i++) {
+        // 個々の商品の情報を得る
+        var item = items[i];
+        html += '<tr>';
+        // 商品の画像があれば、それを出力し、その部分をアフィリエイト用のリンクにする
+        html += '<td style="vertical-align : top;">';
+        if (item.imageFlag) {
+            html += '<a href="' + item.affiliateUrl + '"><img src="' + item.smallImageUrl + '" alt="' + item.itemName + '" /></a>';
+        }
+        else {
+            html + '&nbsp;';
+        }
+        html += '</td>';
+        // 商品名を出力し、その部分をアフィリエイト用のリンクにする
+        html += '<td style="vertical-align : top;">';
+        html += '<a href="' + item.affiliateUrl + '">' + item.itemName + "</a><br />";
+
+        //値段と販売店の情報を出力する
+        html += '値段 : ' + item.itemPrice + '円<br />';
+        html += '販売店 : <a href="' + item.shopUrl + '">' + item.shopName + '</a><br />';
+        // 商品説明が100文字以上ある場合は、100文字より後を切り取る
+        if (item.itemCaption.length > 100) {
+            item.itemCaption = item.itemCaption.substr(0, 100) + " ...";
+        }
+        // 商品説明を出力する
+        html += item.itemCaption;
+        html += '</td></tr>';
+    }
+    html += '</table>';
+    // 結果のHTMLを、IDが「result」のdiv要素に流し込む
+    document.getElementById("result").innerHTML = html;
+    // JSONPを削除する
+    jObj.removeScriptTag();
+}
+//]]>
+</script>
+</body>
+<form name="jsonp" id="jsonp" action="" method="get" >
+<p>
+キーワード <input type="text" name="keyword" size="30" /><br />
+</p>
+<p>
+<input type="button" value="送信" onclick="getRakuten();" />
+</p>
+</form>
+<p>通信結果</p>
+<div id="result"></div>
+</body>
+</html>

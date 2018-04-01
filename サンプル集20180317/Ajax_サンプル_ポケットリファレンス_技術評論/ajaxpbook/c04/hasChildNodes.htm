@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DOMノード操作</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function domFunc(){
+  var nodes = document.getElementsByTagName("td");
+	for(var i = 0; i < nodes.length; i++){
+		if(nodes[i].hasChildNodes){
+			alert("子ノードがあります");
+		}else{
+			alert("子ノードがありせん");
+		}
+	}	 
+}
+function initOnLoad(){
+  var observer = document.getElementById("sel");
+  setListener(observer, "click", domFunc);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<div align="center">
+  <h3>従業員番号から氏名表示<input type="button" id="sel" value="　実行　"/></h3>
+  <table>
+    <tbody>
+      <tr>
+        <td>従業員番号:<input type="text" size="10" id="emp_no" /></td>
+        <td>従業員氏名:<input type="text" size="14" id="emp_name" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr />
+<center>
+<h3>hasChildNodesメソッド</h3>
+<div id="view"></div>
+</center>
+</body>
+</html>
+

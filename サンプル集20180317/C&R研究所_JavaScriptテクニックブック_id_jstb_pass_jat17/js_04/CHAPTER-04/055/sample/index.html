@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>JavaScript Sample</title>
+		<link rel="stylesheet" type="text/css" href="main.css" media="all">
+		<script type="text/javascript" src="prototype.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body>
+		JavaScriptによって指定した画像にアクセスし、ボタンをクリックすることで画像を入れ替えます。
+		<form action="./check.cgi" method="get" name="mainForm">
+			<input type="button" id="setButton" value="画像を変更">
+		</form>
+		<div>
+			<img src="images/01.jpg" name="photo1"> images配列でアクセス(参照番号を指定)<br>
+			<img src="images/01.jpg" name="photo2"> images配列でアクセス(name属性を指定)<br>
+			<img src="images/01.jpg" id="photo"> document.getElementById()でアクセス(id属性を指定)<br>
+			<img src="images/01.jpg" class="HDV"> prototype.jsでアクセス(class属性を指定)<br>
+		</div>
+		<div id="photoAlbum">
+			<img src="images/01.jpg"> getElementsByTagName()でアクセス<br>
+			<img src="images/01.jpg" class="HDV"> prototype.jsでアクセス(class属性を指定)<br>
+		</div>
+	</body>
+</html>

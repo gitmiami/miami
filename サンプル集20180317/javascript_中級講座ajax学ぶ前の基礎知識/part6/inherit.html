@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>継承</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+//<![CDATA[
+// Bookオブジェクトのコンストラクタ
+function Book(title, author) {
+    // 題名と著者の情報をtitle／authorプロパティに代入
+    this.title = title;
+    this.author = author;
+}
+
+// 書籍の情報を出力するメソッド
+Book.prototype.showInfo = function() {
+    document.write("題名 = " + this.title + "<br />\n著者 = " + this.author);
+};
+
+// AmazonBookオブジェクトのコンストラクタ
+function AmazonBook(title, author, asin, thumbnailURL) {
+    // 基底オブジェクトのコンストラクタを呼び出す
+    Book.apply(this, [title, author]);
+    // ASINとサムネールのURLの情報を、asin／thumbnailURLプロパティに代入
+    this.asin = asin;
+    this.thumbnailURL = thumbnailURL;
+}
+
+// 基底オブジェクトのprototypeプロパティを派生オブジェクトにコピーする
+function inherit(base, derive) {
+    for (p in base.prototype) {
+        derive.prototype[p] = base.prototype[p];
+    }
+}
+
+// BookオブジェクトのprototypeをAmazonBookオブジェクトに継承する
+inherit(Book, AmazonBook);
+
+// showInfoメソッドを再定義する
+AmazonBook.prototype.showInfo = function() {
+    // BookオブジェクトのshowInfoメソッドを利用して、題名と著者の情報を出力する
+    Book.prototype.showInfo.apply(this, []);
+    // ASINとサムネールの情報を出力する
+    document.write("<br />\nASIN = " + this.asin + "<br />\nサムネール = " + this.thumbnailURL);
+};
+
+b = new AmazonBook(
+    "ブログ簡単パワーアップ Movable Type スーパーカスタマイズテクニック", 
+    "藤本　壱",
+    "4774125660",
+    "http://g-ec2.images-amazon.com/images/I/31QR2Q54C2L.jpg"
+);
+b.showInfo();
+//]]>
+</script>
+</p>
+</body>
+</html>

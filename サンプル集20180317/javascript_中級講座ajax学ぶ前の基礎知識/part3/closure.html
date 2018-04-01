@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>無題ドキュメント</title>
+</head>
+
+<body>
+<script type="text/javascript">
+//<![CDATA[
+function initCounter() {
+    // カウンタを保持する変数を宣言
+    var count = 0;
+    // 「変数countの値を1増やして、その値を返す」という関数を返す
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+// カウンタを作成する
+var ct = initCounter();
+// カウンタを1増やしてその値を表示する
+document.write("ct = " + ct() + "<br />");
+// カウンタを1増やしてその値を表示する
+document.write("ct = " + ct() + "<br />");
+//]]>
+</script>
+</body>
+</html>

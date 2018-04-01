@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>script.aculo.us ソータブル</title>
+<style type="text/css" media="screen">
+<!--
+  #list1  { width:250px; padding: 2px; background:#c03;}
+  #list1 li { background: #ffb; margin:2px; padding: 2px; }
+  #list2  { width:250px; padding: 2px; background:#c03;}
+  #list2 li { background: #ffb; margin:2px; padding: 2px; }
+  #inlist1  { width: 200px; padding: 2px; background:#c03;}
+  #inlist1 li { background: #ffb; margin:2px; padding: 2px; }
+  #inlist2  { width: 200px; padding: 2px; background:#c03;}
+  #inlist2 li { background: #ffb; margin:2px; padding: 2px; }
+  #inlist3  { width: 200px; padding: 2px; background:#c03;}
+  #inlist3 li { background: #ffb; margin:2px; padding: 2px; }
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../lib/unittest.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+function initOnLoad(){
+	Sortable.create("list1");
+	Sortable.create("list2", { tree:true });
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>script.aculo.us ソータブル</h2>
+<ul id="list1">
+<li>総面積</li>
+<li>総人口</li>
+<li>ＧＮＰ</li>
+</ul>
+<ul id="list2">
+<li>北関東<ul id="inlist1"><li>群馬</li><li>栃木</li><li>茨城</li></ul></li>
+<li>東京都<ul id="inlist2"><li>東京北部</li><li>東京南部</li></ul></li>
+<li>東京近県<ul id="inlist3"><li>埼玉</li><li>千葉</li><li>神奈川</li></ul></li>
+</ul>
+</body>
+</html>
+

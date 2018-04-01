@@ -1,0 +1,58 @@
+<?xml version="1.0" encoging="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>チェックボックス</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var chkcum = new Array();
+var checks = new Array();
+function check(e){
+  var xhrObj = getXhrObj();
+  var eid =getid(e);
+  if(eid != "confirm"){
+    chkcum.push(eid);
+    document.getElementById("result1").innerText = eid;
+    document.getElementById("result2").innerHTML = chkcum;
+  }else{
+    for(var i = 0; i < chkcum.length; i++){
+      if(document.getElementById(chkcum[i]).checked == true)
+        checks.push(chkcum[i]);
+  	}
+  xhrObj.open("post", "checkXhr2.php", false);
+  xhrObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhrObj.send("checks="+checks);
+  var resp = xhrObj.responseText;
+  document.getElementById("result3").innerHTML = resp;
+  }
+}
+function initOnLoad(){
+  var target = document.getElementById("pc");
+  addListener(target, "click", check);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<p id="pc">
+  <input type="checkbox" name="parts" id="A0001" />A0001
+  <input type="checkbox" name="parts" id="A0002" />A0002
+  <input type="checkbox" name="parts" id="A0003" />A0003
+  <input type="checkbox" name="parts" id="A0004" />A0004
+  <input type="checkbox" name="parts" id="A0005" />A0005
+  <br /><br />
+  <input type="button" id="confirm" value="受信確認" />
+</p><hr />
+<table>
+  <tr><td>選択確認</td><td id="result1"></td></tr>
+  <tr><td>選択累積</td><td id="result2"></td></tr>
+  <tr><td>受信確認</td><td id="result3"></td></tr>
+</table>
+</body>
+</html>
+

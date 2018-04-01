@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<title>script.aculo.us ドラッガブル </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<style type="text/css">
+<!--
+.box1 {width:160px;height:75px;background:#bbf;}
+#dragbox {font-size:16px; font-weight:600; color:#009}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../lib/unittest.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+function initOnLoad(){
+  new Draggable('dragbox',{scroll:window});
+}
+setListener(window, "load",initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>script.aculo.us ドラッガブル</h2>
+<div id="dragbox" class="box1">
+栃木、群馬、茨城,<br/>
+千葉、埼玉、東京、<br/>
+神奈川、山梨
+</div>
+</body>
+</html>
+

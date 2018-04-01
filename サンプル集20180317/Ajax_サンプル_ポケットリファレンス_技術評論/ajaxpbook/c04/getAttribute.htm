@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DOMノード操作</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function domFunc(){
+  var i, rows = 3, cols = 2, elm = new Array(rows);
+  for(i = 0; i < rows; i++ ){
+    elm[i] = new Array(cols);
+  }
+  elm[0][0] = 'document.getElementById("emp_no").getAttribute("type")';
+  elm[1][0] = 'document.getElementById("emp_no").getAttribute("size")';
+  elm[2][0] = 'document.getElementById("emp_no").getAttribute("id")';
+  elm[0][1] = document.getElementById("emp_no").getAttribute("type");
+  elm[1][1] = document.getElementById("emp_no").getAttribute("size");
+  elm[2][1] = document.getElementById("emp_no").getAttribute("id");
+  var view = "<table border='1' width='430'><tbody>"
+           + "<tr><th>メソッド</th></th><th>値</th></tr>"
+  for(i = 0; i < rows; i++){
+    view += "<tr><td align='center'>"+elm[i][0]
+         + "</td><td align='center'>"+elm[i][1]+"</td></tr>";
+  }
+  view += "</tbody></table>";
+  document.getElementById("view").innerHTML = view;
+}
+function initOnLoad(){
+  var observer = document.getElementById("sel");
+  setListener(observer, "click", domFunc);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<div align="center">
+  <h3>従業員番号から氏名表示<input type="button" id="sel" value="　表示　"/></h3>
+  <table>
+    <tbody>
+      <tr>
+        <td>従業員番号:<input type="text" size="10" id="emp_no" /></td>
+        <td>従業員氏名:<input type="text" size="14" id="emp_name" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr />
+<center>
+<h3>getAttributeメソッド</h3>
+<div id="view"></div>
+</center>
+</body>
+</html>
+

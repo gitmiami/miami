@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List14-7</title>
+  </head>
+  <body>
+    <script type="text/javascript" 
+    src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <div id="div1">
+      <ul id="ul1">
+        <li id="li1">リスト1</li>
+        <li id="li2">リスト2</li>
+        <li id="li3">リスト3</li>
+      </ul>
+      <ul id="ul2">
+        <li id="li4">リスト4</li>
+        <li id="li5">リスト5</li>
+      </ul>
+    </div>
+    <script>
+    $("#ul2").parent().css("border", "solid");
+    $("#ul2").children().css("font-weight", "bold");
+    $("#li2").next().css("font-size", "x-large");
+    $("#li2").prev().css("border", "solid");
+    </script>
+  </body>
+</html>

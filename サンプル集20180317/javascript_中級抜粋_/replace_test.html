@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>replaceメソッドを使った置換</title>
+<script type="text/javascript">
+//<![CDATA[
+function strMatch() {
+    var str, pattern, dst, flag, r, result;
+
+    // フォームに入力された値を得る
+    str = document.getElementById("str").value;
+    pattern = document.getElementById("pattern").value;
+    dst = document.getElementById("dst").value;
+    flag = document.getElementById("flag").value;
+    // 検索する
+    r = new RegExp(pattern, flag);
+    result = str.replace(r, dst);
+    // 結果を出力する
+    document.getElementById("result").value = result;
+}
+//]]>
+</script>
+</head>
+
+<body>
+<form name="regexp" method="get" action="">
+<table>
+<tr>
+    <td>置換対象</td>
+    <td><textarea rows="5" cols="80" id="str" name="str"></textarea></td>
+</tr>
+<tr>
+    <td>パターン</td>
+    <td><input type="text" id="pattern" name="pattern" size="50" /></td>
+</tr>
+<tr>
+    <td>置換後の文字列</td>
+    <td><input type="text" id="dst" name="dst" size="50" /></td>
+</tr>
+<tr>
+    <td>フラグ</td>
+    <td><input type="text" id="flag" name="flag" size="5" /></td>
+</tr>
+</table>
+<p>
+<input type="button" value="置換" onclick="void(strMatch());" />
+<input type="reset" value="消去" />
+</p>
+<p>
+置換結果<br />
+<textarea id="result" rows="10" cols="80"></textarea>
+</p>
+</form>
+</body>
+</html>

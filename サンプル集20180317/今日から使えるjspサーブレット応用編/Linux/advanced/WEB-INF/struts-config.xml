@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="InputForm" type="struts.InputForm" />
+		<form-bean name="SaveForm"  type="struts.SaveForm"  />
+		<form-bean name="SearchForm" type="struts.SearchForm" />
+		<form-bean name="UpdateForm" type="struts.UpdateForm" />
+		<form-bean name="SubmitForm" type="struts.SubmitForm" />
+	</form-beans>
+	<action-mappings>
+		<action path="/chap5/memo/memo_list" type="struts.SelectDoc">
+			<forward name="right" path="/chap5/memo/list.jsp" />
+		</action>
+		<action path="/chap5/memo/strutsInput"
+			type="struts.InputProcess" name="InputForm" scope="request">
+			<forward name="right" path="/chap5/memo/input.jsp" />
+		</action>
+		<action path="/chap5/memo/strutsSave"
+			type="struts.SaveProcess" name="SaveForm" scope="request">
+			<forward name="right" path="/chap5/memo/index.html" />
+		</action>
+		<action path="/chap5/address/search" type="struts.SearchSelect">
+			<forward name="right" path="/chap5/address/search.jsp" />
+		</action>
+		<action path="/chap5/address/SearchInput"
+			type="struts.SearchProcess" name="SearchForm" scope="request">
+			<forward name="right" path="/chap5/address/detail.jsp" />
+		</action>
+		<action path="/chap5/address/Update"
+			type="struts.UpdateProcess" name="UpdateForm" scope="request">
+			<forward name="right" path="/chap5/address/update.jsp" />
+		</action>
+		<action path="/chap5/address/SubmitInput"
+			type="struts.SubmitProcess" name="SubmitForm" scope="request"
+			input="/chap5/address/update.jsp" validate="true">
+			<forward name="right" path="/chap5/address/search.jsp" />
+			<forward name="error" path="/chap5/address/update.jsp" />
+		</action>
+	</action-mappings>
+	<message-resources parameter="struts_error" />
+</struts-config>

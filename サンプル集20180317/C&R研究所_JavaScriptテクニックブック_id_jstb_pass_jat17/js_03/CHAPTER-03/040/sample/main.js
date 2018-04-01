@@ -1,0 +1,1 @@
+window.onload = function() {	new Spry.Widget.ValidationTextField("checkData1", "custom", 		{pattern:"ABC-000-\\X\\Y\\Z",useCharacterMasking:true,validateOn:["blur","change"]});}

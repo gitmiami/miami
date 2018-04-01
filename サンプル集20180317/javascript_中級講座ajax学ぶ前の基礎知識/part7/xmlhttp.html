@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>XMLHttpRequestを利用した通信</title>
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+function getXMLHttpRequest()
+{
+    var xmlhttp;
+
+    try {
+        // まずMsxml2.XMLHTTPを試す
+        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    catch (e) {
+        try {
+            // 次にMicrosoft.XMLHTTPを試す
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch (e) {
+            xmlhttp = undefined;
+        }
+    }
+    if (!xmlhttp) {
+        // 上の2つがだめな場合
+        xmlhttp = new XMLHttpRequest();
+    }
+    return xmlhttp;
+}
+
+function ajaxGet() {
+    // XMLHttpRequestオブジェクトを作成する
+    var request = getXMLHttpRequest();
+    // onreadystatechangeイベントハンドラ
+    request.onreadystatechange = function() {
+        // 読み込みが終わったかどうかを調べる
+        if (request.readyState == 4) {
+            // リクエストOKだったかどうかを調べる
+            if (request.status == 200) {
+                // 通信結果をtextareaに表示する
+                document.ajax.result.value = request.responseText;
+            }
+            else {
+                // エラーの場合はstatusプロパティの値を表示する
+                alert("エラー：status＝" + request.status);
+            }
+        }
+    };
+    // 接続方法を指定する
+    request.open("GET", document.ajax.url.value, true);
+    // 情報を送信する
+    request.send(null);
+}
+//]]>
+</script>
+</body>
+<form name="ajax" action="" method="get" >
+<p>
+URL <input type="text" name="url" size="80"/>
+</p>
+<p>
+通信結果<br />
+<textarea name="result" rows="20" cols="80"></textarea>
+</p>
+<p>
+<input type="button" value="送信" onclick="ajaxGet();" />
+</p>
+</form>
+</html>

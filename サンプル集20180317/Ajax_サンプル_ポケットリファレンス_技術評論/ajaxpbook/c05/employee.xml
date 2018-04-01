@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<empmas>
+  <employee>
+    <emp_no>A0001</emp_no>
+    <emp_name>山田太郎</emp_name>
+		<section>総務部</section>
+  </employee>
+  <employee>
+    <emp_no>A0002</emp_no>
+    <emp_name>鈴木健児</emp_name>
+		<section>総務部</section>
+  </employee>
+  <employee>
+    <emp_no>A0003</emp_no>
+    <emp_name>田中佳子</emp_name>
+		<section>経理部</section>
+  </employee>
+  <employee>
+    <emp_no>A0004</emp_no>
+    <emp_name>佐藤弘明</emp_name>
+		<section>経理部</section>
+  </employee>
+  <employee>
+    <emp_no>A0005</emp_no>
+    <emp_name>伊藤広志</emp_name>
+		<section>人事部</section>
+  </employee>
+</empmas>
+

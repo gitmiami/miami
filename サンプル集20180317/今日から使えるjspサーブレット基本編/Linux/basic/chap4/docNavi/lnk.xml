@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-JP" standalone="yes" ?>
+<link>
+	<page id="A01.jsp" name="トップニュース" ref="A02.jsp A04.jsp A05.jsp" />
+	<page id="A02.jsp" name="XML最新情報"    ref="A01.jsp A03.jsp" />
+	<page id="A03.jsp" name="ダウンロード"   ref="A05.jsp" />
+	<page id="A04.jsp" name="コラム"     ref="A01.jsp A02.jsp A03.jsp A05.jsp" />
+	<page id="A05.jsp" name="サンプル"       ref="" />
+</link>

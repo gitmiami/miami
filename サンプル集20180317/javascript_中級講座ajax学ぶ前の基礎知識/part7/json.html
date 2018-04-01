@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>JSONのデータを受信</title>
+</head>
+<body>
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function getHatenaBookmark() {
+    // 結果の表示先に「しばらくお待ちください」と表示する
+    document.getElementById("result").innerHTML = "<p>しばらくお待ちください...</p>";
+    // Ajaxで通信して結果を表示する
+    new Ajax.Request(
+        "hatena.cgi",
+        {
+            parameters : Form.serialize("ajax"),
+            onComplete : showResult,
+            method : "get"
+        }
+    );
+}
+
+function showResult(resp) {
+    var i, j, data, html;
+
+    // JSONをオブジェクトに変換
+    data = resp.responseText.evalJSON();
+    // ページのサムネールを出力して、その画像をページへのリンクにする
+    html = '<p>';
+    html += '<a href="' + data.url + '"><img src="' + data.screenshot + '" alt="' + data.title + '" /></a><br />';
+    // ページの名前と被ブックマーク件数を表示する
+    html += '「<a href="' + data.url + '">' + data.title + "</a>」へのブックマークの一覧（全" + data.count + "件）</p>\n";
+    html += '<ol>\n';
+    // 個々の被ブックマークの情報を順に出力する
+    for (i = 0; i < data.bookmarks.length; i++) {
+        // i番目の被ブックマークの情報を変数bookmarkに代入
+        var bookmark = data.bookmarks[i];
+        html += '<li>\n';
+        // ブックマークしたユーザーの名前を出力し、
+        // その部分をそのユーザーのブックマーク一覧のページへのリンクにする
+        // また、ブックマークされた時刻も出力する
+        html += '<a href="http://b.hatena.ne.jp/' + bookmark.user + '">' + bookmark.user + '</a>(' + bookmark.timestamp + ')';
+        // タグがつけられていれば出力する
+        if (bookmark.tags.length) {
+            // ブックマークにつけられたタグを、そのタグのページへのリンクに置き換える
+            for (j = 0; j < bookmark.tags.length; j++) {
+                bookmark.tags[j] = '<a href="http://b.hatena.ne.jp/t/' + encodeURIComponent(bookmark.tags[j]) + '">' + bookmark.tags[j] + '</a>';
+            }
+            // タグの一覧を「, 」で区切って出力する
+            html += '\n<br />Tag : ' + bookmark.tags.join(', ');
+        }
+        // ブックマークにコメントがつけられていたら、それも出力する
+        if (bookmark.comment) {
+            html += '\n<br />コメント : ' + bookmark.comment;
+        }
+        html += '\n</li>\n';
+    }
+    html += '</ol>';
+    // 結果のHTMLを、IDが「result」のdiv要素に流し込む
+    document.getElementById("result").innerHTML = html;
+}
+//]]>
+</script>
+<form name="ajax" id="ajax" action="" method="get" >
+<p>
+URL <input type="text" name="url" size="30" /><br />
+</p>
+<p>
+<input type="button" value="送信" onclick="getHatenaBookmark();" />
+</p>
+</form>
+<p>通信結果</p>
+<div id="result"></div>
+</body>
+</html>

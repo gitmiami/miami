@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>JavaScript Sample</title>
+		<link rel="stylesheet" type="text/css" href="main.css" media="all">
+		<script type="text/javascript" src="prototype.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body>
+		ボタンをクリックすると、divとspanの階層だけ文字が赤くなります。
+		<form action="./access.cgi" method="get" id="mainForm" name="mainForm">
+			<input type="button" id="setButton" value="div span階層だけ文字色を赤色にする">
+		</form>
+		<div id="contents">
+			<div class="note">ここはdivのみ</div>
+			<div class="note"><span>divとspanの階層</span></div>
+			<div class="note"><span>divとspanの階層</span>ここはdiv</div>
+			<div class="note">ここはdivで<span>ここはdivとspanの階層</span></div>
+			<p class="note"><span>ここはpとspan</span></p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+import java.io.*;
+
+public class InputExample {
+	public static void main(String[] args) {
+		System.out.println("Ç†Ç»ÇΩÇÃÇ®ñºëOÇÕÅH");
+		InputStreamReader in = new InputStreamReader(System.in);
+		BufferedReader reader = new BufferedReader(in);				try {
+			String name = reader.readLine();
+			System.out.println("Ç±ÇÒÇ…ÇøÇÕÅB" + name + "Ç≥ÇÒ");
+		} catch(IOException e) {
+			System.out.println(e);
+		}
+	}
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>DrawBar2</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/plotr/plotr.js"></script>
+<script type="text/javascript" src="../lib/plotr/excanvas.js"></script>
+<script type="text/javascript">
+//<![CDATA]
+function drawGraph(){
+	var dataset = {
+		"py2007Q2": [[0, 1], [1, 1], [2, 1.2], [3, 1.5]],
+		"py2007Q3": [[0, 0.5], [1, 0.89], [2, 2.15], [3, 4]]
+	};
+	var options = {
+		padding: {left: 50, right: 0, top: 10, bottom: 10},
+		backgroundColor: "#ff8",
+		colorScheme: "#500",
+		barOrientation : "horizontal",
+		xTicks: [
+			{v:0, label:"商用Unix"},
+			{v:1, label:"FreeBSD"},
+			{v:2, label:"Linux"},
+			{v:3, label:"Windows"}
+		]
+	};
+	var bar = new Plotr.BarChart("graph", options);
+	bar.addDataset(dataset);
+	bar.render();
+}
+function initOnLoad(){
+  setListener($("draw"), "click", drawGraph);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>Draw Bar2&nbsp;&nbsp;<input type="button" id="draw" value="グラフ表示" /></h2>
+<div><canvas id="graph" height="300" width="600"></canvas></div>
+</body>
+</html>

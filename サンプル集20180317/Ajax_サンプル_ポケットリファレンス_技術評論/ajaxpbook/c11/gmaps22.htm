@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<style type="text/css">
+<!--
+v\:* {behavior:url(#default#VML);}
+-->
+</style>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  //PHPからJavaScriptへデータ渡し
+  var newichi = "ver,1:::datum,1:::unit,1:::lat,+35.97556:::lon,+140.15700:::alt,29:::time,20050909074513:::smaj,10:::smin,8:::vert,20:::majaa,18:::fm,0:::";
+  var lon  = newichi.split(":::")[4].split(",")[1];
+  var lat  = newichi.split(":::")[3].split(",")[1];
+  var time = newichi.split(":::")[6].split(",")[1];
+  lat100 = eval(lat);
+  lon100 = eval(lon);
+  var map = new GMap2(id("map"));
+  map.addControl(new GLargeMapControl());
+  map.addControl(new GMapTypeControl());
+  map.setCenter(new GLatLng(lat100, lon100), 15);
+  //アイコン作成
+  var icon = new GIcon();
+  icon.image = "./yazirusi.png";
+  icon.shadow = "./shadow.png";
+  icon.iconSize = new GSize(20, 34);
+  icon.shadowSize = new GSize(37, 34);
+  icon.iconAnchor = new GPoint(10,34);
+  var marker = new GMarker(map.getCenter(), icon);
+  map.addOverlay(marker);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+GPS携帯の位置を表示する
+<div id="map" style="width: 500px; height: 400px"></div>
+</body>
+</html>
+

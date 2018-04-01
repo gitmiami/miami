@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>List13-9</title>
+  </head>
+    <script>
+    function check(){
+      var inputText = document.getElementById("tArea").value;
+      var checkResult = inputText.match(/[0-9]+/g);
+      var area = document.getElementById("outputArea");
+      if (inputText != checkResult) {
+        area.innerHTML = "数値以外が入力されています。";
+      } else {
+        area.innerHTML = "数値のみの入力です。";
+      }
+    }
+    </script>
+  <body>
+    <label>数値を入力してください:</label>
+    <input id="tArea" type="text" onblur="check()"  style="width:100px;"/>
+    <div id="outputArea"></div>
+  </body>
+</html>

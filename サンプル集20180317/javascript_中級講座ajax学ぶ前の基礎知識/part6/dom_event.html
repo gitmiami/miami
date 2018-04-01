@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>addevent</title>
+<script type="text/javascript" src="dom_event.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+// イベントリスナーの追加
+DOM.Event.addEvent(window, "load", function() {
+    node = document.getElementById("eventtest");
+    DOM.Event.addEvent(node, "click", myListener);
+});
+
+function myListener(e) {
+    // イベントが起こった要素を得る
+    var node = DOM.Event.getTarget(e);
+    // 要素のIDを表示する
+    alert("クリックされた要素のIDは " + node.id + " です");
+}
+//]]>
+</script>
+</head>
+<body>
+<p id="eventtest">この要素をクリックしてください。</p>
+</body>
+</html>

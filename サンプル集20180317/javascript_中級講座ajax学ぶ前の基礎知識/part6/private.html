@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>プライベートなプロパティ</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+//<![CDATA[
+// Counterオブジェクトのコンストラクタ
+function Counter() {
+    // プライベートなプロパティ
+    var count = 0;
+
+    // カウントを1つ増やすメソッド
+    this.increment = function() {
+        count++;
+        return count;
+    };
+
+    // カウントを1つ減らすメソッド
+    this.decrement = function() {
+        count--;
+        return count;
+    };
+
+    // カウントをリセットするメソッド
+    this.reset = function() {
+        count = 0;
+        return count;
+    };
+}
+
+// Counterオブジェクトのインスタンスを作成
+var c = new Counter();
+// カウンタの各種操作
+document.write("increment = " + c.increment() + "<br />\n");
+document.write("increment = " + c.increment() + "<br />\n");
+document.write("decrement = " + c.decrement() + "<br />\n");
+document.write("increment = " + c.increment() + "<br />\n");
+document.write("reset = " + c.reset() + "<br />\n");
+// countはプライベートなプロパティなので、以下のようなことはできない
+// c.count = 10;
+//]]>
+</script>
+</p>
+</body>
+</html>

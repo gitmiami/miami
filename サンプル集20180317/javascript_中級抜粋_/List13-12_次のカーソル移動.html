@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>List13-12</title>
+  </head>
+  <body>
+    <script>
+    function nextCur(fromId,toId,size){
+      var input = document.getElementById(fromId).value;
+      if (input.length == size) {
+        document.getElementById(toId).focus();
+      }
+    }
+    </script>
+    <label>郵便番号:<label>
+    <input id="front" type="text" onkeyup="nextCur('front','back',3)" style="width:30px"  maxlength="3"/>
+    <label>-<label>
+    <input id="back" type="text" onkeyup="nextCur('back','front',4)" style="width:40px" maxlength="4"/>
+  </body>
+</html>

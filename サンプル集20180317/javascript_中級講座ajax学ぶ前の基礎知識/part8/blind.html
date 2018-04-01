@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>ブラインドアップ／ダウン</title>
+<script type="text/javascript" src="lib/prototype.js"></script>
+<script type="text/javascript" src="src/scriptaculous.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    $("blindup").onclick = blindUp;
+    $("blinddown").onclick = blindDown;
+};
+
+function blindUp() {
+    new Effect.BlindUp('blind', { duration : 0.5 });
+    return false;
+}
+
+function blindDown() {
+    new Effect.BlindDown('blind', { duration : 0.5 });
+    return false;
+}
+//]]>
+</script>
+</head>
+<body>
+<p><a id="blindup" href="#">ブラインドアップ</a> <a id="blinddown" href="#">ブラインドダウン</a></p>
+<p id="blind">
+ブラインドアップ／ダウンは、それぞれ「Effect.BlindUp」と「Effect.BlindDown」というメソッドで行うことができます。<br />
+上のリンクをクリックすると、この要素が0.5秒間でブラインドアップ／ダウンします。
+</p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>施設予約</title>
+<script language="JavaScript">
+<!--
+var wkD=new Array("日","月","火","水","木","金","土");
+function fmt(){
+	document.fm.yr.value=(new Date()).getFullYear();
+	document.fm.mon.value=(new Date()).getMonth()+1;
+	document.fm.dy.value=(new Date()).getDate();
+	document.fm.dat.value=wkD[(new Date()).getDay()];
+}
+function chg(){
+	var tmpDate=new Date(document.fm.yr.value,document.fm.mon.value-1,document.fm.dy.value);
+	document.fm.dat.value=wkD[tmpDate.getDay()];
+}
+//-->
+</script>
+</head>
+<body onLoad="fmt()">
+<h1>施設予約</h1>
+<form method="POST" action="/advanced/servlet/facility.fac_faci"
+	target="down" name="fm">
+	日付指定:
+	<input type="text" name="yr" size="4" maxlength="4"
+		style="ime-mode:disabled;" onchange="chg()" />年
+	<input type="text" name="mon" size="2" maxlength="2"
+		style="ime-mode:disabled;" onchange="chg()" />月
+	<input type="text" name="dy" size="2" maxlength="2"
+		style="ime-mode:disabled;" onchange="chg()" />日
+	<input type="text" name="dat" size="2" maxlength="2" ReadOnly />曜日
+	<input type="submit" value="予約状況を見る" />
+</form>
+</body>
+</html>

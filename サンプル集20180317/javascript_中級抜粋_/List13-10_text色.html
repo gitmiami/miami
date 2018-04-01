@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>List13-10</title>
+  </head>
+    <script>
+    function toRed(){
+      var area = document.getElementById("tArea");
+      area.style.backgroundColor = '#FF0000' ;
+    }
+    function toWhite(){
+      var area = document.getElementById("tArea");
+      area.style.backgroundColor = '#FFFFFF' ;
+    }
+    </script>
+  <body>
+    <input id="tArea" type="text" onfocus="toRed()" onblur="toWhite()"  style="width:100px;"/>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+	<servlet>
+<servlet-name>LoginController</servlet-name>
+<servlet-class>presence.LoginController</servlet-class>
+	</servlet>
+	<servlet>
+<servlet-name>PresenceController</servlet-name>
+<servlet-class>presence.PresenceController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+<servlet-name>LoginController</servlet-name>
+<url-pattern>/LoginController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+<servlet-name>PresenceController</servlet-name>
+<url-pattern>/PresenceController</url-pattern>
+	</servlet-mapping>
+</web-app>

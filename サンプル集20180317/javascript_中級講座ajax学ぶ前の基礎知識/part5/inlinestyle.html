@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>メニューの折りたたみ</title>
+<script type="text/javascript">
+//<![CDATA[
+function fold(node) {
+    // 同じ階層の次のノードを順に探し、ul要素のノードを見つける
+    do {
+        node = node.nextSibling;
+    } while (node.nodeName != "UL");
+    // ul要素の表示／非表示（displayプロパティ）を切り替える
+    node.style.display =
+        (node.style.display == "none") ? "" : "none";
+}
+//]]>
+</script>
+</head>
+<body>
+<ul>
+  <li><a href="#" onclick="fold(this); return false;">メニューA</a>
+  <ul>
+    <li>メニューA-1</li>
+    <li>メニューA-2</li>
+  </ul>
+  </li>
+  <li><a href="#" onclick="fold(this); return false;">メニューB</a>
+  <ul>
+    <li>メニューB-1</li>
+    <li>メニューB-2</li>
+  </ul>
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{ empmas:
+  { employee:
+    [
+    	{ emp_no: "A0001", emp_name: "山田太郎", section: "総務部" },
+    	{ emp_no: "A0002", emp_name: "鈴木健児", section: "総務部" },
+    	{ emp_no: "A0003", emp_name: "田中佳子", section: "人事部" },
+    	{ emp_no: "A0004", emp_name: "佐藤弘明", section: "人事部" },
+    	{ emp_no: "A0005", emp_name: "伊藤広志", section: "経路部" }
+    ]
+  }
+}
+

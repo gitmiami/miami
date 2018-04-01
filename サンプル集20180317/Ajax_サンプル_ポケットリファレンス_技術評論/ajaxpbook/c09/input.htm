@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ActiveWidgets Examples</title>
+<link rel="stylesheet" type="text/css" href="../../lib/aw.css"/>
+<style.
+<!--
+#view {width: 150px; height: 25px}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/aw.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+	var inputObj = new AW.UI.Input;
+  inputObj.setId("view");
+  inputObj.setControlText("Input");
+  inputObj.setControlImage("search");
+	inputObj.onControlClicked = function(event){ window.status = "Control clicked"};
+	inputObj.onControlMouseOver = function(event){ window.status = "Control mouse over"};
+	inputObj.onControlMouseOut = function(event){ window.status = "Control mouse out"};
+	inputObj.onControlMouseDown = function(event){ window.status = "Control mouse down"};
+	inputObj.onControlMouseUp = function(event){ window.status = "Control mouse up"};
+	inputObj.onControlTextChanged = function(text){ 
+		if(text.length == 5){
+			window.status = "Input text :" + text;			
+			$("stat").innerHTML = getsyn("./resp.php?text=" + text);
+		}
+	};
+	inputObj.onControlActivated = function(event){ window.status = "control activated"};
+	inputObj.onControlDeactivated = function(event){ window.status = "control deactivated"};
+	inputObj.onControlEditStarted = function(event){ window.status = "control edit started"};
+	inputObj.onControlEditEnded = function(event){ window.status = "control edit ended"};
+	inputObj.onControlValidating = function(text){
+		if (!(Number(text) > 0)) {
+			alert("Invalid number");
+			return "invalid number"; // any non-zero value cancels validation
+		}
+	};
+	inputObj.onControlValidated = function(text){ window.status = "control validated"};
+  inputObj.refresh();
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<p id="view"></p>
+<p id="stat"></p>
+</body>
+</html>
+

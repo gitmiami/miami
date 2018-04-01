@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>ƒTƒ“ƒvƒ‹</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+function func() {
+    
+    var para1=document.F1.T1.value
+   // alert(para1 + 10);        
+    
+    //var actOrder="act100";
+    var actOrder="";
+    var sbyOrder="sby200";
+    
+    var lisySize=1;
+    var hpUrl="http://10.22.43.21?";
+    
+    if (lisySize >= 2) {
+    	hpUrl= hpUrl + actOrder + "@@@" + sbyOrder;
+    	alert(hpUrl );
+	} else {
+    	if(actOrder != ""){
+    		hpUrl= hpUrl + actOrder;
+    		alert(hpUrl);
+    	}else{
+    		hpUrl= hpUrl + sbyOrder;
+    		alert(hpUrl);
+    	}
+    	
+	}
+    
+    
+}
+// -->
+</script>
+
+
+<form name="F1" action="#">
+	<input type="text" name="T1">
+	<input type="button" value="OK" onclick="func()">
+</form>
+
+
+</body>
+</html>

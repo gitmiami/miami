@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>住所入力フォーム</title>
+<script type="text/javascript">
+//<![CDATA[
+function searchFromZipCode() {
+    window.open("zip.html", "zip", "width=300,height=150,resizable=no");
+}
+//]]>
+</script>
+</head>
+<body>
+<form name="address_form" method="get" action="">
+<p>
+郵便番号 <input type="text" name="zip" size="10" /> <input type="button" value="検索" onclick="searchFromZipCode();" /><br />
+住所 <input type="text" name="address" size="50" />
+</p>
+</form>
+</body>
+</html>

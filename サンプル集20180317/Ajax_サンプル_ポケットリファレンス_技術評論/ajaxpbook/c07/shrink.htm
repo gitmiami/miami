@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<title>Shrink</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+function Shrink(){
+	new Effect.Shrink("area");
+	//$("area").visualEffect("Shrink");
+}
+function initOnLoad(){
+  addListener($("exe"), "click", Shrink);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>Shrinkサンプル<input type="button" id="exe" value=" 実行 "/></h2>
+<img id="area" src="fuji.jpg" width="750" height="550"/>
+</body>
+</html>
+

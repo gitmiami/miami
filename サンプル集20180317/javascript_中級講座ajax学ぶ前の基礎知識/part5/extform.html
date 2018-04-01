@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>行数が増減するフォーム</title>
+<script type="text/javascript">
+//<![CDATA[
+// 表の番号
+var rowNumber = 0;
+// ページ読み込み時点で1行を追加する
+window.onload = addRow;
+
+function addRow() {
+    var i, j;
+    // 行番号を1つ増やす
+    rowNumber++;
+    // 雛形の行をコピーする
+    var tmplRowNode = document.getElementById("row0");
+    var rowNode = tmplRowNode.cloneNode(true);
+    rowNode.id = "row" + rowNumber;
+    // 行の子ノードを順に調べる
+    for (i = 0; i < rowNode.childNodes.length; i++) {
+        var tdNode = rowNode.childNodes[i];
+        // td要素であれば、その子ノードを順に調べる
+        if (tdNode.nodeName == "TD") {
+            for (j = 0; j < tdNode.childNodes.length; j++) {
+                var chNode = tdNode.childNodes[j];
+                // input要素である場合
+                if (chNode.nodeName == "INPUT") {
+                    // name属性が「row0_num」の場合
+                    if (chNode.name == "row0_num") {
+                        // name属性を「row行番号_num」にする
+                        chNode.name = "row" + rowNumber + "_num";
+                        // value属性を行番号の値する
+                        chNode.value = rowNumber;
+                    }
+                    // name属性が「row0_name」の場合
+                    else if (chNode.name == "row0_name") {
+                        // name属性を「row行番号_name」にする
+                        chNode.name = "row" + rowNumber + "_name";
+                    }
+                    // name属性が「row0_remove」の場合
+                    else if (chNode.name == "row0_remove") {
+                        // name属性を「row行番号_remove」にする
+                        chNode.name = "row" + rowNumber + "_remove";
+                    }
+                }
+            }
+        }
+    }
+    // 行を可視にする
+    rowNode.style.display = "";
+    // 表の最後に行を追加する
+    var tbodyNode = document.getElementById("tblrows");
+    tbodyNode.appendChild(rowNode);
+}
+
+function removeRow(btn) {
+    // このボタンを含む行（tr要素）のノードを得る
+    var rowNode = btn.parentNode.parentNode;
+    // 行を削除する
+    rowNode.parentNode.removeChild(rowNode);
+}
+//]]>
+</script>
+</head>
+<body>
+<form method="get" action="">
+<input type="button" value="行を追加" onclick="addRow(); return false;" />
+<table>
+<tbody id="tblrows">
+<tr>
+  <th>番号</th>
+  <th>名前</th>
+  <th>削除</th>
+</tr>
+<tr id="row0" style="display : none;">
+  <td><input type="text" name="row0_num" size="10" value="0" /></td>
+  <td><input type="text" name="row0_name" size="20" /></td>
+  <td><input type="button" name="row0_remove" value="削除" onclick="removeRow(this);" />
+</tr>
+</tbody>
+</table>
+<input type="submit" value="送信" />
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>メール送信</title>
+</head>
+<body>
+<h1>メール送信</h1>
+<form method="POST" action="mail.jsp">
+<table border="0">
+	<tr>
+		<th align="right" valign="top">To：</th>
+		<td><input type="text" name="to" size="50" /></td>
+	</tr><tr>
+		<th align="right" valign="top">Cc：</th>
+		<td><input type="text" name="cc" size="50" /></td>
+	</tr><tr>
+		<th align="right" valign="top">Bcc：</th>
+		<td><input type="text" name="bcc" size="50" /></td>
+	</tr><tr>
+		<th align="right">件名：</th>
+		<td><input type="text" name="sbj" size="50" />
+	</tr><tr>
+		<th align="right">送信者アドレス：</th>
+		<td><input type="text" name="frmMail" size="50" />
+	</tr><tr>
+		<th align="right" valign="top">本文：</th>
+		<td><textarea name="body" cols="60" rows="15"></textarea></td>
+	</tr><tr>
+		<td align="center" colspan="2">
+			<input type="submit" value="送信" />
+			<input type="reset" value="中止" />
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

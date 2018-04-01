@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<head>
+<title>再帰処理の例</title>
+<script type type="text/javascript">
+//<![CDATA[
+window.onload = function () {
+    // body要素のノードを得る
+    var body = document.getElementsByTagName("body")[0];
+    // body要素の内部の全角英数字を半角に変換する
+    recursiveParse(body);
+};
+
+function recursiveParse(pNode) {
+    var i, cNode;
+
+    // ノードの直下にある子ノードをすべて取り出す
+    var cNodes = pNode.childNodes;
+    // すべての子ノードを順に処理する
+    for (i = 0; i < cNodes.length; i++) {
+        cNode = cNodes[i];
+        // 要素ノードの場合
+        if (cNode.nodeType == 1) {
+            // さらに下の階層のノードに対して処理を実行する
+            recursiveParse(cNode);
+        }
+        // テキストノードの場合
+        else if (cNode.nodeType == 3) {
+            // ノードの文字列の全角英数字を半角に変換する
+            cNode.nodeValue = toHalfSizeChar(cNode.nodeValue);
+        }
+        else if (cNode.nodeType == 8) {
+            // コメントノードは無視する
+        }
+    }
+}
+
+function toHalfSizeChar(src)
+{
+    var i, ch, dst;
+
+    dst = '';
+    for (i = 0; i < src.length; i++) {
+        // 文字列から1文字ずつ取り出す
+        ch = src.charCodeAt(i);
+        // 全角英数字を半角英数字に変換する
+        if (ch >= 65313 && ch <= 65338 ||
+            ch >= 65345 && ch <= 65370 ||
+            ch >= 65296 && ch <= 65305) {
+            ch = ch - 65248;
+        }
+        // 変換した文字を結果文字列の末尾に追加
+        dst += String.fromCharCode(ch);
+    }
+    return dst;
+}
+//]]>
+</script>
+</head>
+<body>
+<p>全角英数字を半角に変換します<br />
+１２３４５６７８９０<br />
+ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＵＳＴＵＶＷＸＹＺ<br />
+ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ
+</p>
+</body>
+</html>

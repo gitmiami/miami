@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<title>script.aculo.us ドラッグ＆ドロップ</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+#box1 { position:absolute; top:50px; left:10px;  
+				z-index:2;width:150px;height:60px;background:#ccf;}
+#box2 { position:absolute; top:50px; left:170px; 
+				z-index:1;width:150px;height:60px;background:#fcc;}
+#dropBox {position:absolute; top: 200px; left:10px; 
+					z-index:0;width:310px;height:180px;background:#cfc;}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../lib/unittest.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+//var dragObj;
+function initOnLoad(){
+	new Draggable("box1", { revert:true } );
+	new Draggable("box2", { revert:true } );
+	Droppables.add("dropBox", { onDrop: function(element, droppableElement){
+		$(droppableElement).innerHTML += "<br/>" + element.id + "がドロップされました";
+		}
+		//}, accept:"out"
+	});
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>script.aculo.us ドロップエリア設定</h2>
+<div id="box1" class="out">box1:<br/>ドロップできます</div>
+<div id="box2">box2:<br/>ドロップできません</div>
+<div id="dropBox">ドロップゾーン：</div>
+</body>
+</html>
+

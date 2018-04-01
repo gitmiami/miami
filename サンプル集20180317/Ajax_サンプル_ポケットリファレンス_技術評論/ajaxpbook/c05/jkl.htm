@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=shift_jis">
+<title>XML=>JSONデータ表示</title>
+<script type="text/javascript" src="../lib/jkl/jkl-parsexml.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function jklFunc(){
+  var fname = document.getElementById("fname").value;
+  var http = new JKL.ParseXML(fname);         // JKL.ParseXMLオブジェクトを生成
+  var data = http.parse();                    // ダウンロード〜解析する
+  var view = "<table border='1' width='300'>";
+  for(i = 0; i < data.items.item.length; i++){
+    var code = data.items.item[i].itemCode;     // 商品コード
+    var name = data.items.item[i].itemName;     // 商品名
+    var price = data.items.item[i].itemPrice;   // 商品価格
+    view += "<tr><th>" + code  + "</th>"
+        + "<td>" + name + "</td>"
+        + "<td align='right'>" + price + "円</td></tr>";
+  }
+  view += "</table>";
+  document.getElementById("view").innerHTML = view;
+}
+function initOnLoad(){
+	var target = document.getElementById("sel");
+  setListener(target, "click", jklFunc);
+}
+setListener(window, "load", initOnLoad) ;
+//]]>
+</script>
+</head>
+<body>
+<h2>XML=>JSONデータ表示</h2>
+<p>XMLデータを読込みJSON変換後表示</p>
+<input type="text" id="fname" value="jsondat1.xml">
+<input type="button" id="sel" value="XML読込"/>
+<br/><br/>
+<div id="view"></div>
+</body>
+</html>
+

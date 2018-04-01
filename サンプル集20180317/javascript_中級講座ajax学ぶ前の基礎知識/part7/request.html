@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Ajax.Requestを利用した通信</title>
+</head>
+<body>
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function yahooSearch() {
+    // 結果の表示先に「しばらくお待ちください」と表示する
+    document.getElementById("result").innerHTML = "<p>しばらくお待ちください...</p>";
+    // Ajaxで通信して結果を表示する
+    new Ajax.Request(
+        "yahoo_search.cgi",
+        {
+            parameters : Form.serialize("ajax"),
+            onComplete : showResult,
+            method : "get"
+        }
+    );
+}
+
+function showResult(resp) {
+    var i, xml, html;
+
+    // 受信したXMLを得る
+    xml = resp.responseXML;
+    // XMLの中からResult要素をすべて取り出す
+    var results = xml.getElementsByTagName("Result");
+    // 結果の全体をol要素で囲む
+    html = '<ol>';
+    // Result要素の先頭から順に繰り返す
+    for (i = 0; i < results.length; i++) {
+        // i番目のResult要素を得る
+        var result = results[i];
+        // Title／Url／Summary要素の内容（テキスト）を得る
+        var title = getNodeText(result, "Title");
+        var url = getNodeText(result, "Url");
+        var summary = getNodeText(result, "Summary");
+        // 結果をHTMLに整形する
+        html += '<li>\n';
+        html += '<a href="' + url + '">' + title + "</a><br />\n";
+        html += '<span style="font-size : 80%;">' + summary + "</span>\n";
+        html += '</li>\n';
+    }
+    // 結果の最後を</ol>タグで閉じる
+    html += '</ol>';
+    // 結果のHTMLを、IDが「result」のdiv要素に流し込む
+    document.getElementById("result").innerHTML = html;
+}
+
+function getNodeText(parentNode, tagName) {
+    // tagNameで指定される要素を得る
+    var node = parentNode.getElementsByTagName(tagName)[0];
+    // 要素に子要素があれば、その子要素の値を返す
+    if (node.firstChild) {
+        return node.firstChild.nodeValue;
+    }
+    // 子要素がなければ、空文字列を返す
+    else {
+        return "";
+    }
+}
+//]]>
+</script>
+</body>
+<form name="ajax" id="ajax" action="" method="get" >
+<p>
+キーワード <input type="text" name="query" size="30" /><br />
+サイト <input type="text" name="site" size="30" />
+</p>
+<p>
+<input type="button" value="送信" onclick="yahooSearch();" />
+</p>
+</form>
+<p>通信結果</p>
+<div id="result"></div>
+</body>
+</html>

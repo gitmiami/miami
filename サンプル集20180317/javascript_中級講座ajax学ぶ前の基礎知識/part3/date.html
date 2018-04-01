@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>Dateオブジェクト</title>
+</head>
+
+<body>
+<p>
+<script type="text/javascript">
+//<![CDATA[
+// 現在の日時を得て年／月／日／時／分／秒に分割
+var dt1 = new Date();
+var nYear = dt1.getFullYear();
+var nMonth = dt1.getMonth();
+var nDate = dt1.getDate();
+var nHours = dt1.getHours();
+var nMinutes = dt1.getMinutes();
+var nSeconds = dt1.getSeconds();
+// 現在の日時を1970年1月1日からの経過時間に変換
+var nTime = dt1.getTime();
+// 現在の日時を表示
+document.write("現在の日時 ＝ " + dt1.toLocaleString() + "<br />");
+// 現在の一ヵ月後の日時を表示
+var dt2 = new Date(nYear, nMonth + 1, nDate, nHours, nMinutes, nSeconds);
+document.write("現在の一ヵ月後 ＝ " + dt2.toLocaleString() + "<br />");
+// 今月の最終日の日時を表示
+var dt3 = new Date(nYear, nMonth + 1, 0, nHours, nMinutes, nSeconds);
+document.write("今月の最終日 ＝ " + dt3.toLocaleString() + "<br />");
+// 今月の日数を表示
+document.write("今月の日数 ＝ " + dt3.getDate() + "日<br />");
+// 現在の一時間後の日時を表示
+var dt4 = new Date();
+dt4.setTime(nTime + 3600000);
+document.write("現在から一時間後の日時 ＝ " + dt4.toLocaleString() + "<br />");
+
+//]]>
+</script>
+</p>
+</body>
+</html>

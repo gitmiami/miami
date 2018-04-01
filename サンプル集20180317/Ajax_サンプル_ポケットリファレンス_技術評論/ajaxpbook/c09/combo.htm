@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ActiveWidgets Examples</title>
+<link rel="stylesheet" type="text/css" href="../../lib/aw.css"/>
+<style>
+<!--	
+	#view {width: 110px; height: 22px}
+	#view-popup {width: 110px; height: 70px; border: 2px double #69f;}
+	#view-popup .aw-mouseover-item {background: #fca}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/aw.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+	var itemTextArray = ["ホーム", "お気に入り", "文字サイズ", "サーチ"];
+  var itemImageArray = ["home", "favorites", "fontsize", "search"];
+  var comboObj = new AW.UI.Combo;
+  comboObj.setId("view");
+  comboObj.setControlText("ホーム");
+  comboObj.setControlImage("favorites");
+  comboObj.setItemText(itemTextArray);
+  comboObj.setItemImage(itemImageArray);
+  comboObj.setItemCount(4);
+  comboObj.refresh();
+	comboObj.onControlClicked = function(event){ window.status = "Control clicked"};
+	comboObj.onControlMouseOver = function(event){ window.status = "Control mouse over"};
+	comboObj.onControlMouseOut = function(event){ window.status = "Control mouse out"};
+	comboObj.onControlMouseDown = function(event){ window.status = "Control mouse down"};
+	comboObj.onControlMouseUp = function(event){ window.status = "Control mouse up"};
+	comboObj.onControlTextChanged = function(text){ 
+		alert("control text: " + text); 
+	}
+	comboObj.onControlActivated = function(event){ window.status = "control activated"};
+	comboObj.onControlDeactivated = function(event){ window.status = "control deactivated"};
+	comboObj.onControlEditStarted = function(event){ window.status = "control edit started"};
+	comboObj.onControlEditEnded = function(event){ window.status = "control edit ended"};
+	comboObj.onControlValidated = function(text){ window.status = "control validated"};
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<p id="view"></p>
+<p id="stat"></p>
+</body>
+</html>
+

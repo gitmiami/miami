@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head><title>for Ajax</title>
+<style type="text/css">
+v\:* {
+behavior:url(#default#VML);
+}
+</style>
+<!-- 下記キーは、必ず自分専用のものをhttp://www.google.com/apis/maps/で取得して使ってください -->
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var latlontime = []
+latlontime[0] = { lon:+140.10434 ,lat:+35.97956 ,time:20050909073324 } ;
+latlontime[1] = { lon:+140.10104 ,lat:+35.97514 ,time:20050909073230 } ;
+latlontime[2] = { lon:+140.09855 ,lat:+35.97309 ,time:20050909073151 } ;
+latlontime[3] = { lon:+140.09170 ,lat:+35.97312 ,time:20050909073108 } ;
+latlontime[4] = { lon:+140.08744 ,lat:+35.97312 ,time:20050909073044 } ;
+latlontime[5] = { lon:+140.08368 ,lat:+35.97297 ,time:20050909073014 } ;
+latlontime[6] = { lon:+140.07659 ,lat:+35.97503 ,time:20050909072937 } ;
+latlontime[7] = { lon:+140.07174 ,lat:+35.97644 ,time:20050909072904 } ;
+latlontime[8] = { lon:+140.06542 ,lat:+35.97704 ,time:20050909072827 } ;
+latlontime[9] = { lon:+140.06046 ,lat:+35.97776 ,time:20050909072759 } ;
+latlontime[10] = { lon:+140.05685 ,lat:+35.97810 ,time:20050909072735 } ;
+latlontime[11] = { lon:+140.05463 ,lat:+35.97789 ,time:20050909072710 } ;
+latlontime[12] = { lon:+140.05187 ,lat:+35.97406 ,time:20050909072634 } ;
+latlontime[13] = { lon:+140.04872 ,lat:+35.97020 ,time:20050909072601 } ;
+latlontime[14] = { lon:+140.04684 ,lat:+35.96578 ,time:20050909072519 } ;
+latlontime[15] = { lon:+140.04398 ,lat:+35.96361 ,time:20050909072441 } ;
+latlontime[16] = { lon:+140.04032 ,lat:+35.96078 ,time:20050909072341 } ;
+function initOnLoad(){
+  GLatLng_tky = function (la,ln){
+  var lat = la - la * 0.00010695  + ln * 0.000017464 + 0.0046017;
+  var lng = ln - la * 0.000046038 - ln * 0.000083043 + 0.010040;
+  return new GLatLng(lat,lng);
+  }
+  var center = Math.floor(latlontime.length/2);
+  var map = new GMap2(document.getElementById("map"));
+  map.addControl(new GLargeMapControl());
+  map.setCenter(new GLatLng_tky(latlontime[center-1].lat, 
+  latlontime[center-1].lon), 13);
+  var points = [];
+  for (i=0 ; i < latlontime.length ; i++){
+  	lat100 =  latlontime[i].lat
+  	lon100 =  latlontime[i].lon
+  	points.push(new GLatLng_tky(lat100,lon100));
+  }
+  map.addOverlay(new GPolyline(points,'#ff00ff',5,0.7));
+}
+setListener(window, "load", initOnLoad); 
+//]]>
+</script>
+</head>   
+<body>
+<div id="map" style="width: 500px; height: 400px"></div>
+</body>
+</html>

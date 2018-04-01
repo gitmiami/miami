@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>従業員番号から氏名表示</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function xhrFunc(){
+  var xhrObj = getXhrObj();
+  xhrObj.open("get", "getUniq.php?emp_no="+$F("emp_no"));
+  xhrObj.setRequestHeader("If-Modified-Since", "01 Jan 2000 00:00:00 GMT");
+  xhrObj.onreadystatechange = function(){
+    if(xhrObj.readyState == 4){
+      if(xhrObj.status == 200){
+        $("emp_name").value = xhrObj.responseText;
+      }
+    }
+  }
+  xhrObj.send(null);
+}
+function initOnLoad(){
+  setListener($("emp_no"), "blur", xhrFunc);
+  $("emp_no").focus();
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<div align="center">
+  <h3>従業員番号から氏名表示</h3>
+  <table>
+    <tbody>
+      <tr>
+        <td>従業員番号:<input type="text" size="10" id="emp_no" /></td>
+        <td>従業員氏名:<input type="text" size="14" id="emp_name" /></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+

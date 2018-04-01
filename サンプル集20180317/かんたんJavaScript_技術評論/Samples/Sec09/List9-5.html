@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List9-5</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+<!--
+
+function addCookie(key, val, days) {
+    var s = escape(key) + "=" + escape(val) + ";"
+    if(days != 0) {
+        var dt = new Date();
+        dt.setDate(dt.getDate() + days);
+        s += " expires=" + dt.toGMTString();
+    }
+    document.cookie = s;
+}
+
+function delCookie(key) {
+    addCookie(key, "", -1);
+}
+
+function showCookies() {
+    alert(unescape(document.cookie));
+}
+
+addCookie("key1", "val1", 1);
+addCookie("key2", "val2", 2);
+showCookies();
+
+delCookie("key1");
+delCookie("key2");
+showCookies();
+
+//-->
+</script>
+</p>
+</body>
+</html>

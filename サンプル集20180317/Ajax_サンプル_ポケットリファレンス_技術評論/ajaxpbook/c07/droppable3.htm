@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<title>script.aculo.us ドラッグ＆ドロップ</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+#book1 { position:absolute; top:50px; left:5px;  
+				z-index:1;width:130px;height:130px;}
+#book2 { position:absolute; top:50px; left:135px; 
+				z-index:1;width:130px;height:130px;}
+#book3 { position:absolute; top:50px; left:265px; 
+				z-index:1;width:130px;height:130px;}
+#amount1 {position:absolute; top: 205px; left:150px; 
+				z-index:0;width:130px; height:20px;background:#eee;}
+#amount2 {position:absolute; top: 205px; left:280px; 
+				z-index:0;width:90px; height:20px;background:#eee;}
+#basket {position:absolute; top: 230px; left:10px; 
+				z-index:0;width:370px;height:180px;background:#cfc;}
+-->
+</style>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../../lib/unittest.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+var amount = 0;
+function initOnLoad(){
+	new Draggable("book1", { revert:true });
+	new Draggable("book2", { revert:true });
+	new Draggable("book3", { revert:true });
+	Droppables.add("basket", { 
+			onDrop: function(element, droppableElement){
+			$(droppableElement).innerHTML += "<br/>" + element.id + "がカゴに入りました。";
+			if(element.id == "book1"){
+				amount += 3050;
+			}else if(element.id == "book2"){
+				amount += 2100;
+			}else if(element.id == "book3"){
+				amount += 4200;
+			}	
+			$("amount2").innerHTML = amount;
+		}, accept:"out"
+	});
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>script.aculo.us ドロップエリア設定</h2>
+<div id="book1" class="out"><img src="../img/ajaxbook1.jpg" width="130" height="130"/></div>
+<div id="book2" class="out"><img src="../img/ajaxbook2.jpg" width="130" height="130"/></div>
+<div id="book3" class="out"><img src="../img/csbook1.jpg" 	 width="130" height="130"/></div>
+<div id="amount1">購入合計金（円）:</div><div id="amount2"></div>
+<div id="basket">買いものカゴ：</div>
+</body>
+</html>
+

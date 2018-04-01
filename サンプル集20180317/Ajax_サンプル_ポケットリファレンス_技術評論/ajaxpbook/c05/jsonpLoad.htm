@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>従業員番号から氏名表示</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+function callback(resp){ // コールバック関数を定義
+	var emp_ids = new Array();
+	var emp_names = new Array();
+	for(var i = 0; i < resp["empmas"]["employee"].length; i++){
+	   emp_ids.push(resp["empmas"]["employee"][i]["emp_id"]);	
+	   emp_names.push(resp["empmas"]["employee"][i]["emp_name"]);	
+	}
+	var view = "<table width='230' border='1'>"
+  + "<tbody><tr><th>従業員番号</th><th>従業員氏名</th>";
+	for(var i = 0; i < emp_ids.length; i++){
+    view+="<tr><td>"+emp_ids[i]+"</td><td>"+emp_names[i]+"</td></tr>";
+  }
+  view+="</tbody></table>"
+  document.getElementById("view").innerHTML = view;
+}
+</script>
+<body>
+<center>
+<h3>従業員番号から氏名表示<input type="button" id="sel" value=" 表 示 "/></h3>
+<div id="view"></div>
+</center>
+<script src="http://60.35.8.186/htm/book0711/s15/jsonpemp.dat"></script>
+</body>
+</html>

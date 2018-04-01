@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>My Google AJAX Search API Application</title>
+<script src="http://www.google.com/jsapi?key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxSF9hCAVocq5x3hGFbD0Otb-FImEhRi_1GgxubmXlbHHTaD26_4QGu6Hg" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+google.load("search", "1");
+function OnLoad() {
+  // Create a search control
+  var searchControl = new google.search.SearchControl();
+	var localSearch = new google.search.LocalSearch();
+  searchControl.addSearcher(new google.search.WebSearch());
+
+	// Set the Local Search center point
+  //localSearch.setCenterPoint("New York, NY");
+  localSearch.setCenterPoint("Japan, JP");
+  searchControl.draw(document.getElementById("out"));
+
+	// Execute an inital search
+  searchControl.execute("Ajax");
+}
+google.setOnLoadCallback(OnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>Google Webサーチ</h2>
+<div id="out">Loading...</div>
+</body>
+</html>

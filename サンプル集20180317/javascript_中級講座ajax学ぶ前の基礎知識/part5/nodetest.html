@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>ノード操作の例</title>
+<script type="text/javascript">
+//<![CDATA[
+function addNodes() {
+    // 基点のp要素のノードを得る
+    var pNode = document.getElementById("placeholder");
+    // body要素のノードを得る
+    var body = document.getElementsByTagName("body")[0];
+    // 基点のp要素の最後の子要素として、リンクを追加
+    var aNode = document.createElement("a");
+    aNode.href = "http://www.gihyo.co.jp/";
+    var tNode = document.createTextNode("技術評論社");
+    aNode.appendChild(tNode);
+    pNode.appendChild(aNode);
+    // 基点のp要素の前に別のp要素を追加
+    var pNode2 = document.createElement("p");
+    var tNode2 = document.createTextNode("基点の要素の前に追加されたp要素です。");
+    pNode2.appendChild(tNode2);
+    body.insertBefore(pNode2, pNode);
+        // 上の文は「pNode.parentNode.insertBefore(pNode2, pNode);」とも書ける
+    // 基点のp要素の後に別のp要素を追加
+    var pNode3 = document.createElement("p");
+    var tNode3 = document.createTextNode("基点の要素の後に追加されたp要素です。");
+    pNode3.appendChild(tNode3);
+    body.insertBefore(pNode3, pNode.nextSibling);
+        // 上の文は「pNode.parentNode.insertBefore(pNode3, pNode.nextSibling);」とも書ける
+
+}
+//]]>
+</script>
+</head>
+
+<body>
+<p>これはダミーの要素です。</p>
+<p id="placeholder">この要素を基点に要素を追加します。</p>
+<p>これはダミーの要素です。</p>
+<p>この<a href="#" onclick="addNodes(); return false;">リンク</a>をクリックすると、ノードが追加されます。</p>
+</body>
+</html>

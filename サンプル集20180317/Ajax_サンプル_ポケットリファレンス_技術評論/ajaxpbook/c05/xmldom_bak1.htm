@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>従業員番号から氏名表示</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function xmlFunc(){
+  var emp_id, emp_name;
+  var view = "<table width='300' border='1'>"
+  + "<tbody><tr><th>従業員番号</th><th>従業員氏名</th><th>所属</th>";
+  var xhrObj = getXhrObj();
+  xhrObj.open("get", "employee.xml");
+	xhrObj.setRequestHeader("If-Modified-Since", "01 Jan 2000 00:00:00 GMT");
+  xhrObj.onreadystatechange = function(){
+    if(xhrObj.readyState == 4){
+      if(xhrObj.status == 200){
+  			//var resp = xhrObj.responseXML.documentElement;
+  			var resp = xhrObj.responseXML;
+				alert("resp="+resp);
+  			var employee = $A(resp.getElementsByTagName("employee"));
+				alert(employee[0]);
+  			for(var i = 0; i < employee.length; i++){
+    			//var emp_no = employee[i].childNodes[0].firstChild.nodeValue;
+    			//var emp_no = employee[i].childNodes.item(0).firstChild.nodeValue;
+    			var emp_no = employee[i].childNodes[i];
+					alert("emp_no="+emp_no);
+    			//emp_name = employee[i].childNodes[1].firstChild.nodeValue;
+    			//section = employee[i].childNodes[2].firstChild.nodeValue;
+    			//view+="<tr><td>"+emp_no+"</td><td>"+emp_name+"</td><td>"+section+"</td></tr>";
+  			}
+  			//view+="</tbody></table>"
+  			//document.getElementById("view").innerHTML = view;
+			}
+		}
+	}
+  xhrObj.send(null);
+}
+function initOnLoad(){
+	var observer = document.getElementById("sel");
+  addListener(observer, "click", xmlFunc);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<center>
+<h3>従業員番号から氏名表示
+<input type="button" id="sel" value=" 表 示 "/>
+</h3>
+<div id="view"></div>
+</center>
+</body>
+</html>
+

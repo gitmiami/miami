@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>do～while文</title>
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+var password;
+var ctr;
+
+ctr = 0;
+while (true) {
+    ctr++;
+    password = prompt("パスワードを入力してください");
+    if (password == "abc") {
+        document.write("<p>正しいパスワードが入力されました。</p>");
+        break;
+    }
+    else if (ctr == 3) {
+        document.write("<p>間違ったパスワードが3回入力されました。</p>");
+        break;
+    }
+    else {
+        alert("パスワードが違います。");
+    }
+}
+//]]>
+</script>
+</body>
+</html>

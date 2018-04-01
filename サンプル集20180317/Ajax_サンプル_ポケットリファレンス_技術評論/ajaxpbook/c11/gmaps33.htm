@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head><title>経度・緯度を調べる（地図作成作業補助サンプル）v0.44</title>
+<!-- 下記キーは、必ず自分専用のものをhttp://www.google.com/apis/maps/で取得して使ってください -->
+<script src="http://maps.google.com/maps?file=api&v=2.61&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+<script src="./GKenOptions.js" charset="utf-8"></script>
+//<![CDATA[
+function initOnLoad(){
+  var Gvars = {};
+  Gvars.v = 44.1;
+  Gvars.zoom = 17 ;
+  Gvars.point = [35.6815617, 139.7672091];
+  Gvars.d = function(e){return Gvars.d[e]||(Gvars.d[e]=(document.getElementById(e)||e))};
+  //都道府県庁選択用Option作成支援クラスへのショートカット
+  Gvars.ken = org.jsgt.lib.GMap2.GKenOptions;
+  //]]>
+  </script>
+  経度・緯度を調べる（地図作成作業補助サンプル）v0.<script type="text/javascript">document.write(Gvars.v)</script>
+  <form name="test1" style = "margin:0px">
+  <input type    = "button" 
+  style   = "width:100px;height:20px;margin:0px;"
+  value   = "都道府県名リスト"
+  onclick = "Gvars.ken.loadFile('./ken_tky.xml')"><br>
+  <select name     = "s0"
+  style    = "width:100px;height:430px;background-color:#eeeeee;color:#333333;"
+  size     = "5"
+  onchange = "Gvars.ken.res.onselectedOption(this)"> 
+  <option selected> --ここへ読み込まれます--
+  </select> 
+  </form>
+  </div><br clear="all" />
+  <script type="text/javascript">
+  //<![CDATA[
+  var latlon = getFromURL();
+  var map = new GMap2(Gvars.d("map"));
+  Gvars.center = new GLatLng(latlon[0],latlon[1]);
+  map.setCenter(Gvars.center);
+  map.setZoom(parseInt(Gvars.zoom));
+  map.addControl(  new GLargeMapControl(),
+  new GControlPosition(G_ANCHOR_TOP_RIGHT, new GSize(5,30))
+  );
+  //map.addControl(new GLargeMapControl());
+  map.addControl(new GMapTypeControl());
+  map.addControl(new GScaleControl());
+  map.addControl(new GOverviewMapControl(new GSize(200,150)));
+  //十字アイコン作成
+  var icon = new GIcon();
+  icon.image = "./cross2.png";
+  icon.iconSize = new GSize(100, 100);
+  icon.iconAnchor = new GPoint(50, 50);
+  var marker = new GMarker(map.getCenter(), icon);
+  map.addOverlay(marker);
+  //地図移動で十字アイコン追随と、座標を表示
+  GEvent.addListener(map, "move", function() { 
+  Gvars.center = map.getCenter();
+  marker.setPoint(Gvars.center);
+  showLatLon();
+  });
+  GEvent.addListener(map, "zoomend", function(oldZoomLevel,newZoomLevel ){showLatLon(newZoomLevel)});
+  //十字アイコンが示す座標を表示
+  showLatLon= function (newZoomLevel){
+  Gvars.zoom=(newZoomLevel)?newZoomLevel:Gvars.zoom;
+  showWgs84();
+  if(document.f1.tkyebl.checked)showTokyo();
+  };
+  showWgs84 = function(){
+  var point = Gvars.center;
+  var v2zm  = Gvars.zoom;
+  var v1zm  = 17 - v2zm;
+  //Zoom値
+  Gvars.d('zoom1').innerHTML=v1zm;
+  Gvars.d('zoom2').innerHTML=v2zm;
+  //現在位置Wgs84
+  Gvars.d('datalonlat').innerHTML="("+point.lng()+","+point.lat()+")"
+  Gvars.d('datalatlon').innerHTML=point
+  document.f1.zm.value=v2zm
+  document.f1.lat.value=point.y
+  document.f1.lon.value=point.x 
+  document.f1.url.value="http://jsgt.org/ajax2/newmon/samples/chapter03/03-31/getlatlon"+Gvars.v+".htm?lon="+point.x+"&lat="+point.y+"&zm="+ Gvars.zoom
+  };
+  showTokyo = function(){
+  //現在位置Tokyo
+  var tky = getTokyo()
+  Gvars.d('datalatlonTokyo').innerHTML='('+tky.x+','+tky.y+')'
+  document.f1.zm_tky.value=Gvars.zoom
+  document.f1.lat_tky.value=tky.y
+  document.f1.lon_tky.value=tky.x
+  };
+  function getTokyo(){
+  var point = map.getCenter()
+  var a=point.x
+  var b=point.y
+  var wk_x = +a-(a - b * 0.000046038 - a * 0.000083043 + 0.010040);
+  var wk_y = +b-(b - b * 0.00010695  + a * 0.000017464 + 0.0046017); 
+  this.x = +a+wk_x
+  this.y = +b+wk_y
+  return { x:this.x , y:this.y }
+  }
+  //移動
+  function moveMap(lat,lon,zm){map.setCenter(new GLatLng(lat,lon),parseInt(zm));}
+  function moveMap_tky(lat,lon,zm){if(document.f1.tkyebl.checked){map.setCenter(new GLatLng_tky(lat,lon),parseInt(zm));}else{alert("日本測地系出力をチェックしてください")}}
+  window.onload = function(){ showLatLon(); }
+  //GLatLngクラスで日本測地系座標を使いたい時用代替クラス
+  //=========================================================================
+  ////
+  // GLatLng_tky
+  // Google Maps API v2用日本測地系座標をGLatLngクラスで使いたい時用
+  //
+  //日本測地系座標を使いたい時は、GLatLngクラスの代わりに下記GLatLng_tkyを使用します。
+  //世界測地系(wgs84)の座標を使うときは不要です
+  GLatLng_tky = function (la,ln){
+  var lat = la - la * 0.00010695  + ln * 0.000017464 + 0.0046017;
+  var lng = ln - la * 0.000046038 - ln * 0.000083043 + 0.010040;
+  return new GLatLng(lat,lng);
+  }
+  GPoint_tky = function (a,b){
+  this.y = b - b * 0.00010695  + a * 0.000017464 + 0.0046017;
+  this.x = a - b * 0.000046038 - a * 0.000083043 + 0.010040;
+  }
+  //経緯度とズーム値(v2は、v1の逆で、整数0が広域で数が増えると詳細)を指定します
+  //URLから座標を取得
+  //例 getlatlon4.htm?lon=139.74541783332825&lat=35.658725884775244
+  function getFromURL(){
+  var data = location.href.split('?')[1];
+  if(data){
+  var qs = data.split('&');
+  for(var i in  qs){
+  var q = qs[i].split('=');
+  if(q[0]=='lat')var lat = q[1]
+  if(q[0]=='lon')var lon = q[1]
+  if(q[0]=='zm') var zm  = q[1]
+  }
+  } else {
+  return init();
+  }
+  if(!lat)return init();
+  if(!lon)return init();
+  (!zm)?zm = Gvars.zoom:zm;
+  Gvars.zoom = zm;
+  return [lat,lon]
+  }
+  function init(){
+  return Gvars.point;
+  }    
+  //===========
+  function addSamplePageToSidebar(url,title){
+  if((typeof window.sidebar=='object') && (typeof window.sidebar.addPanel)=='function'){
+  window.sidebar.addPanel(title,url,'');
+  } else {
+  alert('あなたのブラウザはサイドバーをサポートしていません.');
+  }
+  }
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+現在地：
+<form name="f1">
+世界測地系Wgs84 
+<div>【v2用】Zoom<span id="zoom2" style="font-size:1.2em;font-weight:900">--</span> lat lon (v2 GLatLng用) <span id="datalatlon" style="font-size:1.2em;font-weight:900">--</span></div>
+<div>【v1用】Zoom<span id="zoom1" style="font-size:1.2em;font-weight:900">--</span> lon lat (v1 Gpoint用) <span id="datalonlat" style="font-size:1.2em;font-weight:900">--</span></div>
+URL:<input type="text" name="url" size="150" value=""><br />
+<input type="button" value="このURLでリロード" onclick="location.href=this.form.url.value"> 
+<input type="button" value="お気に入りに追加 for IE" 
+onclick="javascript:window.external.AddFavorite(this.form.url.value, 'GoogleMaps経緯度調べ')" 
+style="border-style:solid; border-width:1px; border-color:#dddddd; background:#eeeeee;"> 
+<input type="button" value="サイドバーに追加 for Firefox,Moz" 
+onclick="javascript: addSamplePageToSidebar(this.form.url.value, 'GoogleMaps経緯度調べ')" 
+style="border-style:solid; border-width:1px; border-color:#dddddd; background:#eeeeee;">
+<br />
+<br />
+<input type="text" name="zm" value="" size="5">
+<input type="text" name="lat" value="">
+<input type="text" name="lon" value="">
+<input type="button" value="世界測地系で移動" onclick="moveMap(this.form.lat.value,this.form.lon.value,this.form.zm.value)">
+<br />
+<font size="-2">
+日本測地系も出力<input type="checkbox" name="tkyebl" onclick="if(this.checked){showTokyo()}else{
+Gvars.d('datalatlonTokyo').innerHTML='';
+document.f1.zm_tky.value='';
+document.f1.lat_tky.value='';
+document.f1.lon_tky.value='';
+}"> 
+<div id="datalatlonTokyo" style="font-size:1.2em;">--</div>
+<input type="text" name="zm_tky" value="" size="5">
+<input type="text" name="lat_tky" value="">
+<input type="text" name="lon_tky" value="">
+<input type="button" value="日本測地系で移動" onclick="moveMap_tky(this.form.lat_tky.value,this.form.lon_tky.value,this.form.zm_tky.value)">
+</font>
+</form>
+<br />[ <a href='http://jsgt.org/mt/01/'>かも日記</a> ] [ <a href='http://jsgt.org/ajax2/'>入門Ajax</a>  ] [
+Google Maps API クラスリファレンス意訳とサンプル <a href='http://jsgt.org/ajax2/newmon/GoogleMapsAPIv2.htm'>v2用</a> , 
+<a href='http://jsgt.org/ajax2/newmon/GoogleMapsAPI.htm'>v1用</a> 
+]
+<br />
+<br />
+<font size="-1">
+【更新情報】2006.10.13 v44.1 Safariの不具合修正 <br />
+【更新情報】2006.9.8 都道府県名からの位置選択を追加、アイコン出力ルーチンを変更し、日本測地系出力も選択式にして軽量化してみました。
+コントロールを右へ集めたので少し使いやすくなったかも。 アイコンも細くしました。 <br />
+【更新情報】2006.9.7 Zoom値表示とZoom値による移動を追加。 <br />
+【更新情報】2006.8 v2に変更。GOverviewMapControlを追加。引数の順番が違うのでv1のGPoint用(lon,lat)とv2のGLatLng用(lat,lon)を併記。(ただし、v2以降はGPointで経緯度表記は非推奨)。 <br />
+【更新情報】2006.4.28 URLクエリで座標を渡せるようにして、スケールコントロールも追加しました。 <br />
+【更新情報】2006.1.4 日本測地系座標から地図を調べたいという場合もありますので、日本測地系での移動もできるようにしてみました。
+</font>
+<div>
+  <div id="map"  style="width: 600px; height: 450px;float:left"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>matchメソッドを使った検索</title>
+</head>
+<script type="text/javascript">
+//<![CDATA[
+var str, ptn, m, msg;
+
+// 検索を行う
+str = 'こちらは<a href="http://www.gihyo.co.jp">技術評論社</a>です';
+ptn = '<a href="(.*?)">(.*?)</a>'
+r = new RegExp(ptn);
+m = str.match(r);
+// alertで表示するメッセージを作成
+msg = "検索対象 = " + str + "\n";
+msg += "パターン = " + ptn + "\n";
+msg += "パターンに最初にマッチした文字列 = " + m[0] + "\n";
+msg += "1つ目の括弧にマッチした文字列 = " + m[1] + "\n";
+msg += "2つ目の括弧にマッチした文字列 = " + m[2];
+// 結果を表示
+alert(msg);
+//]]>
+</script>
+</body>
+</html>

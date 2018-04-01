@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxRgE_H9GM6zkZRwNii93jtvjOSYqRTUvjXBD0wChGoBh2xb30zNzkqZmA" type="text/javascript"></script>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  var map = new GMap2(id("map"));
+  map.setCenter(new GLatLng(35.6808617, 139.7672091), 16);
+  var icon = new GIcon();
+  icon.image = "flag.gif";
+  icon.shadow = "./shadow.png";
+  icon.iconSize = new GSize(20, 34);
+  icon.shadowSize = new GSize(20, 34);
+  icon.iconAnchor = new GPoint(0, 37);
+  var marker = new GMarker(map.getCenter(), icon);
+  map.addOverlay(marker);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+オリジナルマーカを表示する
+<div id="map" style="width:500px; height:370px"></div>
+</body>
+</html>
+

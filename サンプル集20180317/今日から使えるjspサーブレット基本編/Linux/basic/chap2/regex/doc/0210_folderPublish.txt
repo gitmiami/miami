@@ -1,0 +1,90 @@
+¢£¥Õ¥©¥ë¥À¾ðÊó¤ò´ÊÃ±¤Ë¸ø³«¤·¤¿¤¤
+
+¥Í¥Ã¥È¥ï¡¼¥¯¾å¤Çºî¶È¤¹¤ë¤³¤È¤ÎÂ¿¤¯¤Ê¤Ã¤¿ºòº£¤Ç¤Ï¡¢¤Þ¤¹¤Þ¤¹¼«Ê¬¼«¿È¤ÎºîÀ®¤·¤¿ÅÅ»Ò¥Ç¡¼¥¿¤òWeb¾å¤Ç´ÊÃ±¤Ë¸ø³«¤·¤¿¤¤¤È¤¤¤¦¥Ë¡¼¥º¤Ï¶¯¤Þ¤Ã¤Æ¤¤¤Þ¤¹¡£¤·¤«¤â¡¢¥Ç¡¼¥¿¤¬ÈÅÍô¤·¤Æ¤¤¤ë¤À¤±¤Ë¡¢¤Ò¤È¤Ä¤Ò¤È¤Ä¤ÎÊ¸½ñ¤ò¸ø³«¤¹¤ë¤Î¤Ë¡¢¤¤¤Á¤¤¤ÁHTML¤Ç¸ø³«¤Î¤¿¤á¤Î¥ê¥ó¥¯¥Ú¡¼¥¸¤òºîÀ®¤¹¤ë¤³¤È¤µ¤¨ÈÑ»¨¤Ë´¶¤¸¤é¤ì¤ë¶ÉÌÌ¤¹¤é¤¢¤ê¤Þ¤¹¡£
+¤½¤ó¤Ê¼ ¤Ë¡¢ÆÃÄê¤Î¥Õ¥©¥ë¥À¤ËÃÖ¤¤¤¿¥Ç¡¼¥¿¤¬¡¢¤­¤Á¤ó¤È¥Õ¥¡¥¤¥ë¾ðÊó¤Î°ìÍ÷É½¤È¤Ê¤Ã¤ÆWeb¾å¤Ë¸ø³«¤Ç¤­¤ì¤Ð¡¢¤É¤ó¤Ê¤ËÊØÍø¤Ç¤·¤ç¤¦¡£¤¤¤Á¤¤¤ÁHTML¤òµ­½Ò¤¹¤ëÉ¬Í×¤â¤¢¤ê¤Þ¤»¤ó¤·¡¢¼«Æ°½èÍý¤Ê¤Î¤Ç¡¢ºÇ¿·¤Î¾ðÊó¤âÀµ³Î¤ËÊÝ»ý¤¹¤ë¤³¤È¤¬¤Ç¤­¤Þ¤¹¡£
+¤³¤³¤Ç¤Ï¡¢¤½¤ó¤Ê¼«Æ°¸ø³«ÍÑ¥Õ¥©¥ë¥À¥·¥¹¥Æ¥à¤òºî¤Ã¤Æ¤ß¤ë¤³¤È¤Ë¤·¤Þ¤¹¡£
+
+¡ü¥Ý¥¤¥ó¥È
+¡¡¥í¥¸¥Ã¥¯Åª¤Ë¤â¡¢¤ä¤ä¹âÅÙ¤Ê¥¹¥¯¥ê¥×¥È¤Ç¤¹¡£
+¡¡¤¤¤­¤Ê¤ê¸Ä¡¹¤Î¥í¥¸¥Ã¥¯¤ò¸«¤Æ¤¤¤¯Á°¤Ë¡¢¤Þ¤º¤ÏÂç¤­¤¯¤Õ¤¿¤Ä¤Î¤³¤È¤ò¤ª¤µ¤¨¤Æ¤ª¤­¤Þ¤·¤ç¤¦¡£
+(1)¾ï¤Ë¸Æ¤Ó½Ð¤µ¤ì¤ë¤Î¤Ï¼«Ê¬¼«¿È
+¤³¤Î¥Õ¥©¥ë¥À¥·¥¹¥Æ¥à¤Ç¤Ï¡¢Â¿³¬ÁØ¤ËÅÏ¤ë¥Õ¥©¥ë¥À¤ä¥Õ¥¡¥¤¥ë¤Î¾ðÊó¤òÉ½¼¨¤·¤Æ¤¤¤Þ¤¹¤¬¡¢ÅöÁ³¡¢¸Ä¡¹¤Î¥Õ¥©¥ë¥À¤Ë¤Ä¤¤¤Æ¥¹¥¯¥ê¥×¥È¤òÍÑ°Õ¤·¤Æ¤¤¤ë¤ï¤±¤Ç¤Ï¤¢¤ê¤Þ¤»¤ó¡£¤½¤â¤½¤â¸ø³«¤¹¤ë¥Õ¥©¥ë¥À¤ÏÌµ¸Â¤Ë³ÈÄ¥¤¹¤ë²ÄÇ½À­¤¬¤¢¤ê¤Þ¤¹¤·¡¢¤½¤Î¤¿¤Ó¤Ë¥¹¥¯¥ê¥×¥È¤òÍÑ°Õ¤·¤Æ¤¤¤¿¤Î¤Ç¤Ï¡¢Æ°Åª¤Ë¸ø³«¤¹¤ë¤·¤¯¤ß¤òºî¤Ã¤¿°ÕÌ£¤¬¤¢¤ê¤Þ¤»¤ó¡£
+¤½¤³¤Çº£²ó¤Î¤·¤¯¤ß¤Ç¤Ï¡¢¥Õ¥©¥ë¥À´Ö¤ò°ÜÆ°¤¹¤ëºÝ¤Ë¥¹¥¯¥ê¥×¥È¤Ï¡¢¾ï¤Ë¼«Ê¬¼«¿È¤ò¸Æ¤Ó½Ð¤¹¤³¤È¤Ë¤·¤Þ¤¹¡£¤Ä¤Þ¤ê¡¢°ú¿ô¤È¤·¤Æ¸Æ¤Ó½Ð¤¹¥Õ¥©¥ë¥ÀÌ¾¡Ê¥Ñ¥¹¡Ë¤òÆ°Åª¤ËÀÚ¤êÂØ¤¨¤ë¤À¤±¤Ç¡¢É½¼¨¤¹¤ë¥í¥¸¥Ã¥¯¤Ï¶¦Í­¤·¤Æ¤¤¤ë¤ï¤±¤Ç¤¹¡£¤³¤Î¤è¤¦¤Ë¡¢ºÆµ¢Åª¤Ë¼«Ê¬¼«¿È¤ò¸Æ¤Ó½Ð¤¹ÊýË¡¤Ï¡¢¥¹¥¯¥ê¥×¥È¤ò¥³¥ó¥Ñ¥¯¥È¤Ë¤¹¤ë¾ì¹ç¤Ë¤­¤ï¤á¤ÆÍ­¸ú¤Ç¤¹¤·¡¢º£¸å¤âÂ¿¤¯ÍÑ¤¤¤ëµ¡²ñ¤¬¤¢¤ë¤Ï¤º¤Ç¤¹¤Î¤Ç¡¢À§Èó¤È¤â¹Í¤¨Êý¤È¤·¤Æ¤ª¤µ¤¨¤Æ¤ª¤­¤¿¤¤¤È¤³¤í¤Ç¤¹¡£
+
+¡ü¥µ¥ó¥×¥ë
+¢¢cabi.asp
+1	<%@Language="VBScript" %>
+2	<html>
+3	<head>
+4	<title>¶¦Í­¥Õ¥¡¥¤¥ë¥µ¡¼¥Ð</title>
+5	</head>
+6	<body>
+7	<table>
+8	<tr>
+9	<td align="right">
+10	<%
+11	If Request.QueryString="" Then
+12	¡¡curPath="./doc"
+13	Else
+14	¡¡curPath=Replace(Request.QueryString("path"),"\","/")
+15	¡¡curPath="." & Mid(curPath,InStr(curPath,"/doc"))
+16	End If
+17	Set fso=Server.CreateObject("Scripting.FileSystemObject")
+18	Set fld=fso.GetFolder(Server.MapPath(curPath))
+19	If curPath<>"./doc" Then
+20	¡¡Response.Write "[<a href='cabi.asp?path=" & fld.ParentFolder & "'>"
+21	¡¡Response.Write "¾å¤Î¥Õ¥©¥ë¥À¤Ø</a>]"
+22	End If
+23	%>
+24	</td>
+25	</tr><tr>
+26	<td>
+27	<table border="1">
+28	<tr>
+29	¡¡<th nowrap="nowrap">¥Õ¥¡¥¤¥ëÌ¾</th>
+30	¡¡<th nowrap="nowrap">¥µ¥¤¥º</th>
+31	¡¡<th nowrap="nowrap">¥Õ¥¡¥¤¥ë¥¿¥¤¥×</th>
+32	¡¡<th nowrap="nowrap">ºÇ½ª¹¹¿·Æü</th>
+33	¡¡<th nowrap="nowrap">ºÇ½ª¥¢¥¯¥»¥¹Æü</th>
+34	¡¡<th nowrap="nowrap">½é´üºîÀ®Æü</th>
+35	</tr>
+36	<%
+37	For Each sFld In fld.SubFolders
+38	%>
+39	<tr>
+40	¡¡<td nowrap="nowrap">
+41	¡¡¡¡<a href="cabi.asp?path=<%=Server.URLEncode(sFld.Path) %>">
+42	¡¡¡¡<%=sFld.Name %>
+43	¡¡¡¡</a></td>
+44	¡¡<td nowrap="nowrap"><br /></td>
+45	¡¡<td nowrap="nowrap">¥Õ¥¡¥¤¥ë ¥Õ¥©¥ë¥À</td>
+46	¡¡<td nowrap="nowrap"><%=sfld.DateLastModified %></td>
+47	¡¡<td nowrap="nowrap"><%=sfld.DateLastAccessed %></td>
+48	¡¡<td nowrap="nowrap"><%=sfld.DateCreated %></td>
+49	</tr>
+50	<%
+51	Next
+#¡¡¸½ºß¤Î¥Õ¥©¥ë¥À¤Ë´Þ¤Þ¤ì¤ë¥µ¥Ö¥Õ¥©¥ë¥À¾ðÊó¤òÉ½¼¨¤·¤Þ¤¹¡£
+#¡¡Folder¥ª¥Ö¥¸¥§¥¯¥È¤ÎSubFolders¥×¥í¥Ñ¥Æ¥£¤Ï¡¢¥Õ¥©¥ë¥ÀÇÛ²¼¤Î¥µ¥Ö¥Õ¥©¥ë¥À¤ò¤¹¤Ù¤Æ´Þ¤àFolders¥³¥ì¥¯¥·¥ç¥ó¤òÊÖ¤·¤Þ¤¹¡£¤³¤³¤Ç¤Ï¡¢For Each¥¹¥Æ¡¼¥È¥á¥ó¥È¤òÍøÍÑ¤·¤Æ¡¢Folders¥³¥ì¥¯¥·¥ç¥ó¤Ë´Þ¤Þ¤ì¤ë¥Õ¥©¥ë¥À¾ðÊó¤ò½çÈÖ¤Ë¼è¤ê½Ð¤·¤Æ¤¤¤Þ¤¹¡£
+#¡¡¤Ê¤ª¡¢¥Õ¥©¥ë¥À¤Ê¤Î¤Ç¡¢¥Õ¥¡¥¤¥ë¥¿¥¤¥×¤Ï¸ÇÄêÃÍ¤Ç¡Ö¥Õ¥¡¥¤¥ë¥Õ¥©¥ë¥À¡×¤È¤·¤Þ¤¹¡£
+52	For Each fl In fld.Files
+53	%>
+54	¡¡<tr>
+55	¡¡¡¡<td nowrap="nowrap"><a href="<%=curPath & "/" & fl.Name %>">
+56	¡¡¡¡<%=fso.GetBaseName(fl.Path) %></a></td>
+57	¡¡¡¡<td nowrap><%=Int(fl.Size/1024) & "KB" %></td>
+58	¡¡¡¡<td nowrap><%=fl.Type %></td>
+59	¡¡¡¡<td nowrap><%=fl.DateLastModified %></td>
+60	¡¡¡¡<td nowrap><%=fl.DateLastAccessed %></td>
+61	¡¡¡¡<td nowrap><%=fl.DateCreated %></td>
+62	¡¡</tr>
+63	<%
+64	Next
+65	%>
+66	</table>
+67	</body>
+68	</html>
+
+¡üTIPS
+¢¤² ÍÑ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¡ÖwebWare¡×
+¡¡¤³¤Î¥Õ¥©¥ë¥À¥·¥¹¥Æ¥à¤Ï¡¢Âè3¾Ï¤Ç¤´¾Ò²ð¤¹¤ë¥¢¥Ã¥×¥í¡¼¥Éµ¡Ç½¤ÈÏ¢Æ°¤µ¤»¤ë¤³¤È¤Ç¡¢¤è¤êÁí¹çÅª¤ÊÊ¸½ñ´ÉÍýµ¡Ç½¤ò¹½ÃÛ¤¹¤ë¤³¤È¤â²ÄÇ½¤Ç¤·¤ç¤¦¡£Âè5¾Ï¡ÊP.¡û¡û¡Ë¤Ç¾Ò²ð¤¹¤ë² ÍÑ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¡ÖwebWare¡×¤Ç¤â¡¢ËÜ¥µ¥ó¥×¥ë¤ò¥Ð¡¼¥¸¥ç¥ó¥¢¥Ã¥×¤·¤¿¶¦ÍÑ¥­¥ã¥Ó¥Í¥Ã¥Èµ¡Ç½¤òÄó¶¡¤·¤Æ¤¤¤ë¤Î¤Ç¡¢Í¾ÎÏ¤Î¤¢¤ëÊý¤Ï¤³¤Á¤é¤â¤¢¤ï¤»¤Æ»²¾È¤·¤Æ¤ß¤Æ¤¯¤À¤µ¤¤¡£

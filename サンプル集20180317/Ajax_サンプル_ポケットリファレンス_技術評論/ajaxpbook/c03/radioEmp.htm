@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>従業員番号から氏名表示</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function check(e){
+  var emp_no = getid(e);
+	var xhrObj = getXhrObj();
+  xhrObj.open("get", "getUniq.php?emp_no="+emp_no);
+  xhrObj.setRequestHeader("If-Modified-Since", "01 Jan 2000 00:00:00 GMT");
+  xhrObj.send(null);
+  xhrObj.onreadystatechange = function(){
+    if(xhrObj.readyState == 4){
+      if(xhrObj.status == 200){
+        var emp_name = xhrObj.responseText;
+        document.getElementById("emp_name").innerHTML = emp_name;
+      }
+    }
+  }
+}
+function initOnLoad(){
+  var target = document.getElementById("employees");
+  setListener(target, "click", check);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h3>従業員番号から氏名表示</h3>
+<div>従業員番号</div>
+<p id="employees">
+  <input type="radio" name="employee" id="A0001" />A0001
+  <input type="radio" name="employee" id="A0002" />A0002
+  <input type="radio" name="employee" id="A0003" />A0003
+  <input type="radio" name="employee" id="A0004" />A0004
+  <input type="radio" name="employee" id="A0005" />A0005
+</p>
+<hr />
+従乗員氏名　<nobr id="emp_name"></nobr>
+</body>
+</html>
+
+

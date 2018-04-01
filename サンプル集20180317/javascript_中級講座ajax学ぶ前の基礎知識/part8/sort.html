@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>並べ替え</title>
+<style type="text/css">
+<!--
+ul {
+    margin-left : 0;
+    padding-left : 0;
+}
+li {
+    padding : 2px 5px;
+    margin-bottom : 1px;
+    border : 1px solid #ff0000;
+    background-color : #ffeeee;
+    list-style-type : none;
+    cursor : move;
+}
+-->
+</style>
+<script type="text/javascript" src="lib/prototype.js"></script>
+<script type="text/javascript" src="src/scriptaculous.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    // idが「menu」のul要素の内部を並べ替えられるようにする
+    Sortable.create('menu');
+}
+
+function serialize() {
+    // 並べ替えの順番を出力する
+    alert(Sortable.serialize('menu'));
+    return false;
+}
+//]]>
+</script>
+</head>
+<body>
+<ul id="menu">
+  <li id="menu_1">メニュー1</li>
+  <li id="menu_2">メニュー2</li>
+  <li id="menu_3">メニュー3</li>
+  <li id="menu_4">メニュー4</li>
+  <li id="menu_5">メニュー5</li>
+</ul>
+</body>
+</html>

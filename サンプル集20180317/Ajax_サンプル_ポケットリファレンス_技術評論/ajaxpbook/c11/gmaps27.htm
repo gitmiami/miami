@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxRgE_H9GM6zkZRwNii93jtvjOSYqRTUvjXBD0wChGoBh2xb30zNzkqZmA" type="text/javascript"></script>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  var inipoint = new GLatLng(35.6815617, 139.7672091);
+  GMap2.prototype.mymap = {movedByOther : false };
+  var map1 = new GMap2(id("map1"));
+  map1.setCenter(inipoint , 14);
+  map1.addControl(new GSmallMapControl());
+  var map2 = new GMap2(id("map2"));
+  map2.setCenter(inipoint, 14);
+  map2.setMapType(G_SATELLITE_MAP) ;
+  var icon = new GIcon();
+  icon.image = "target.gif";
+  icon.iconSize = new GSize(100, 100);
+  icon.iconAnchor = new GPoint(50, 50);
+  var marker1 = new GMarker(map1.getCenter(), icon);
+  var marker2 = new GMarker(map2.getCenter(), icon);
+  map1.addOverlay(marker1);
+  map2.addOverlay(marker2);
+  GEvent.addListener(map1, "zoom", function(){ 
+  	map2.setCenter(map1.getCenter(), map1.getZoom());
+  });
+  GEvent.addListener(map1, "move", function(){ 
+  	if(map2.mymap.movedByOther)return //無限ループ回避
+  	map2.mymap.movedByOther = true;
+  	map2.setCenter(map1.getCenter(), map2.getZoom());
+  	map1.clearOverlays();
+  	map2.clearOverlays();
+  	marker1 = new GMarker(map1.getCenter(), icon);
+  	marker2 = new GMarker(map1.getCenter(), icon);
+  	map1.addOverlay(marker1);
+  	map2.addOverlay(marker2);
+  	map2.mymap.movedByOther = false;
+  });
+  GEvent.addListener(map2, "move", function() { 
+  if(map1.mymap.movedByOther) return; //無限ループ回避
+  map1.mymap.movedByOther = true;
+  map1.setCenter(map2.getCenter(),map1.getZoom());
+  map1.clearOverlays();
+  map2.clearOverlays();
+  marker1 = new GMarker(map2.getCenter(), icon);
+  marker2 = new GMarker(map2.getCenter(), icon);
+  map1.addOverlay(marker1);
+  map2.addOverlay(marker2);
+  map1.mymap.movedByOther = false;
+  });
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+地図/航空写真２連表示でドラッグ移動を連動させる
+<p id="map1" style="width: 400px; height: 280px"></p>
+<p id="map2" style="width: 400px; height: 280px"></p>
+</body>
+</html>
+

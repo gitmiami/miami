@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>スライドアップ／ダウン</title>
+<script type="text/javascript" src="lib/prototype.js"></script>
+<script type="text/javascript" src="src/scriptaculous.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    $("appearer").onclick = toggleAppear;
+    $("blinder").onclick = toggleBlind;
+    $("slider").onclick = toggleSlide;
+};
+
+function toggleAppear() {
+    new Effect.toggle('toappear', 'appear', { duration : 0.5 });
+    return false;
+}
+
+function toggleBlind() {
+    new Effect.toggle('toblind', 'blind', { duration : 0.5 });
+    return false;
+}
+
+function toggleSlide() {
+    new Effect.toggle('toslide', 'slide', { duration : 0.5 });
+    return false;
+}
+//]]>
+</script>
+</head>
+<body>
+<p><a id="appearer" href="#">フェイド</a></p>
+<div id="toappear">
+<div>
+Effect.toggleメソッドでフェイドイン／アウトを交互に行う例です。<br />
+上のリンクをクリックすると、この要素がフェイドイン／アウトします。
+</div>
+</div>
+
+<p><a id="blinder" href="#">ブラインド</a></p>
+<div id="toblind">
+<div>
+Effect.toggleメソッドでブラインドアップ／ダウンを交互に行う例です。<br />
+上のリンクをクリックすると、この要素がブラインドアップ／ダウンします。
+</div>
+</div>
+
+<p><a id="slider" href="#">スライド</a></p>
+<div id="toslide">
+<div>
+Effect.toggleメソッドでスライドアップ／ダウンを交互に行う例です。<br />
+上のリンクをクリックすると、この要素がスランドアップ／ダウンします。
+</div>
+</div>
+</body>
+</html>

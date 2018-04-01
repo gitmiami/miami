@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ActiveWidgets Examples</title>
+<link rel="stylesheet" type="text/css" href="../../lib/aw.css"/>
+<style type="text/css">
+<!--
+#view {width: 130px; height:200px;}  // Tabs
+#view-item-2-box-text {border-bottom: 2px solid red; background-color: red}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/aw.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+	var treeText = ["", "ホーム", "お気に入り", "文字サイズ", "サーチ",
+								  "子ノード 1", "子ノード 2", "子ノード 3", "子ノード 4", "子ノード５",
+								  "子ノード 6", "子ノード 7", "子ノード 8", "子ノード 9", "子ノード10",
+								  "子ノード 11", "子ノード 12", "子ノード 13", "子ノード 14", "子ノード15"];
+  var treeImage = ["", "home", "favorites", "fontsize", "search"];
+  var treeView = {0:[1, 2, 3, 4], 1:[5, 6], 2:[7, 8, 9], 3:[10, 11, 12, 13], 4:[14],
+									3:[15, 16], 15:[17, 18], 18:[19]};
+  var treeObj = new AW.UI.Tree;
+  treeObj.setId("view");
+  treeObj.setItemText(treeText);
+  treeObj.setItemImage(treeImage);
+  treeObj.setViewCount(function(i){return treeView[i] ? treeView[i].length : 0});
+  treeObj.setViewIndices(function(i){return treeView[i]});
+  treeObj.refresh();
+	treeObj.onSelectedItemsChanged = function(array){
+		alert("セレクト："+ getid(event))
+	};
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<p id="view"></p>
+</body>
+</html>
+

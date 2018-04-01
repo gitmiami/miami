@@ -1,0 +1,21 @@
+﻿body {
+	background-color:#fff;
+	color:#333;
+	font-size:80%;
+	line-height:1.8;
+}
+h1 {
+	font-size:14pt;
+	color:#777;
+	padding:0;
+	margin:0;
+}
+.MenuBarItemSubmenu {
+	width:130px;
+}
+ul.MenuBarHorizontal ul {
+	width:140px;
+}
+ul.MenuBarHorizontal ul li {
+	width:140px;
+}

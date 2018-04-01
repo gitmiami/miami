@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>onsbumitイベントハンドラの例</title>
+<script type="text/javascript">
+//<![CDATA[
+function validate() {
+    // ユーザー名が入力されていない場合
+    if (!document.myform.username.value) {
+        alert("ユーザー名を入力してください");
+        document.myform.username.focus();
+        return false;
+    }
+    // パスワードが入力されていない場合
+    if (!document.myform.pass.value) {
+        alert("パスワードを入力してください");
+        document.myform.pass.focus();
+        return false;
+    }
+    return true;
+}
+//]]>
+</script>
+<body>
+<form name="myform" method="get" action="" onsubmit="return validate();">
+<p>
+ユーザー名：<input type="text" name="username" size="20" /><br />
+パスワード：<input type="password" name="pass" size="20" /><br />
+<input type="submit" value="送信" />
+</p>
+</form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>セレクトの例</title>
+<script type="text/javascript">
+//<![CDATA[
+function jump() {
+    // ジャンプ先が選択されていない場合
+    if (document.myform.url.selectedIndex == -1) {
+        alert("ジャンプ先を選択してください");
+    }
+    else {
+        // 選択された項目の番号を得る
+        var selIdx = document.myform.url.selectedIndex;
+        // ジャンプ先のサイト名を得る
+        var siteName = document.myform.url.options[selIdx].text;
+        // ジャンプ先のURLを得る
+        var siteUrl = document.myform.url.value;
+        // ジャンプするかどうかを確認し、OKならジャンプする
+        if (confirm(siteName + "へジャンプします")) {
+            location.href = siteUrl;
+        }
+    }
+}
+//]]>
+</script>
+<body>
+<form name="myform" method="get" action="">
+<select name="url" size="5">
+	<option value="http://www.gihyo.co.jp/">技術評論社</option>
+	<option value="http://www.yahoo.co.jp/">Yahoo! Japan</option>
+	<option value="http://www.h-fj.com/blog/">筆者のBlog</option>
+</select>
+<br />
+<input type="button" value="ジャンプ" onclick="jump(); return false;" />
+</form>
+</body>
+</html>

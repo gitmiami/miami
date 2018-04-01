@@ -1,0 +1,47 @@
+¢£¥¹¥¯¥ê¥×¥È¤Î¥½¡¼¥¹¥³¡¼¥É¤ò¸ø³«¤·¤¿¤¤
+
+¤³¤Î¤È¤³¤í¡¢¼«Ê¬¤Îºî¤Ã¤¿¥¹¥¯¥ê¥×¥È¤ò¥µ¥¤¥È¾å¤Ç¾Ò²ð¤¹¤ë¥Ú¡¼¥¸¤¬Èó¾ï¤ËÂ¿¤¯¤Ê¤Ã¤Æ¤­¤Þ¤·¤¿¡£¤¿¤À¡¢¤³¤¦¤¤¤¦¥µ¥¤¥È¤ò¹½ÃÛ¤¹¤ë¼ ¤Ë¤â¤Ã¤È¤â¶ìÏ«¤¹¤ë¤Î¤¬¡¢Â¾¤Ê¤é¤Ì¥½¡¼¥¹¥³¡¼¥É¤Î¥ê¥¹¥ÈÉ½¼¨¤À¤Ã¤¿¤ê¤·¤Þ¤¹¡£¥¿¥°¤ò°ÕÌ£¤¹¤ë¡Ö<¡×¡Ö>¡×¤Îµ­¹æ¤¬¥Ö¥é¥¦¥¶¤ËHTML¤È¤·¤ÆÇ§¼±¤µ¤ì¤Æ¤·¤Þ¤¦¤¿¤á¤Ë¡¢¤¤¤Á¤¤¤ÁÂåÂØÊ¸»ú¤È¤·¤Æ¤Î¡Ö&lt;¡×¡Ö&gt;¡×¤ËÃÖ¤­´¹¤¨¤Ê¤±¤ì¤Ð¤Ê¤é¤Ê¤¤¤Î¤Ç¤¹¡£
+¤â¤Á¤í¤ó¡¢¥¨¥Ç¥£¥¿¤ÎÃÖ´¹µ¡Ç½¤ò»ÈÍÑ¤·¤Æ¡¢°ì³ç¤·¤ÆÃÖ¤­´¹¤¨¤Æ¤â¤è¤¤¤Î¤Ç¤¹¤¬¡¢º£ÅÙ¤ÏÉ¬Í×¤Ê¥¿¥°¤Þ¤ÇÌµ¸ú²½¤µ¤ì¤Æ¤·¤Þ¤¤¤Þ¤¹¡£Âè°ì¡¢´û¤Ë´°À®¤·¤Æ¤¤¤ë¥½¡¼¥¹¤ò¤¤¤Á¤¤¤Á¥³¥Ô¡¼¤·¤Æ²Ã¹©¤·¤Æ¤¤¤¿¤Î¤Ç¤Ï¤­¤ê¤¬¤¢¤ê¤Þ¤»¤ó¤·¡¢Èó¸úÎ¨Åª¤Ç¤¹¡£¸å¤Ç¥á¥ó¥Æ¥Ê¥ó¥¹¤ò¤ª¤³¤Ê¤¦¼ ¤Ë¤â¡¢Èó¾ï¤ËÆÉ¤ß¤Ë¤¯¤¤¾õÂÖ¤Ë¤Ê¤Ã¤Æ¤·¤Þ¤Ã¤Æ¤¤¤ë¤³¤È¤Ç¤·¤ç¤¦¡£
+¤½¤³¤Ç¤³¤³¤Ç¤Ï¡¢´û¤Ë´°À®¤·¤Æ¤¤¤ë¥¹¥¯¥ê¥×¥È¤Î¥½¡¼¥¹¥³¡¼¥É¤ò¡¢¤½¤Î¤Þ¤Þ¥Ö¥é¥¦¥¶¤ËÉ½¼¨¤¹¤ë¥¹¥¯¥ê¥×¥È¤ò¾Ò²ð¤·¤Þ¤¹¡£¤³¤ì¤ò»È¤Ã¤Æ¡¢³§¤µ¤ó¤â¤É¤ó¤É¤ó¼«Ê¬¤Î¥Î¥¦¥Ï¥¦¤òÀ¤³¦¤Ë¸þ¤«¤Ã¤Æ¸ø³«¤·¤Æ¤¯¤À¤µ¤¤¡£
+
+¡ü¥Ý¥¤¥ó¥È
+¡¡É½¼¨¤¹¤ëÂÐ¾Ý¤Ç¤¢¤ë¥Õ¥¡¥¤¥ë¤ò³«¤¯¤Ë¤ÏFileSystemObject¥ª¥Ö¥¸¥§¥¯¥È¤ò¡¢¼ÂºÝ¤Î¥Æ¥­¥¹¥È¥Õ¥¡¥¤¥ë¤ÎÆÉ¤ß¤³¤ß¤Ë¤ÏTextStream¥ª¥Ö¥¸¥§¥¯¥È¤òÍøÍÑ¤·¤Þ¤¹¡£ÆÉ¤ß¤³¤Þ¤ì¤¿¥Æ¥­¥¹¥È¤Ï¡¢ASP¤ËÍÑ°Õ¤µ¤ì¤¿HTMLEncode¥á¥½¥Ã¥É¤òÍÑ¤¤¤ÆHTML¥¨¥ó¥³¡¼¥É¤¹¤ë¤³¤È¤Ç¡¢¥Ö¥é¥¦¥¶¾å¤Ë¤½¤Î¤Þ¤ÞÉ½¼¨¤¹¤ë¤³¤È¤¬¤Ç¤­¤Þ¤¹¡£
+¡¡¸å¤Ï¡¢ÆÉ¤ß¤³¤à¥Õ¥¡¥¤¥ë¤ò³°Éô¤«¤é»ØÄê¤¹¤ë¤¿¤á¤Ë¡¢°ÊÁ°¤â»ÈÍÑ¤·¤¿¥¯¥¨¥ê¾ðÊó¤òÍøÍÑ¤¹¤ë¤³¤È¤Ë¤·¤Þ¤¹¡£
+
+¡ü¥µ¥ó¥×¥ë
+¢¢encode.asp
+1	<%@Language="VBScript" %>
+2	<html>
+3	<head>
+4	<title>¥½¡¼¥¹¥³¡¼¥É¤ÎÉ½¼¨</title>
+5	</head>
+6	<body>
+7	<pre>
+8	<%
+9	If Request.QueryString("file")="" Then
+10	¡¡strFile="exam.asp"
+11	Else
+12	¡¡strFile=Request.QueryString("file")
+13	End If
+#¡¡ÆÉ¤ß¤³¤à¥½¡¼¥¹¤òÆÃÄê¤·¤Þ¤¹¡£
+#¡¡URL¾å¡¢¥¯¥¨¥ê¾ðÊó¤¬Ìµ»ØÄê¤Ç¤¢¤ë¾ì¹ç¡Ê¤¿¤È¤¨¤Ð¡¢http://localhost/sample/2.basic/srcEnc/encode.asp¤Î¾ì¹ç¡Ë¡¢¥Ç¥Õ¥©¥ë¥È¤Çexam.asp¤È¤·¤Þ¤¹¡£
+#¡¡¤â¤·¤â¡¢URL¾å¤Ç¥¯¥¨¥ê¾ðÊó¤¬¥­¡¼Ì¾"file"¤Ç»ØÄê¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¡Ê¤¿¤È¤¨¤Ð¡¢http://localhost/sample/2.basic/srcEnc/encode.asp?file=cabi.asp¤Î¾ì¹ç¡Ë¡¢»ØÄê¤µ¤ì¤¿¥Õ¥¡¥¤¥ë¤òÆÉ¤ß¤³¤à¤³¤È¤Ë¤·¤Þ¤¹¡£
+14	Set fs=Server.CreateObject("Scripting.FileSystemObject")
+#¡¡FileSystemObject¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤·¤Þ¤¹¡£
+15	Set ts=fs.OpenTextFile(Server.MapPath("./doc/" & strFile))
+#¡¡9¡Á13¹ÔÌÜ¤Ç»ØÄê¤µ¤ì¤¿¥Õ¥¡¥¤¥ë¤ò¡¢ÇÛ²¼¤Îdoc¥Õ¥©¥ë¥À¤«¤é³«¤­¤Þ¤¹¡£MapPath¥á¥½¥Ã¥É¤Ï»ØÄê¤µ¤ì¤¿¥Ñ¥¹¤òÀäÂÐ¥Ñ¥¹¤ËÊÑ´¹¤·¤Þ¤¹¡Ê¾ÜºÙ¤Ï¡¢TIPS¤ò»²¾È¤·¤Æ¤¯¤À¤µ¤¤¡Ë¡£
+#¡¡OpenTextFile¥á¥½¥Ã¥É¤Ï¡¢¥Õ¥¡¥¤¥ë¤òÁàºî¤¹¤ë¤¿¤á¤ÎTextStream¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤·¤Þ¤¹¡£
+16	Do While Not ts.AtEndOfStream
+17	¡¡Response.Write Server.HTMLEncode(ts.ReadLine) & "<br />"
+18	Loop
+#¡¡¥Æ¥­¥¹¥È¥Õ¥¡¥¤¥ë¤òºÇ½ª¹Ô¡Êts.AtEndOfStream¤¬True¡Ë¤Ë¤Ê¤ë¤Þ¤Ç¡¢1¹Ô¤º¤ÄÆÉ¤ß¤³¤ß¤Þ¤¹¡£¤³¤¦¤·¤Æ¡¢¥Õ¥¡¥¤¥ëÆâ¤ÎÁ´¥Ç¡¼¥¿¤ò¥·¡¼¥±¥ó¥·¥ã¥ë¤ËÆÉ¤ß¤³¤à¤³¤È¤¬¤Ç¤­¤Þ¤¹¡£
+19	%>
+20	</pre>
+21	</body>
+22	</html>
+
+¡üTIPS
+¢¤HTMLEncode¥á¥½¥Ã¥É
+¡¡ËÜ¹à¤Ï¡¢¤Á¤ç¤Ã¤ÈÉ÷ÊÑ¤ï¤ê¤Ê¥µ¥ó¥×¥ë¤À¤Ã¤¿¤«¤â¤·¤ì¤Þ¤»¤ó¡£
+¡¡¤·¤«¤·¡¢¤³¤³¤Ç¾Ò²ð¤·¤¿HTMLEncode¤ÏÈó¾ï¤ËÍ­¸ú¤Ê¥á¥½¥Ã¥É¤Ç¤¹¡£
+¡¡ASP¤Çºî¤é¤ì¤¿Web¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¤Ç¤Ï¡¢¥¯¥é¥¤¥¢¥ó¥È¡Ê¥æ¡¼¥¶¡Ë¤¬¼Â¤Ë¤µ¤Þ¤¶¤Þ¤ÊÊ¸»ú¾ðÊó¤òÆþÎÏ¤·¤Þ¤¹¡£¤â¤Á¤í¤ó¡¢¤½¤ÎÃæ¤Ë¤Ï¡¢Àµ¤·¤¤É½¼¨¤òË¸¤²¤ë¤è¤¦¤ÊÊ¸»úÎó¤¬Æþ¤Ã¤Æ¤¤¤ë¤³¤È¤âÂ¿¡¹¤¢¤ë¤Ç¤·¤ç¤¦¡£HTMLEncode¥á¥½¥Ã¥É¤Ï¡¢¤³¤¦¤·¤¿¾õ¶·²¼¤ÇÍ­³²¤ÊÊ¸»úÎó¤òÌµ³²¤Ê¤â¤Î¤ËÊÑ´¹¤·¤Æ¤¯¤ì¤Þ¤¹¡£

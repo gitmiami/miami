@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>別ウィンドウを開く</title>
+<script type="text/javascript">
+//<![CDATA[
+function openChild() {
+    childWin = window.open("http://www.gihyo.co.jp/", "child", "width=400,height=300,resizable=yes,scrollbars=yes");
+    window.focus();
+}
+//]]>
+</script>
+</head>
+
+<body>
+<p><a href="" onclick="openChild(); return false;">技術評論社のサイトを別ウィンドウで開く</a></p>
+<p id="msg"></p>
+</body>
+</html>

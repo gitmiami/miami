@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>従業員番号から氏名表示</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function setScript(){
+	var script = document.createElement("script");
+	//var src = "jsonpemp.dat";
+	//script.setAttribute("src", src);
+	script.setAttribute("src", "jsonpemp.dat");
+	document.getElementsByTagName("body")[0].appendChild(script);
+}
+function somefunc(resp){ // コールバック関数を定義
+	var emp_nos = new Array();
+	var emp_names = new Array();
+	var sections = new Array();
+	for(var i = 0; i < resp["empmas"]["employee"].length; i++){
+	   emp_nos.push(resp["empmas"]["employee"][i]["emp_no"]);	
+	   emp_names.push(resp["empmas"]["employee"][i]["emp_name"]);	
+	   sections.push(resp["empmas"]["employee"][i]["section"]);	
+	}
+	var view = "<table width='300' border='1'><tbody>"
+  + "<tr><th>従業員番号</th><th>氏名</th><th>所属</th>";
+	for(var i = 0; i < emp_nos.length; i++){
+    view+="<tr><td>"+emp_nos[i]+"</td><td>"+emp_names[i]+"</td><td>"+sections[i]+"</td></tr>";
+  }
+  view+="</tbody></table>"
+  document.getElementById("view").innerHTML = view;
+}
+function initOnLoad(){
+  var observer = document.getElementById("sel");
+  addListener(observer, "click", setScript);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+<body>
+<center>
+<h3>従業員番号から氏名表示<input type="button" id="sel" value=" 表 示 "/></h3>
+<div id="view"></div>
+</center>
+</body>
+</html>
+

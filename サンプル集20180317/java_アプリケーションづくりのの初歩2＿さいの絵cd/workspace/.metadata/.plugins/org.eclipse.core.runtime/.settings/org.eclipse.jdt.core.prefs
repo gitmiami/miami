@@ -1,0 +1,5 @@
+#Sun Dec 20 17:31:34 JST 2009
+org.eclipse.jdt.core.compiler.problem.missingSerialVersion=ignore
+eclipse.preferences.version=1
+org.eclipse.jdt.core.compiler.problem.rawTypeReference=ignore
+org.eclipse.jdt.core.compiler.problem.uncheckedTypeOperation=ignore

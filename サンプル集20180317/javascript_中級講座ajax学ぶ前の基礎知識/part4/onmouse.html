@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>onmouseover／onmouseoutイベントハンドラ</title>
+<script type="text/javascript">
+//<![CDATA[
+function changeBold(obj, chg) {
+    if (chg) {
+        obj.style.color = '#ffffff';
+        obj.style.backgroundColor = '#ff0000';
+    }
+    else {
+        obj.style.color = '';
+        obj.style.backgroundColor = '';
+    }
+}
+//]]>
+</script>
+</head>
+<body>
+<p>マウスポインタを合わせると、<span onmouseover="changeBold(this, true);" onmouseout="changeBold(this, false);">この文字</span>が赤地に白抜きになります。</p>
+</body>
+</html>

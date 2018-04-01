@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="EUC-JP" ?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<filter>
+		<filter-name>log_flt</filter-name>
+		<filter-class>filter.flt_log</filter-class>
+	</filter>
+	<filter>
+		<filter-name>log_cnt</filter-name>
+		<filter-class>filter.flt_cnt</filter-class>
+	</filter>
+	<filter>
+		<filter-name>flt_trans</filter-name>
+		<filter-class>filter.flt_trans</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>log_flt</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>log_cnt</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>flt_trans</filter-name>
+		<url-pattern>/chap6/flt_trans/db2xml.jsp</url-pattern>
+	</filter-mapping>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/servlet/srv_err</location>
+	</error-page>
+	<taglib>
+		<taglib-uri>/YamaTagLib</taglib-uri>
+		<taglib-location>/WEB-INF/tagLib.tld</taglib-location>
+	</taglib>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>User Auth</web-resource-name>
+			<url-pattern>/chap2/auth/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>administrator</role-name>
+			<role-name>supervisor</role-name>
+			<role-name>user</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>User Auth(Update)</web-resource-name>
+			<url-pattern>/chap2/authUp/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>user1</role-name>
+			<role-name>user2</role-name>
+			<role-name>user3</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>JSP/Servlet Samples</realm-name>
+		<form-login-config>
+			<form-login-page>/chap2/authForm/login.jsp</form-login-page>
+			<form-error-page>/chap2/authForm/login.jsp?err=true</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role>
+		<role-name>administrator</role-name>
+	</security-role>
+	<security-role>
+		<role-name>supervisor</role-name>
+	</security-role>
+	<security-role>
+		<role-name>user</role-name>
+	</security-role>
+	<security-role>
+		<role-name>user1</role-name>
+	</security-role>
+	<security-role>
+		<role-name>user2</role-name>
+	</security-role>
+	<security-role>
+		<role-name>user3</role-name>
+	</security-role>
+</web-app>

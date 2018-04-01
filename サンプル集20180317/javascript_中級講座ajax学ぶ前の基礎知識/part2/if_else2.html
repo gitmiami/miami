@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>if～else文で複数の条件を判断する</title>
+</head>
+<body>
+<script type="text/javascript">
+var now = new Date();
+var hour = now.getHours();
+if (hour < 6) {
+    document.write("<p>お疲れ様です</p>");
+}
+else if (hour < 12) {
+    document.write("<p>おはようございます</p>");
+}
+else if (hour < 18) {
+    document.write("<p>こんにちは</p>");
+}
+else {
+    document.write("<p>こんばんは</p>");
+}
+</script>
+</body>
+</html>

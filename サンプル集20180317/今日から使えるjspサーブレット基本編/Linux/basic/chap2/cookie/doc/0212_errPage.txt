@@ -1,0 +1,57 @@
+¢£¥¨¥é¡¼¥Ú¡¼¥¸¤ò¥«¥¹¥¿¥Þ¥¤¥º¤·¤¿¤¤
+
+ASP3.0¤Ç¤Ï¡¢ASP¥¹¥¯¥ê¥×¥È¼Â¹Ô¼ ¤ËÈ¯À¸¤¹¤ë¥¨¥é¡¼¾ðÊó¤ò¼èÆÀ¤¹¤ë¤¿¤á¤Ë¡¢ASPError¥ª¥Ö¥¸¥§¥¯¥È¤¬¿·¤¿¤ËÍÑ°Õ¤µ¤ì¤Þ¤·¤¿¡£
+IIS5.0¤Ç¤Ï¡¢ASP¼Â¹Ô¥¨¥é¡¼¤¬È¯À¸¤·¤¿¾ì¹ç¡¢É¸½à¤Î¥¨¥é¡¼¥Ú¡¼¥¸¤¬ÍÑ°Õ¤µ¤ì¤Æ¤¤¤Þ¤¹¤¬¡¢¤³¤³¤Ç¤Ï¡¢¤³¤ì¤òÀßÄêÊÑ¹¹¤·¤Æ¥«¥¹¥¿¥Þ¥¤¥º¤¹¤ë¤³¤È¤Ë¤·¤Þ¤·¤ç¤¦¡£
+
+¡ü¥Ý¥¤¥ó¥È
+¡¡ASPError¤Ï¡¢ASP¤ÇÈ¯À¸¤·¤¿¥¨¥é¡¼¤ò¼èÆÀ¤·¡¢¥¨¥é¡¼ÆâÍÆ¤Ë¥¢¥¯¥»¥¹¤¹¤ë¤¿¤á¤Î¥ª¥Ö¥¸¥§¥¯¥È¤Ç¤¹¡£
+¡¡É¸½à¤ÇÍÑ°Õ¤µ¤ì¤Æ¤¤¤ë¥ª¥Ö¥¸¥§¥¯¥È¤ÎÃæ¤ÇÍ£°ì¡¢Ä¾ÀÜ¤Ë¤Ï¥¢¥¯¥»¥¹¤¹¤ë¤³¤È¤Î¤Ç¤­¤Ê¤¤¥ª¥Ö¥¸¥§¥¯¥È¤Ç¤¹¡£¤Ä¤Þ¤ê¡¢Server¥ª¥Ö¥¸¥§¥¯¥È¤Ë¤³¤ì¤Þ¤¿ASP3.0¤«¤é¿·¤·¤¯¼ÂÁõ¤µ¤ì¤¿GetLastError¥á¥½¥Ã¥É¤¬¤¢¤ê¤Þ¤¹¤¬¡¢¤³¤ì¤Ë¤è¤Ã¤Æ¤¢¤é¤«¤¸¤áASPError¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤¹¤ëÉ¬Í×¤¬¤¢¤ê¤Þ¤¹¡£
+¡¡¤Ê¤ª¡¢ËÜ¥µ¥ó¥×¥ë¤ÏASP3.0°Ê¾å¤ÇÆ°ºî¤¹¤ë¤¿¤á¡¢Windows2000+IIS5.0°Ê¾å¤Î´Ä¶­¤¬É¬Í×¤Ç¤¹¤Î¤Ç¡¢Ãí°Õ¤·¤Æ¤¯¤À¤µ¤¤¡£
+
+¡ü¥µ¥ó¥×¥ë
+¢¢aspErr.asp
+1	<%@Language="VBScript" %>
+2	<%
+3	On Error Resume Next
+#¡¡¥¨¥é¡¼½èÍý¤òÍ­¸ú¤Ë¤·¤Þ¤¹¡£
+
+4	Set objErr=Server.GetLastError
+#¡¡GetLastError¥á¥½¥Ã¥É¤Ï¡¢ºÇ¸å¤ËÈ¯À¸¤·¤¿ASP¼Â¹Ô¼ ¥¨¥é¡¼¤ò¼èÆÀ¤·¡¢¤½¤Î¥¨¥é¡¼¾ðÊó¤ò³ÊÇ¼¤·¤¿ASPError¥ª¥Ö¥¸¥§¥¯¥È¤òÊÖ¤·¤Þ¤¹¡£
+5	%>
+6	<html>
+7	<head>
+8	<title>¥«¥¹¥¿¥Þ¥¤¥º¤µ¤ì¤¿¥¨¥é¡¼¾ðÊó</title>
+9	<style type="text/css">
+10	dt{font-size:11pt;font-weight:bold;line-height:150%;}
+11	dd{font-size:10pt;}
+12	</style>
+13	</head>
+14	<body>
+15	<h1>ASP¥Õ¥¡¥¤¥ë¤Ç¥¨¥é¡¼¤¬È¯À¸¤·¤Þ¤·¤¿</h1>
+16	¸½ºß¤Î¥Ú¡¼¥¸¤ËÌäÂê¤¬´Þ¤Þ¤ì¤Æ¤¤¤ë¤¿¤á¡¢É½¼¨¤Ç¤­¤Þ¤»¤ó¡£<br />
+17	¥¨¥é¡¼¤Ë´Ø¤¹¤ë¾ÜºÙ¾ðÊó¤Ï°Ê²¼¤Î¤È¤ª¤ê¤Ç¤¹¡£
+18	<hr />
+19	<dl>
+20	¡¡<dt>¡¦¥¨¥é¡¼¸µ¥Õ¥¡¥¤¥ë</dt>
+21	¡¡<dd><%=objErr.File %>¡Ê<%=objErr.Number %>¡Ë</td>
+22	¡¡<dt>¡¦¥¨¥é¡¼¤Î¸¶°ø¤È¤Ê¤Ã¤Æ¤¤¤ë¥½¡¼¥¹</dt>
+23	¡¡<dd><%=Server.HTMLEncode(objErr.Source) %></dd>
+24	¡¡<dt>¡¦¥¨¥é¡¼¤ÎÈ¯À¸¸µ</dt>
+25	¡¡<dd><%=objErr.Category %></dd>
+26	¡¡<dt>¡¦¥¨¥é¡¼È¯À¸²Õ½ê</dt>
+27	¡¡<dd><%=objErr.Line %>¹Ô¡¡<%=objErr.Column %>·å</dd>
+28	¡¡<dt>¡¦¥¨¥é¡¼¾ÜºÙ</dt>
+29	¡¡<dd><%=Server.HTMLEncode(objErr.Description) %></dd>
+30	</dl>
+#¡¡ASPError¥ª¥Ö¥¸¥§¥¯¥È¤ò²ð¤·¤Æ¡¢°ìÏ¢¤Î¼Â¹Ô¼ ¥¨¥é¡¼¾ðÊó¤ò¼èÆÀ¤·¤Þ¤¹¡£
+31	<hr />
+32	<div align="right">
+33	´ÉÍý¼ÔÏ¢ÍíÀè¡§<a href="mailto:CQW15204@nifty.com">CQW15204@nifty.com</a>
+34	</div>
+35	</body>
+36	</html>
+
+¡üTIPS
+¢¤500-100¥¨¥é¡¼¥Ú¡¼¥¸¤Î¥«¥¹¥¿¥Þ¥¤¥º
+¡¡500-100¥¨¥é¡¼¤Ï¡¢ASP¼Â¹Ô¼ ¥¨¥é¡¼¤ò¼¨¤·¤Þ¤¹¡£
+¡¡IIS5.0¤Ç¤Ï¡¢É¸½à¤Ç500-100¥¨¥é¡¼È¯À¸¼ ¤Î¥Ú¡¼¥¸¤òÍÑ°Õ¤·¤Æ¤¤¤Þ¤¹¤¬¡¢°Ê²¼¤ÎÊýË¡¤Ç¼«Ê¬¼«¿È¤Î¥«¥¹¥¿¥Þ¥¤¥º¥Ú¡¼¥¸¤ËÊÑ¹¹¤¹¤ë¤³¤È¤¬¤Ç¤­¤Þ¤¹¡£ËÜ¥µ¥ó¥×¥ë¤Ï¡¢¤³¤ÎÀßÄê¤ò¤ª¤³¤Ê¤Ã¤Æ¤«¤é¼Â¹Ô¤·¤Æ¤ß¤Æ¤¯¤À¤µ¤¤¡£

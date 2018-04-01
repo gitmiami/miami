@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="EUC-JP" ?>
+<project name="jspSamples" default="main" basedir="../../">
+	<property name="clsDir" value="WEB-INF/classes" />
+	<property name="jmsTmp" value="data" />
+	<property name="jmsDir" value="data/james/SAR-INF/lib" />
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${clsDir}/bbs" />
+		<mkdir dir="${clsDir}/beanYama" />
+		<mkdir dir="${clsDir}/board" />
+		<mkdir dir="${clsDir}/chat" />
+		<mkdir dir="${clsDir}/ec" />
+		<mkdir dir="${clsDir}/facility" />
+		<mkdir dir="${clsDir}/filter" />
+		<mkdir dir="${clsDir}/mng" />
+		<mkdir dir="${clsDir}/sche" />
+		<mkdir dir="${clsDir}/srcEng" />
+		<mkdir dir="${clsDir}/struts" />
+		<mkdir dir="${clsDir}/tagLib" />
+	</target>
+	<target name="main" depends="init">
+		<javac srcdir="bin"            destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap2/bbs"      destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap2/chat"     destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap2/ec"       destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap2/srcEng"   destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap3/board"    destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap3/facility" destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap3/mng"      destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap3/sche"     destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap5/address"  destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap5/memo"     destdir="${clsDir}" includes="*.java" />
+		<javac srcdir="chap5/mailet"   destdir="${jmsTmp}" includes="*.java" />
+		<jar jarFile="../advanced-${DSTAMP}.war" basedir="." />
+		<jar jarFile="${jmsDir}/sample.jar"    basedir="data" includes="*.class" />
+		<jar jarFile="../james.sar"             basedir="data/james" />
+	</target>
+	<target name="clean">
+		<delete dir="${clsDir}" includes="**/*.class" />
+		<delete dir="${jmsDir}" includes="./*.class" />
+	</target>
+</project>

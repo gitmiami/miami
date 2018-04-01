@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ラジオボタンの選択確認</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function check(e){
+  var sel = getid(e);
+  document.getElementById("result").innerHTML = "選択結果： " + sel;
+}
+function initOnLoad(){
+  var observer = document.getElementById("pc");
+  setListener(observer, "click", check);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h3>ラジオボタンの選択確認</h3>
+<p id="pc">
+  <input type="radio" name="parts" id="CPU" />cpu
+  <input type="radio" name="parts" id="RAM" />メモリ
+  <input type="radio" name="parts" id="HDD" />ハードデスク
+  <input type="radio" name="parts" id="DVD" />DVD
+</p>
+<hr />
+<p id="result"></p>
+</body>
+</html>
+
+

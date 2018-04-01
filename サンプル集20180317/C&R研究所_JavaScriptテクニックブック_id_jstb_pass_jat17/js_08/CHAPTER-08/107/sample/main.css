@@ -1,0 +1,20 @@
+﻿body {
+	background-color:#fff;
+	color:#333;
+	font-size:80%;
+	line-height:1.8;
+}
+h1 {
+	font-size:14pt;
+	color:#777;
+	padding:0;
+	margin:0;
+}
+#dragBox1, #dragBox2 {
+	width:300px;
+	border:1px solid red;
+	background-color:#ffd;
+}
+#dragImage {
+	
+}

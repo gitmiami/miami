@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>スライドアップ／ダウン</title>
+<script type="text/javascript" src="lib/prototype.js"></script>
+<script type="text/javascript" src="src/scriptaculous.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    $("slideup").onclick = slideUp;
+    $("slidedown").onclick = slideDown;
+};
+
+function slideUp() {
+    new Effect.SlideUp('slide', { duration : 2 });
+    return false;
+}
+
+function slideDown() {
+    new Effect.SlideDown('slide', { duration : 2 });
+    return false;
+}
+//]]>
+</script>
+</head>
+<body>
+<p><a id="slideup" href="#">スライドアップ</a> <a id="slidedown" href="#">スライドダウン</a></p>
+<!-- 中のdiv要素をスライドさせるために、全体をdiv要素で囲み、外側のdiv要素にIDを振ります -->
+<div id="slide">
+<div>
+スライドアップ／ダウンは、それぞれ「Effect.SlideUp」と「Effect.SlideDown」というメソッドで行うことができます。<br />
+上のリンクをクリックすると、この要素が0.5秒間でスライドアップ／ダウンします。
+</div>
+</div>
+</body>
+</html>

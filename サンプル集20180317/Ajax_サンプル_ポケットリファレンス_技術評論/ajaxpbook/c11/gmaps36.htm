@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxRgE_H9GM6zkZRwNii93jtvjOSYqRTUvjXBD0wChGoBh2xb30zNzkqZmA" type="text/javascript"></script>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+	var lon, lat;
+  var map = new GMap2(id("map"));
+  map.addControl(new GLargeMapControl());
+  map.addControl(new GMapTypeControl());
+  map.setCenter(new GLatLng(35.6815617, 139.7672091), 15);
+  var xhrObj = getXhrObj();
+  xhrObj.open("get", "point.txt");
+  xhrObj.onreadystatechange = function() {
+  	if(xhrObj.readyState == 4 && xhrObj.status == 200){
+  		var res = xhrObj.responseText.split(",");
+  		for(var i = 0; i < res.length; i++){
+				if((i % 2) == 0){
+  				lon = res[i];
+				}else{
+  				lat = res[i];
+  				var point = new GLatLng(lat, lon);
+  				var marker = new GMarker(point);
+  				map.addOverlay(marker);
+				}
+  		}
+  	}
+  }
+  xhrObj.send(null);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+非同期受信のCSVデータでマーカを表示する
+<div id="map" style="width: 500px; height: 370px"></div>
+</body>
+</html>
+

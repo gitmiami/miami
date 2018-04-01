@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>webWareユーザ申請</title>
+</head>
+<body>
+<img src="main.jpg" width="109" height="64" />
+<hr />
+<form method="POST" action="/basic/servlet/pdf_create">
+<table border="0">
+<tr>
+	<th align="right">ご希望のユーザID：</th>
+	<td><input type="text" name="usr" size="15" /></td>
+</tr>
+<tr>
+	<th align="right">パスワード：</th>
+	<td><input type="password" name="passwd" size="10" /></td>
+</tr>
+<tr>
+	<th align="right">ご希望コース名：</th>
+	<td>
+		<select name="course">
+			<option value="デラックスオプション">デラックスオプション</option>
+			<option value="ノーマルオプション">ノーマルオプション</option>
+			<option value="コンパクトオプション">コンパクトオプション</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<th align="right">ご住所：</th>
+	<td><input type="text" name="address" size="50" /></td>
+</tr>
+<tr>
+	<th align="right">お電話番号：</th>
+	<td><input type="text" name="tel" size="20" /></td>
+</tr>
+<tr>
+	<th align="right">FAX番号：</th>
+	<td><input type="text" name="fax" size="20" /></td>
+</tr>
+<tr>
+	<th align="right">クレジット番号</th>
+	<td><input type="text" name="credit" size="30" /></td>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		<input type="submit" value="　登録　" />
+		<input type="reset" value="キャンセル" />
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

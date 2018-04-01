@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List5-3</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+<!--
+
+var point = 80;                               //①
+
+if (point == 100) {                           //②
+    document.write("全問正解。おめでとう！");
+} else if ((point < 100) && (point >= 70)) {  //③
+    document.write("よくできました。");
+} else if (point < 70) {                      //④
+    document.write("残念でした。");
+}
+
+//-->
+</script>
+</p>
+</body>
+</html>

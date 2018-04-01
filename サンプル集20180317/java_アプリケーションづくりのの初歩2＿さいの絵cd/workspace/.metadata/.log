@@ -1,0 +1,420 @@
+!SESSION 2009-12-20 17:30:46.177 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:46.754
+!MESSAGE NLS unused message: PROPERTIES_INVALID_FW_STARTLEVEL in: org.eclipse.osgi.framework.internal.core.ExternalMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.019
+!MESSAGE NLS unused message: provider_invalid_general in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.019
+!MESSAGE NLS unused message: provider_invalid in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.019
+!MESSAGE NLS unused message: product_notFound in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.191
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_configurationSites in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.207
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_configurationFeatures in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.207
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_featureIdAndVersion in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.207
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_plugins in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:47.207
+!MESSAGE NLS unused message: CleanDialog_taskName in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.234
+!MESSAGE NLS unused message: url_couldNotResolve in: org.eclipse.core.internal.utils.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.421
+!MESSAGE NLS unused message: ActionSetSelection_menuTab in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.421
+!MESSAGE NLS unused message: ActionSetSelection_selectActionSetsHelp in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: ActionSetSelection_selectMenusLabel in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: ActionSetSelection_availableMenus in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: ActionSetSelection_availableCategories in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: ActionSetSelection_menuItems in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: ActionSetSelection_toolbarLocation in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: ActionSetSelection_menubarLocation in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: ActionSetSelection_noDesc in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: AboutDialog_featureInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: AboutDialog_pluginInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: AboutDialog_systemInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: AboutDialog_concatenationOfProviderNameAndFeatureName in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.437
+!MESSAGE NLS unused message: Perspective_errorLoadingState in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.453
+!MESSAGE NLS unused message: WorkbenchStatusDialog_Support in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.577
+!MESSAGE NLS unused message: PropertyTester_error_activating_plugin in: org.eclipse.core.internal.expressions.ExpressionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:30:59.733
+!MESSAGE NLS unused message: Error in: org.eclipse.ui.internal.progress.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.467
+!MESSAGE NLS unused message: LineWrappingTabPage_width_indent in: org.eclipse.jdt.internal.ui.preferences.formatter.FormatterMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.779
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_super_class in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.779
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_removed_type in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.779
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_cannot_create in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.779
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_enum_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.779
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_annotation_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.779
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_anonymous_type_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.794
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_already_has_hashCode_equals_error in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.794
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.794
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_final_hashCode_equals_in_superclass_error in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.794
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_interface_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.903
+!MESSAGE NLS unused message: InlineConstantInputPage_Inline in: org.eclipse.jdt.internal.ui.refactoring.refactoringui
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:00.903
+!MESSAGE NLS unused message: InlineMethodInputPage_inline in: org.eclipse.jdt.internal.ui.refactoring.refactoringui
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:03.165
+!MESSAGE NLS unused message: AutomaticUpdatesJob_EclipseUpdates1 in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:03.165
+!MESSAGE NLS unused message: AutomaticUpdatesJob_UpdatesAvailable in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:03.165
+!MESSAGE NLS unused message: AutomaticUpdatesJob_EclipseUpdates2 in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:03.165
+!MESSAGE NLS unused message: AutomaticUpdatesJob_UpdatesDownloaded in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:31:03.181
+!MESSAGE NLS unused message: AutomaticUpdatesJob_Updates in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+!SESSION 2009-12-20 17:56:42.104 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:42.681
+!MESSAGE NLS unused message: PROPERTIES_INVALID_FW_STARTLEVEL in: org.eclipse.osgi.framework.internal.core.ExternalMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:42.931
+!MESSAGE NLS unused message: provider_invalid_general in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:42.931
+!MESSAGE NLS unused message: provider_invalid in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:42.931
+!MESSAGE NLS unused message: product_notFound in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:43.102
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_configurationSites in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:43.102
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_configurationFeatures in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:43.118
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_featureIdAndVersion in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:43.118
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_plugins in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:43.118
+!MESSAGE NLS unused message: CleanDialog_taskName in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.725
+!MESSAGE NLS unused message: url_couldNotResolve in: org.eclipse.core.internal.utils.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_menuTab in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_selectActionSetsHelp in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_selectMenusLabel in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_availableMenus in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_availableCategories in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_menuItems in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_toolbarLocation in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_menubarLocation in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: ActionSetSelection_noDesc in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: AboutDialog_featureInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.959
+!MESSAGE NLS unused message: AboutDialog_pluginInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.974
+!MESSAGE NLS unused message: AboutDialog_systemInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.974
+!MESSAGE NLS unused message: AboutDialog_concatenationOfProviderNameAndFeatureName in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.974
+!MESSAGE NLS unused message: Perspective_errorLoadingState in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:44.974
+!MESSAGE NLS unused message: WorkbenchStatusDialog_Support in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:45.115
+!MESSAGE NLS unused message: PropertyTester_error_activating_plugin in: org.eclipse.core.internal.expressions.ExpressionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:45.302
+!MESSAGE NLS unused message: Error in: org.eclipse.ui.internal.progress.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_super_class in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_removed_type in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_cannot_create in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_enum_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_annotation_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_anonymous_type_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_already_has_hashCode_equals_error in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_final_hashCode_equals_in_superclass_error in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.611
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_interface_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.845
+!MESSAGE NLS unused message: InlineConstantInputPage_Inline in: org.eclipse.jdt.internal.ui.refactoring.refactoringui
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:47.845
+!MESSAGE NLS unused message: InlineMethodInputPage_inline in: org.eclipse.jdt.internal.ui.refactoring.refactoringui
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:49.686
+!MESSAGE NLS unused message: AutomaticUpdatesJob_EclipseUpdates1 in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:49.686
+!MESSAGE NLS unused message: AutomaticUpdatesJob_UpdatesAvailable in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:49.686
+!MESSAGE NLS unused message: AutomaticUpdatesJob_EclipseUpdates2 in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:49.686
+!MESSAGE NLS unused message: AutomaticUpdatesJob_UpdatesDownloaded in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-20 17:56:49.686
+!MESSAGE NLS unused message: AutomaticUpdatesJob_Updates in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+!SESSION 2009-12-22 00:39:24.179 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:24.606
+!MESSAGE NLS unused message: PROPERTIES_INVALID_FW_STARTLEVEL in: org.eclipse.osgi.framework.internal.core.ExternalMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:24.850
+!MESSAGE NLS unused message: provider_invalid_general in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:24.851
+!MESSAGE NLS unused message: provider_invalid in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:24.853
+!MESSAGE NLS unused message: product_notFound in: org.eclipse.core.internal.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:25.030
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_configurationSites in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:25.031
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_configurationFeatures in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:25.032
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_featureIdAndVersion in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:25.033
+!MESSAGE NLS unused message: ConfigurationLogUpdateSection_plugins in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:25.037
+!MESSAGE NLS unused message: CleanDialog_taskName in: org.eclipse.ui.internal.ide.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.477
+!MESSAGE NLS unused message: url_couldNotResolve in: org.eclipse.core.internal.utils.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.672
+!MESSAGE NLS unused message: ActionSetSelection_menuTab in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.674
+!MESSAGE NLS unused message: ActionSetSelection_selectActionSetsHelp in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.675
+!MESSAGE NLS unused message: ActionSetSelection_selectMenusLabel in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.676
+!MESSAGE NLS unused message: ActionSetSelection_availableMenus in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.678
+!MESSAGE NLS unused message: ActionSetSelection_availableCategories in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.679
+!MESSAGE NLS unused message: ActionSetSelection_menuItems in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.680
+!MESSAGE NLS unused message: ActionSetSelection_toolbarLocation in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.682
+!MESSAGE NLS unused message: ActionSetSelection_menubarLocation in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.683
+!MESSAGE NLS unused message: ActionSetSelection_noDesc in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.684
+!MESSAGE NLS unused message: AboutDialog_featureInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.686
+!MESSAGE NLS unused message: AboutDialog_pluginInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.687
+!MESSAGE NLS unused message: AboutDialog_systemInfo in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.688
+!MESSAGE NLS unused message: AboutDialog_concatenationOfProviderNameAndFeatureName in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.691
+!MESSAGE NLS unused message: Perspective_errorLoadingState in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.694
+!MESSAGE NLS unused message: WorkbenchStatusDialog_Support in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.817
+!MESSAGE NLS unused message: PropertyTester_error_activating_plugin in: org.eclipse.core.internal.expressions.ExpressionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:52.972
+!MESSAGE NLS unused message: Error in: org.eclipse.ui.internal.progress.messages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:53.992
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_super_class in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:53.994
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_removed_type in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:53.995
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_cannot_create in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:53.997
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_enum_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:53.998
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_annotation_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:53.999
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_anonymous_type_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:54.000
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_already_has_hashCode_equals_error in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:54.001
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_error_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:54.002
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_final_hashCode_equals_in_superclass_error in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:54.003
+!MESSAGE NLS unused message: GenerateHashCodeEqualsAction_interface_not_applicable in: org.eclipse.jdt.internal.ui.actions.ActionMessages
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:54.106
+!MESSAGE NLS unused message: InlineConstantInputPage_Inline in: org.eclipse.jdt.internal.ui.refactoring.refactoringui
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:54.108
+!MESSAGE NLS unused message: InlineMethodInputPage_inline in: org.eclipse.jdt.internal.ui.refactoring.refactoringui
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:55.936
+!MESSAGE NLS unused message: AutomaticUpdatesJob_EclipseUpdates1 in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:55.937
+!MESSAGE NLS unused message: AutomaticUpdatesJob_UpdatesAvailable in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:55.939
+!MESSAGE NLS unused message: AutomaticUpdatesJob_EclipseUpdates2 in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:55.940
+!MESSAGE NLS unused message: AutomaticUpdatesJob_UpdatesDownloaded in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 00:39:55.941
+!MESSAGE NLS unused message: AutomaticUpdatesJob_Updates in: org.eclipse.update.internal.scheduler.UpdateSchedulerResources

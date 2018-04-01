@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>従業員番号から氏名表示</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function xhrFunc(){
+  var emp_id, emp_name;
+  var view = "<table width='300' border='1'><tbody>"
+  + "<tr><th>従業員番号</th><th>氏名</th></th><th>所属</th></tr>";
+  var xhrObj = getXhrObj();
+  xhrObj.open("get", "jsonemp.txt");
+  xhrObj.setRequestHeader("If-Modified-Since", "01 Jan 2000 00:00:00 GMT");
+  xhrObj.send(null);
+  xhrObj.onreadystatechange = function(){
+    if(xhrObj.readyState == 4){
+      if(xhrObj.status == 200){
+        var resp = eval("(" + xhrObj.responseText + ")");
+        for(var i = 0; i < resp.empmas.employee.length; i++){
+          var emp_no  = resp.empmas.employee[i].emp_no;
+          var emp_name= resp.empmas.employee[i].emp_name;
+          var section = resp.empmas.employee[i].section;
+          view+="<tr><td>"+emp_no+"</td><td>"+emp_name+"</td><td>"+section+"</td></tr>";
+        }
+        view += "</tbody></table>";
+        document.getElementById("view").innerHTML = view;
+      }
+    }
+  }
+}
+function initOnLoad(){
+	var target = document.getElementById("sel");
+  setListener(target, "click", xhrFunc);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<center>
+<h4>
+全従業員表示<input type="button" value="　表示　" id="sel" />
+</h4>
+<div id="view"></div>
+</center>
+</body>
+</html>
+

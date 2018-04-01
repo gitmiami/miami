@@ -1,0 +1,24 @@
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>List8-12</title>
+  </head>
+  <body>
+    <script>
+    class PointCard {
+      set point(value) {
+        console.log("pointに" + value + "ptを設定します。");
+        this._point = value;
+      }
+      get point() {
+        console.log("pointメソッドが呼び出されました。");
+        return this._point;
+      }
+    }
+
+    var cardA = new PointCard();
+    cardA.point = 1000;
+    console.log("ポイントは、" + cardA.point + " ptです。");
+    </script>
+  </body>
+</html>

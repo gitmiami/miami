@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ActiveWidgets Examples</title>
+<link rel="stylesheet" type="text/css" href="../lib/aw.css"/>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/aw.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function awidgets(){
+	var checkbox = new AW.UI.Checkbox;
+  checkbox.setId("checkbox1");
+  checkbox.setControlText("Checkbox");
+  checkbox.setControlImage("fontsize");
+  checkbox.refresh();
+	checkbox.onControlValueChanged = function(text){
+		$("status").innerHTML = getsyn("./resp.php?text=" + text);	
+	};
+}
+addListener(self, "load", awidgets, false);
+//]]>
+</script>
+</head>
+<body>
+<p id="checkbox1"></p>
+<p id="status"></p>
+</body>
+</html>
+

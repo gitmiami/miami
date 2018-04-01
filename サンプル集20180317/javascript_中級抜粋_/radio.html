@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>ラジオボタンの例</title>
+<script type="text/javascript">
+//<![CDATA[
+function searchChecked(frmName, elmName) {
+    var i;
+    // グループ内のすべてのラジオボタンを順に調べる
+    for (i = 0; i < document[frmName][elmName].length; i++) {
+        // i番目のラジオボタンのチェックがオンになっていたら、iを返す
+        if (document[frmName][elmName][i].checked) {
+            return i;
+        }
+    }
+    // チェックがついているラジオボタンがなかったら、undefinedを返す
+    return undefined;
+}
+
+function check() {
+    // チェックされているラジオボタンを調べる
+    var checked = searchChecked("myform", "myradio");
+    // チェックされていない場合は、そのことをメッセージで表示する
+    if (checked == undefined) {
+        alert("チェックされているラジオボタンはありません。");
+    }
+    // チェックされている場合は、その番号と、そのラジオボタンの送信値を表示する
+    else {
+        var msg;
+        msg = checked + "番目のラジオボタンがオンになっています\n";
+        msg += "ラジオボタンの送信値は" + document.myform.myradio[checked].value + "です";
+        alert(msg);
+    }
+}
+//]]>
+</script>
+<body>
+<form name="myform" method="get" action="">
+	<input type="radio" name="myradio" value="東京">東京
+	<input type="radio" name="myradio" value="大阪">大阪
+	<input type="radio" name="myradio" value="名古屋">名古屋<br />
+<input type="button" value="チェック" onclick="check(); return false;" />
+</form>
+</body>
+</html>

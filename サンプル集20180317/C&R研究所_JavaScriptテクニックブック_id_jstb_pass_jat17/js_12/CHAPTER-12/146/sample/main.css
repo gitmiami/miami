@@ -1,0 +1,1 @@
+﻿body {	background-color:#fff;	color:#333;	font-size:80%;	line-height:1.8;}h1 {	font-size:14pt;	color:#777;	padding:0;	margin:0;}#pointer {	width:5px;	height:10px;	background-image:url(point.gif);	background-repeat:no-repeat;}#sliderBG {	width:200px;	height:4px;	background-image:url(bg.gif);	background-repeat:no-repeat;}#result {	margin-top:20px;}

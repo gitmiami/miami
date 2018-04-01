@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>script.aculo.us インプレースエディタ</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../lib/unittest.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+var edit1;
+function initOnLoad(){
+ edit1 = new Ajax.InPlaceEditor("value", "edit1.php",{
+	okText : "保存",
+	cancelText : "キャンセル",
+	savingText : "保存中です...",
+	rows:1,	cols:50,
+	onFailure : function(){ alert("保存中にエラー発生"); }
+	});
+	setListener($("dispose"), "click", dispose);
+}
+function dispose(){
+	edit1.dispose();
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>script.aculou エディタ機能</h2>
+<input type="button" id="dispose" value="編集解除">
+<div id="value">Ajax/Web2.0ワールドの開催日は9月12日です。</div>
+</body>
+</html>
+

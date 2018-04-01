@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>Sample</title>
+<link rel="stylesheet" href="main.css" type="text/css" media="all">
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js"></script>
+<script type="text/javascript" src="../lib/unittest.js"></script>
+window.onload = function(){
+new Ajax.InPlaceCollectionEditor("sType1", "./setData.cgi", {
+collection:["男性", "女性", "その他"],
+});
+new Ajax.InPlaceCollectionEditor("sType2", "./setData.cgi", {
+collection:[[0,"10代"], [1,"20代"], [2,"30代"],[4,"40代以上"]],
+okText : "保存",
+cancelText : "キャンセル",
+value:2
+});
+}
+// --></script>
+</head>
+<body>
+<h1>文字編集（メニュー選択）</h1>
+<form id="editForm">
+<div id="sType1">性別</div>
+<div id="sType2">世代</div>
+</form>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+	<servlet>
+		<servlet-name>WordListController</servlet-name>
+		<servlet-class>dictionary.WordListController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>WordRegistryController</servlet-name>
+		<servlet-class>dictionary.WordRegistryController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>WordDeleteController</servlet-name>
+		<servlet-class>dictionary.WordDeleteController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteViewInitController</servlet-name>
+		<servlet-class>dictionary.DeleteViewInitController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WordListController</servlet-name>
+		<url-pattern>/WordListController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WordRegistryController</servlet-name>
+		<url-pattern>/WordRegistryController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WordDeleteController</servlet-name>
+		<url-pattern>/WordDeleteController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteViewInitController</servlet-name>
+		<url-pattern>/DeleteViewInitController</url-pattern>
+	</servlet-mapping>
+</web-app>

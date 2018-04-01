@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head><title>Ajax</title>
+<style type="text/css">
+v\:* {
+behavior:url(#default#VML);
+}
+</style>
+<!-- 下記キーは、必ず自分専用のものをhttp://www.google.com/apis/maps/で取得して使ってください -->
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  //GLatLngクラスで日本測地系座標を使いたい時用代替クラス
+  //=========================================================================
+  ////
+  // GLatLng_tky
+  // Google Maps API v2用日本測地系座標をGLatLngクラスで使いたい時用
+  //
+  //日本測地系座標を使いたい時は、GLatLngクラスの代わりに下記GLatLng_tkyを使用します。
+  //世界測地系(wgs84)の座標を使うときは不要です
+  GLatLng_tky = function (la,ln){
+  var lat = la - la * 0.00010695  + ln * 0.000017464 + 0.0046017;
+  var lng = ln - la * 0.000046038 - ln * 0.000083043 + 0.010040;
+  return new GLatLng(lat,lng);
+  }
+  var map = new GMap2(document.getElementById("map"));
+  map.addControl(new GLargeMapControl());
+  //i-エリアデータより抜粋
+  iarea = [
+  [001,00,'函館/渡島',501553125,148856250,508387500,153450000],
+  [001,01,'江差/桧山',501806250,149700000,505575000,153450000],
+  [002,01,'小樽/後志',503325000,153150000,508500000,156159375,38],
+  [002,02,'苫小牧/室蘭',506025000,152240625,512325000,154650000],
+  [002,03,'岩見沢/空知',509400000,154200000,512550000,160050000],
+  [002,04,'浦河/日高',510960937,150900000,516178125,154800000]
+  ]
+  //選択されたi-エリアへ移動
+  function goToIArea(num){
+  //i-エリア領域設定
+  bounds = new GLatLngBounds(
+  new GLatLng_tky(iarea[num][4]/3600000, //南端緯度
+  iarea[num][3]/3600000  //西端経度
+  ),
+  new GLatLng_tky(iarea[num][6]/3600000, //北端緯度
+  iarea[num][5]/3600000  //東端経度
+  )
+  );
+  //中心経緯度
+  var center  = bounds.getCenter();
+  var centerX = center.lng();
+  var centerY = center.lat();
+  //ズーム値修正
+  var zm = map.getBoundsZoomLevel(bounds);
+  //i-エリアへ移動
+  map.setCenter(new GLatLng_tky(centerY,centerX),zm);
+  wrtPlyline(bounds);
+  }
+  //ポリライン描画
+  var pln
+  function wrtPlyline(bounds){
+  //map.clearOverlays() 
+  map.removeOverlay(pln);
+  //ポイント配列を作成
+  var points = []; 
+  var minY = bounds.getSouthWest().lat();
+  var minX = bounds.getSouthWest().lng();
+  var maxY = bounds.getNorthEast().lat();
+  var maxX = bounds.getNorthEast().lng();
+  points.push(new GLatLng_tky(maxY,minX));//左上
+  points.push(new GLatLng_tky(maxY,maxX));//右上
+  points.push(new GLatLng_tky(minY,maxX));//右下
+  points.push(new GLatLng_tky(minY,minX));//左下
+  points.push(new GLatLng_tky(maxY,minX));//左上
+  pln = new GPolyline(points,'#000000',5,0.7)
+  //ポリライン描画
+  map.addOverlay(pln);
+  }
+}
+setListener(window, "load", initOnLoad); 
+//]]>
+</script>
+</head>
+<body>
+<input type="button" value="函館/渡島" onclick="goToIArea(0)">
+<input type="button" value="江差/桧山" onclick="goToIArea(1)">
+<input type="button" value="小樽/後志" onclick="goToIArea(2)">
+<input type="button" value="苫小牧/室蘭" onclick="goToIArea(3)">
+<input type="button" value="岩見沢/空知" onclick="goToIArea(4)">
+<!input type="button" value="浦河/日高" onclick="goToIArea(5)">
+<div id="map" style="width: 500px; height: 400px"></div>
+</body>
+</html>

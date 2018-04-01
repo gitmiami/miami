@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>東京／ニューヨーク／ロンドンの時刻の表示</title>
+</head>
+
+<body>
+<p>
+<script type="text/javascript">
+//<![CDATA[
+function showNow(diff) {
+    var msg;
+    var now = new Date();
+    now.setTime(now.getTime() + diff * 3600000);
+    msg = now.getHours() + "時";
+    msg += now.getMinutes() + "分";
+    msg += now.getSeconds() + "秒";
+    return msg;
+}
+
+document.write("東京の時刻：" + showNow(0) + "<br />");
+document.write("ニューヨークの時刻：" + showNow(-14) + "<br />");
+document.write("ロンドンの時刻：" + showNow(-9));
+//]]>
+</script>
+</p>
+</body>
+</html>

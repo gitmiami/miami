@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Select2</title>
+<link type="text/css" rel="stylesheet" href="../lib/style.css"/>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var xhrObj = getXhrObj(); 
+function initOnLoad(){
+	class1Req();
+}
+function class1Req(){
+  xhrObj.open('get', 'c1sel.php');
+	xhrObj.onreadystatechange = class1Resp;
+	xhrObj.send(null);
+}
+function class1Resp(){
+	if(xhrObj.readyState == 4){  
+		if(xhrObj.status == 200){  
+			var recs = xhrObj.responseText.split("<r>"); 
+			var view = '<select id="class1List">'
+			+ '<option value="">----クラス1選択----</option>';
+			for(i = 0; i < recs.length; i++){
+				var rec = recs[i].split("<i>");
+				for(j = 0; j < rec.length; j++){
+					if(j==0){
+						class1_code = rec[j]; 
+					}else{
+						view+='<option value='+class1_code+'>'+rec[j]+'</option>';   	
+					}
+				}
+			}
+			view += '</select>';
+			$("class1").innerHTML = view;
+  		setListener($("class1List"), "change", class2Req);
+		}
+	}
+} 
+function class2Req(){
+	var class1_code = $("class1List").value;
+  xhrObj.open('get', 'c2sel.php?class1_code='+class1_code);
+	xhrObj.onreadystatechange = class2Resp;
+	xhrObj.send(null);
+}
+function class2Resp(){	
+	if(xhrObj.readyState == 4){  
+		if(xhrObj.status == 200){  
+			var recs = xhrObj.responseText.split("<r>"); 
+			var view = '<select id="class2List">'
+			+ '<option value="">---クラス2選択済---</option>';
+			for(var i = 0; i < recs.length; i++){
+				var rec = recs[i].split("<i>");
+				for(j = 0; j < rec.length; j++){
+          if(j==0){
+						class2_code = rec[j]; 
+					}else{
+						view+='<option value='+class2_code + '>'+rec[j]+'</option>';
+					}
+				}
+			}
+			view += '</select>';
+			$("class2").innerHTML = view;
+  		setListener($("class2List"), "change", class3Req);
+		}	
+	}
+}
+function class3Req(){
+	alert($("class2List").value);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<center class="t3">Select Menu2</center>
+<table width="440" align="center">
+ <tr>
+ 	<td width="90" align="right">クラス1項目</td>
+ 	<td width="130" id="class1">
+ 	 <select><option value="">-----クラス1選択-----</option></select>
+	</td>	
+	<td width="90" align="right">クラス2項目</td>
+	<td width="130"id="class2">
+	 <select><option value="">-----クラス2選択-----</option></select>
+	</td>	
+</table>
+</body>
+</html>
+

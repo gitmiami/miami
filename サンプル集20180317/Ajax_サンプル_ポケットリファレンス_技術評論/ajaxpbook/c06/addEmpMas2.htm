@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>従業員マスタ登録</title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function addEmpMas(){
+	new Ajax.Updater({success:'status'},'addEmpMas.php',{postBody:Form.serialize("items")});
+}
+function initOnLoad(){
+  setListener($("add"), "click", addEmpMas);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>従業員マスタ管理</h2>
+	<table width="380" border="1">
+		<tbody>
+  		<tr><th colspan="2">従業員マスタ登録</th></tr>
+			<form id="items">
+  		<tr>
+				<th width="120">従業員番号</th>
+				<td><input type="text" size="8" name="emp_no" /></td>
+			</tr>
+  		<tr><th>従業員氏名</th><td><input type="text" name="emp_name" /></td></tr>
+  		<tr><th>所属部署</th><td><input type="text" name="section" /></td></tr>
+			</form>
+  		<tr>
+				<th><input type="button" id="add" value="　登録　" /></th>
+    		<td id="status">&nbsp;</td>
+  		</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+

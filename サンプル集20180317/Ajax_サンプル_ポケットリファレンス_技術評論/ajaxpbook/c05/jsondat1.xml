@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items>
+ <item>
+  <itemCode>01</itemCode>
+  <itemName>Windowsサーバ</itemName>
+  <itemPrice>200,000</itemPrice>
+ </item>
+ <item>
+  <itemCode>02</itemCode>
+  <itemName>Linuxサーバ</itemName>
+  <itemPrice>160,000</itemPrice>
+ </item>
+ <item>
+  <itemCode>03</itemCode>
+  <itemName>UNIXサーバ</itemName>
+  <itemPrice>500,000</itemPrice>
+ </item>
+</items>
+

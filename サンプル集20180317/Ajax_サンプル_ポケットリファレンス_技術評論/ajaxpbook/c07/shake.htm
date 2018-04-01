@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<title>Shake</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="./prototype.js"></script>
+<script type="text/javascript" src="../lib/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+function Shake(){
+	new Effect.Shake("area", {transition: Effect.Transitions.wobble});
+	//new Effect.Shake("area", {from: 100, to:300});
+	//new Effect.Shake("area", {duration: 50});
+	//new Effect.Shake("area", {duration: 50});
+	//$("area").visualEffect("Shake");
+}
+function initOnLoad(){
+  setListener($("exe"), "click", Shake);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>Shakeサンプル<input type="button" id="exe" value=" 実行 "/></h2>
+<img id="area" src="fuji.jpg" width="470" height="330"/>
+</body>
+</html>
+

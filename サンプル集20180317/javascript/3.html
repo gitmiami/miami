@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>ƒTƒ“ƒvƒ‹</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+function func() {
+    var i;
+    if (document.F1.R1.length) {
+        for (i = 0; i < document.F1.R1.length; i++) {
+            if (document.F1.R1[i].checked) {
+                alert(document.F1.R1[i].value);
+            }
+        }
+    } else {
+        if (document.F1.R1.checked) {
+            alert(document.F1.R1.value);
+        }
+    }
+}
+// -->
+</script>
+<form name="F1" action="#">
+
+	<input type="radio" name="R1" value="AAA" checked>AAA
+	<input type="radio" name="R1" value="BBB">BBB
+	<input type="radio" name="R1" value="CCC">CCC
+
+<input type="button" value="OK" onclick="func()">
+</form>
+
+
+</body>
+</html>

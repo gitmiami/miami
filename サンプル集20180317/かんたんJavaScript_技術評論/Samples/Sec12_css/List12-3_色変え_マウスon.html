@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>List12-3 : DHTMLサンプル</title>
+
+<style type="text/css">
+
+  .m_out {
+      background-color: lightgray;
+      color: black;
+  }
+  .m_over {
+      background-color: red;
+      color: white;
+  }
+
+</style>
+
+<script type="text/javascript">
+
+  function changeStyle(id, clss){
+      document.getElementById(id).className = clss;
+  }
+
+</script>
+
+</head>
+
+<body>
+<p>背景色のある部分に
+<span id="text1" class="m_out"
+      onmouseover="changeStyle('text1', 'm_over')"
+      onmouseout="changeStyle('text1', 'm_out')">
+マウスカーソルを重ねて
+</span>
+
+みてください。</p>
+</body>
+</html>

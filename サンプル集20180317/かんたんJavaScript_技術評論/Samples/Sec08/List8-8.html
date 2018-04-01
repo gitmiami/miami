@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>List8-8</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+<!--
+
+var Cup = function(w){
+    this.amount = w;
+};
+
+var mycup = new Cup(100);
+document.write(mycup.amount + "<br>");    //①
+delete mycup.amount;                      //②
+document.write(mycup.amount) + "<br>";    //③
+
+//-->
+</script>
+</p>
+</body>
+</html>

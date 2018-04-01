@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>cookieの処理</title>
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+// cookieの保存
+function setCookie(name, value, expires, domain, path, secure) {
+    var cookieStr = name + "=" + encodeURIComponent(value);
+    cookieStr += expires ? " ;expires=" + expires.toGMTString() : "";
+    cookieStr += domain ? " ;domain=" + domain : "";
+    cookieStr += path ? " ;path=" + path : "";
+    cookieStr += secure ? " ;secure" : "";
+    document.cookie = cookieStr;
+}
+
+// cookieの読み込み
+function getCookie(name) {
+    var i, cookies, value;
+    cookies = document.cookie.split("; ");
+    for (i = 0; i < cookies.length; i++) {
+         value = cookies[i].split("=");
+         if (value[0] == name) {
+             return decodeURIComponent(value[1]);
+         }
+    }
+    return null;
+}
+
+var count, userName, expires;
+
+// 「count」という名前のcookieの値を得て、変数cookieに代入する
+count = getCookie("count");
+// cookieがなければ、変数countに1を代入して初期化する
+if (!count) {
+    count = 1;
+}
+// cookieがあれば、変数countに得たcookieの値を1増やす
+else {
+    count++;
+}
+// cookieの有効期限を現在から30日後にする
+expires = new Date();
+expires.setDate(expires.getDate() + 30);
+// 変数countの値を「count」という名前のcookieに保存する
+setCookie("count", count, expires);
+// 変数countの値を表示する
+document.write("<p>あなたの訪問回数は" + count + "回です</p>");
+//]]>
+</script>
+</body>
+</html>

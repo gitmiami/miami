@@ -1,0 +1,6 @@
+篠原和広	男	1955/12/11	千葉県XXXX市XXXXX	0XX-XXX-9999	shinohara@XXXX.XX.XX
+鈴木聖樹	男	1962/02/02	埼玉県○○市XX-X-XX	0XX-X9X-7777	suzuks@XXXX.XX.XX
+田中正夫	男	1964/03/30	神奈川県△△市XXX	0X9-98X-1111	tanaka@XXXX.XX.XX
+清水真梨	女	1977/10/19	東京都□□区XXX-XXX	X78-78X-6661	shimizu@XXXX.XX.XX
+中野三子	女	1970/05/28	山梨県××町X-X-XXX	0X9-X11-2222	nakano@XXXX.XX.XX
+山田祥寛	男	2002/12/04	静岡県XXXX市	042-111-1111	CQW15204@nifty.com

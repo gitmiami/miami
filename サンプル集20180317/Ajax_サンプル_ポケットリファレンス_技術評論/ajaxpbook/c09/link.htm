@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ActiveWidgets Examples</title>
+<link rel="stylesheet" type="text/css" href="../../lib/aw.css"/>
+<style type="text/css">
+<!--
+#view {width: 120px; height: 40px; background: #eee;}
+#view a:visited {color: #999}
+#view a:hover {color: red}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/aw.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+	var linkObj = new AW.UI.Link;
+  linkObj.setId("view");
+  linkObj.setControlText("Hyperlink");
+  linkObj.setControlImage("home");
+  linkObj.setControlLink("http://www.google.com");
+	linkObj.onControlClicked = function(event){ 
+		alert("getid="+getid(event));
+		alert("getkcode="+getkcode(event));
+		window.status = "Control clicked"
+	};
+	linkObj.onControlMouseOver = function(event){ window.status = "Control mouse over"};
+	linkObj.onControlMouseOut = function(event){ window.status = "Control mouse out"};
+	linkObj.onControlMouseDown = function(event){ window.status = "Control mouse down"};
+	linkObj.onControlMouseUp = function(event){ window.status = "Control mouse up"};
+  linkObj.refresh();
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<p id="view"></p>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>anim2</title>
+<link rel="stylesheet" href="main.css" type="text/css" media="all">
+<style type="text/css">
+<!--
+#box {width:100px; height:100px; background:#bbf;}
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/prototype.js"></script>
+<script type="text/javascript" src="../lib/build/yahoo/yahoo.js"></script>
+<script type="text/javascript" src="../lib/build/event/event.js"></script>
+<script type="text/javascript" src="../lib/build/dom/dom.js"></script>
+<script type="text/javascript" src="../lib/build/animation/animation.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function exeAnime(){
+	var boxObj = new YAHOO.util.Anim("box", { width: { from:100, to:320 } });
+	boxObj.animate();
+}
+function initOnLoad(){
+  setListener($("exe"), "click", exeAnime);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<h2>ボックス拡大<input type="button" id="exe" value="開始" /></h2>
+<div id="box">横幅と縦幅が指定された時間で変化。</div>
+</body>
+</html>
+

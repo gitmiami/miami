@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>List12-4 : DHTMLサンプル</title>
+
+<style type="text/css">
+.memo {
+    display: none;
+    position: absolute;                                   /* ① */
+    padding: 3px;
+    border: 2px solid #808080;
+    background-color: #333333;
+    color: #ffffff;
+}
+</style>
+
+<script type="text/javascript">
+
+// マウスカーソルの座標を取得
+document.onmousemove = function() {                       //②
+    mX = document.documentElement.scrollLeft + event.x;
+    mY = document.documentElement.scrollTop + event.y;
+}
+
+// [ポップアップ] idの要素のスタイルを変更する
+function showMemo(id) {
+    var d = 5;
+    document.all(id).style.display = "block";             //③
+    document.all(id).style.posLeft = mX + d;              //④
+    document.all(id).style.posTop = mY + d;               //⑤
+}
+
+// [ポップアップ終了] idの要素のスタイルを変更する
+function hideMemo(id) {
+    document.all(id).style.display = "none";              //⑥
+}
+
+</script>
+</head>
+
+<body>
+<p><a href="http://www.ank.co.jp/"
+    onmouseover="showMemo('memo1')"
+    onmouseout="hideMemo('memo1')" >ハイパーリンク</a>
+    にマウスカーソルを乗せると、リンク先の説明を表示します。
+</p>
+
+<div id="memo1" class="memo">株式会社アンクのWebサイトへ</div>
+</body>
+</html>

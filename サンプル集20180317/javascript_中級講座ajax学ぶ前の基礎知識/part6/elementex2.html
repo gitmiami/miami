@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>要素ノードを拡張する</title>
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function() {
+    // IDが「test」の要素を得る
+    var elm = document.getElementById("test");
+    // その要素を元にElementExオブジェクトのインスタンスを作る
+    var elmex = new ElementEx(elm, "testがクリックされました");
+};
+
+// ElementExオブジェクトのコンストラクタ
+function ElementEx(element, msg) {
+    // 引数をプロパティに保存
+    this.element = element;
+    this.msg = msg;
+    // thisを変数selfに保存
+    var self = this;
+    // 要素がクリックされたときに、msgプロパティの値を出力
+    element.onclick = function() {
+        alert(self.msg);
+    };
+}
+//]]>
+</script>
+<p id="test">この要素をクリックしてみてください</p>
+</body>
+</html>

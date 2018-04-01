@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<title>カレンダー</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style type="text/css">
+<!--
+#out {width:160px; height:60px; background:#bbf} 
+-->
+</style>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript" src="../lib/yui/build/yahoo/yahoo.js"></script>
+<script type="text/javascript" src="../lib/yui/build/event/event.js"></script>
+<script type="text/javascript" src="../lib/yui/build/dom/dom.js"></script>
+<script type="text/javascript" src="../lib/yui/build/dragdrop/dragdrop.js"></script>
+<script>
+//<![CDATA[
+function initOnLoad() {
+	ddBox = new YAHOO.util.DD("out");
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body><div id="out"><h2>ドラッグエリア<h2></div></body>
+</html>
+
+

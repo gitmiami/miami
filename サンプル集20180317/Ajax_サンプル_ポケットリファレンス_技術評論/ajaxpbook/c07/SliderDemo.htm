@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="utf-8" lang="utf-8">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>script.aculo.us スライダデモ</title>    
+<script src="../lib/funcs.js" type="text/javascript"></script>
+<script src="./prototype.js" type="text/javascript"></script>
+<script src="../lib/scriptaculous.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+function slider(){
+	new Control.Slider('handle1','track1',{
+  	onSlide:function(v){$('debug1').innerHTML='スライド: '+v},
+  	onChange:function(v){$('debug1').innerHTML='変更値 '+v}
+	});
+  new Control.Slider('handle2','track2',{axis:'vertical',
+  	onSlide:function(v){$('debug2').innerHTML='スライド: '+v},
+  	onChange:function(v){$('debug2').innerHTML='変更値 '+v}
+	});
+  new Control.Slider('handle5','track5',{axis:'vertical',
+  	onSlide:function(v){$('debug5').innerHTML='スライド: ' + (1-v)},
+  	onChange:function(v){$('debug5').innerHTML='変更値 '+ (1-v)},
+  	スライドrValue:1
+	});
+  new Control.Slider('handle3','track3',{range:$R(0,200),
+  	values:[0,50,100,150,200],
+  	onSlide:function(v){$('debug3').innerHTML='スライド: '+v},
+  	onChange:function(v){$('debug3').innerHTML='変更値 '+v}
+	});
+  new Control.Slider('handle4','track4',{range:$R(0,20),
+  	values:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
+  	onSlide:function(v){$('debug4').innerHTML='スライド: '+v; $('barreSortie4').style.width=(v*3)+'px';},
+  	onChange:function(v){$('debug4').innerHTML='変更値 '+v}
+	});
+}
+addListener(self, "load", slider, false);
+//]]>
+</script>
+</head>
+<body>
+ 	<h2>スライダデモ</h2>
+	<div id="revision">
+
+		<p><strong>標準水平スライダ</strong> 
+ 		<div id="track1" style="width:200px;background-color:#aaa;height:5px;">
+   		<div id="handle1" style="width:5px;height:10px;background-color:#f00;cursor:move;"></div>
+ 		</div>
+ 		<div id="debug1" style="padding-top: 5px;"></div></p>
+
+		<p><strong>標準垂直スライダ</strong>
+ 		<div id="track2" style="height:100px;background-color:#aaa;width:5px;">
+   		<div id="handle2" style="width:10px;height:5px;background-color:#f00;cursor:move;"></div>
+		</div>
+ 		<div id="debug2"></div></p>
+
+		<p><strong>逆垂直スライダ</strong>
+ 		<div id="track5" style="height:100px;background-color:#aaa;width:5px;">
+   		<div id="handle5" style="width:10px;height:5px;background-color:#f00;cursor:move;"></div>
+		</div>
+ 		<div id="debug5"></div></p>
+
+		<p><strong>断続値スライダ [0,50,100,150,200]</strong>
+ 		<div id="track3" style="width:200px;background-color:#aaa;height:5px;">
+   		<div id="handle3" style="width:5px;height:10px;background-color:#f00;cursor:move;"></div>
+ 		</div>
+ 		<div id="debug3" style="padding-top: 5px;"></div></p>
+
+		<p><strong>自然数連続値スライダ [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20] および値のdivエリア表示 </strong>
+ 		<div id="track4" style="background-color : #CCCCCC; width : 200px; height : 5px;">
+   		<div id="handle4" style="width:10px;height:5px;background-color:#f00;cursor:move;"></div></div>
+ 		</div>
+ 		<div id="barreSortie4" style="background-color: #DCDCDC; width: 0px; height: 7px; border: #232323 1px dashed; margin-top: 10px;"></div>
+ 		<div id="debug4" style="padding-top: 5px;"></div>
+
+	</div>
+</body>
+</html>

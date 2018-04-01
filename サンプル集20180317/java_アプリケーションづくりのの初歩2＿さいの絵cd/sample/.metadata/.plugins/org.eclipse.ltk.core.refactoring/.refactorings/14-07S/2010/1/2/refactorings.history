@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="1 個の要素を プロジェクト &apos;14-07S&apos; から削除&#x0D;&#x0A;- 元のプロジェクト: &apos;14-07S&apos;&#x0D;&#x0A;- オリジナル要素: &apos;testA&apos;" description="要素を削除" element1="testA" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1262604203865" subPackages="false" version="1.0"/>
+</session>

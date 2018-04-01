@@ -1,0 +1,1 @@
+﻿Perlより簡単手軽です。<br>Ruby on Railsで有名になりました。

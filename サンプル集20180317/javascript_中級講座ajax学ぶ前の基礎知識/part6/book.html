@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>コンストラクタとプロトタイプ</title>
+</head>
+<body>
+<script type="text/javascript">
+//<![CDATA[
+function Book(title, author, asin, thumbnailURL) {
+    // titleプロパティを作成し、引数titleの値を代入する
+    this.title = title;
+    // authorプロパティを作成し、引数authorの値を代入する
+    this.author = author;
+    // asinプロパティを作成し、引数asinの値を代入する
+    this.asin = asin;
+    // thumbnailURLプロパティを作成し、引数thumbnailURLの値を代入する
+    this.thumbnailURL = thumbnailURL;
+}
+
+Book.prototype = {
+    showTextLink : function(target) {
+        var link;
+
+        // 書籍の題名をリンクにする
+        link = '<a href="http://www.amazon.co.jp/exec/obidos/ASIN/';
+        link += this.asin + '"';
+        if (target) {
+            link += ' target="' + target + '"';
+        }
+        link += '>' + this.title + '</a>';
+        // リンクを出力する
+        document.write(link);
+    },
+
+    showImageLink : function(target) {
+        var link;
+
+        // 書籍の画像をリンクにする
+        link = '<a href="http://www.amazon.co.jp/exec/obidos/ASIN/';
+        link += this.asin + '"';
+        if (target) {
+            link += ' target="' + target + '"';
+        }
+        link += '><img src="' + this.thumbnailURL + '"';
+        link += ' alt="' + this.title + '" /></a>';
+        // リンクを出力する
+        document.write(link);
+    }
+};
+
+// Bookオブジェクトのインスタンスを作成
+var b1;
+b1 = new Book(
+    "ブログ簡単パワーアップ Movable Type スーパーカスタマイズテクニック", 
+    "藤本　壱",
+    "4774125660",
+    "http://g-ec2.images-amazon.com/images/I/31QR2Q54C2L.jpg"
+);
+
+// メソッドの実行
+document.write("<p>");
+// showTextLinkメソッドを実行
+b1.showTextLink("_blank");
+document.write("<br />");
+// showImageLinkメソッドを実行
+b1.showImageLink("_blank");
+document.write("</p>");
+//]]>
+</script>
+</body>
+</html>

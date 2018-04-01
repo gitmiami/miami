@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head><title>Google Maps</title>
+<script src="http://maps.google.com/maps?file=api&v=1&key=ABQIAAAAAO-r1bqRz2fZr-QmjsewWxTBG40DOe0T0nk6eHQpxKakXljMXBRC2TQok7m4oJbtwLNiVRFOqxftEg" type="text/javascript"></script>
+<script type="text/javascript" src="../../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function initOnLoad(){
+  var map  = new GMap(id("map"));
+  map.centerAndZoom(new GPoint(139.7672091,35.6815617 ), 1); 
+  var point  = new GPoint(139.7672091, 35.6815617);
+  var marker = new GMarker(point);
+  map.addOverlay(marker);
+  GEvent.addListener(marker, "click", function() {
+  	map.showMapBlowup(point, 10, G_SATELLITE_TYPE);
+  });
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+マーカクリックで周辺人口衛星写真を吹き出し表示する-1
+<div id="map" style="width: 500px;height:370px"></div>
+</body>
+</html>
+

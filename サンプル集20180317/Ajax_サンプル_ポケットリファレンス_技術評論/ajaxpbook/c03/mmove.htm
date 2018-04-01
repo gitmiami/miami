@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style>
+<!--
+#area {position: absolute; background-color: #ccf; 
+			 top: 5px; left: 5px; width: 300px; height: 300px;}
+#stat {position: absolute; top: 35px; left: 315px;} 
+-->
+</style>
+<title>マウスボタン </title>
+<script type="text/javascript" src="../lib/funcs.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function check(e){
+  document.getElementById("x1").value = e.clientX;
+  document.getElementById("y1").value = e.clientY;
+  document.getElementById("x2").value = e.screenX;
+  document.getElementById("y2").value = e.screenY;
+}
+function initOnLoad(){
+  var observer = document.getElementById("area");
+  setListener(observer, "mousemove", check);
+}
+setListener(window, "load", initOnLoad);
+//]]>
+</script>
+</head>
+<body>
+<div id="area"></div>
+<div id ="stat">
+<h4>マウスポインタ位置の検出</h4>
+<ul type="circle">
+	<li>e.clientX_<input type="text" size="5" id="x1" /></li>
+	<li>e.clientY_<input type="text" size="5" id="y1" /></li>
+</ul>
+<ul type="circle">
+	<li>e.screenX<input type="text" size="5" id="x2" /></li>
+	<li>e.screenY<input type="text" size="5" id="y2" /></li>
+</ul>
+</div>
+</body>
+</html>
+

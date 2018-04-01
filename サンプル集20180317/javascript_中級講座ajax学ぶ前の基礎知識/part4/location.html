@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>alert</title>
+</head>
+<body>
+<p>
+<script type="text/javascript">
+//<![CDATA[
+function getParam(pName) {
+    var i, m;
+
+    // searchプロパティから先頭の「?」を除いた部分を
+    // 変数pStrに代入する
+    var pStr = location.search.substring(1);
+    // 変数pStrの値を「&」ごとに分割する
+    var params = pStr.split("&");
+    for (i = 0; i < params.length; i++) {
+        // 分割後の個々の部分を「=」で分割する
+        m = params[i].split("=");
+        // 「=」の前の値が引数のpNameに等しければ、
+        // 「=」の後の値をデコードして返す
+        if (m[0] == pName) {
+            return decodeURIComponent(m[1]);
+        }
+    }
+    // pNameに等しいものが見つからなければ、undefinedを返す
+    return undefined;
+}
+
+document.write("URLの「param=」に指定されている値は「" + getParam("param") + "」です");
+//]]>
+</script>
+</p>
+</body>
+</html>

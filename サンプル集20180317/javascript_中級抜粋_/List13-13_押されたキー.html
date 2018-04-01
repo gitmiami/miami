@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>List13-13</title>
+  </head>
+  <body>
+    <script>
+    function up(event){
+      var area = document.getElementById("outputArea");
+      area.innerHTML = event.key + "が離されました。";
+    }
+    </script>
+    <input type="text" onkeyup="up(event)"/>
+    <div id="outputArea"></div>
+  </body>
+</html>

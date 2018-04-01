@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>非同期通信サンプル</title>
+<script src="jquery-1.6.2.js"></script>
+<script type="text/javascript">
+$(function(){
+		// リンクがクリックされたときの処理
+		$("#a1").click(function(){
+			// ファイルを読み込みSPANタグに書き込む
+			$("#sp1").load("momotaro.txt");
+			// ページ遷移機能を中止する
+			return false;
+		});
+
+		$("#a2").click(function(){
+			$("#sp2").load("momotaro.txt");
+
+			return false;
+		});
+
+		//original
+	// リンクがクリックされたときの処理
+//	$("a").click(function(){
+		// ファイルを読み込みSPANタグに書き込む
+	//	$("span").load("momotaro.txt");
+		// ページ遷移機能を中止する
+		//return false;
+	//});
+});
+</script>
+</head>
+<body>
+<h2>ももたろう</h2>
+むかしむかし、あるところに、おじいさんとおばあさんがいました。<br>
+おじいさんは山にしば刈りに、おばあさんは川に洗たくに行きました。<br>
+すると、川上から「どんぶらこ、どんぶらこ」と大きなモモが流れてきました。<br>
+<br>
+<span id="sp1"><a href="dummy.html" id="a1">【続きを読む】</a></span>
+<p>
+<span id="sp2"><a href="dummy.html" id="a2">【続きを読む】</a></span>
+</body>
+
+</html>
